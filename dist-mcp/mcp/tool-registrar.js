@@ -8,6 +8,7 @@ const zod_1 = require("zod");
 const paper_generator_js_1 = __importDefault(require("../tools/paper-generator.js"));
 const index_js_1 = require("../tools/index.js");
 const config_js_1 = require("../config.js");
+const update_persona_js_1 = __importDefault(require("../tools/definitions/update_persona.js"));
 function getToolConfig(genAI, ttsClient) {
     const model = genAI.getGenerativeModel({ model: config_js_1.config.ai.modelName });
     const toolImplementations = [];
@@ -21,6 +22,7 @@ function getToolConfig(genAI, ttsClient) {
     defineTool("clipboard_clear", { title: "Clear Clipboard", description: "Clears the entire clipboard history.", inputSchema: {} }, async () => ({ content: [{ type: "text", text: (0, index_js_1.clearClipboardHistory)() }] }));
     defineTool("fs_list", { description: "Lists files and directories.", inputSchema: { path: zod_1.z.string() } }, async ({ path }) => ({ content: [{ type: "text", text: await (0, index_js_1.listFiles)(path) }] }));
     defineTool("fs_read", { description: "Reads the content of a file.", inputSchema: { path: zod_1.z.string() } }, async ({ path }) => ({ content: [{ type: "text", text: await (0, index_js_1.readFile)(path) }] }));
+    defineTool("read_uploaded_file", { title: "Read Uploaded File", description: "Reads the content of a file that has been uploaded by the user.", inputSchema: { filename: zod_1.z.string() } }, async ({ filename }) => ({ content: [{ type: "text", text: await (0, index_js_1.readUploadedFile)(filename) }] }));
     defineTool("web_search", { description: "Searches the web and returns a summary of the top results.", inputSchema: { query: zod_1.z.string() } }, async ({ query }) => ({ content: [{ type: "text", text: await (0, index_js_1.web_search)(query, model) }] }));
     defineTool("web_read", { description: "Reads a webpage.", inputSchema: { url: zod_1.z.string() } }, async ({ url }) => ({ content: [{ type: "text", text: await (0, index_js_1.view_text_website)(url) }] }));
     defineTool("save_note", { description: "Saves a note to the notepad.", inputSchema: { note_content: zod_1.z.string() } }, async ({ note_content }) => ({ content: [{ type: "text", text: await (0, index_js_1.save_note)(note_content) }] }));
@@ -55,5 +57,6 @@ function getToolConfig(genAI, ttsClient) {
         }
     }, async ({ query, options }) => ({ content: [{ type: "text", text: await (0, index_js_1.video_search)(query, options) }] }));
     // --- END OF MODIFICATION ---
+    defineTool(update_persona_js_1.default.name, update_persona_js_1.default.definition, update_persona_js_1.default.implementation);
     return { toolImplementations };
 }

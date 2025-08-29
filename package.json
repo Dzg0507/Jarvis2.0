@@ -12,7 +12,7 @@
     "start:next": "next start",
     "start:mcp": "node dist-mcp/server.js",
     "lint": "next lint",
-    "test": "vitest"
+    "test": "vitest src"
   },
   "dependencies": {
     "@google-cloud/text-to-speech": "^6.2.0",

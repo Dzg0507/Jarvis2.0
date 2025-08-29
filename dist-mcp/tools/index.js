@@ -17,7 +17,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.save_speech_to_file = exports.view_text_website = exports.readFile = exports.listFiles = void 0;
+exports.save_speech_to_file = exports.view_text_website = exports.readUploadedFile = exports.readFile = exports.listFiles = void 0;
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 const node_fetch_1 = __importDefault(require("node-fetch"));
@@ -52,6 +52,25 @@ const readFile = async (filePath) => {
     }
 };
 exports.readFile = readFile;
+const readUploadedFile = async (filename) => {
+    console.log(`[Tool:readUploadedFile] Called with filename: "${filename}"`);
+    try {
+        const uploadDir = path_1.default.join(process.cwd(), 'uploads');
+        const resolvedPath = path_1.default.resolve(path_1.default.join(uploadDir, filename));
+        // Security check: Ensure the file path is within the 'uploads' directory
+        if (!resolvedPath.startsWith(uploadDir)) {
+            return "Error: Access denied. You can only access files within the 'uploads' directory.";
+        }
+        return await fsPromises.readFile(resolvedPath, 'utf-8');
+    }
+    catch (error) {
+        if (error.code === 'ENOENT') {
+            return `Error: File not found: ${filename}`;
+        }
+        return `Error reading uploaded file: ${error.message}`;
+    }
+};
+exports.readUploadedFile = readUploadedFile;
 __exportStar(require("./web-search.js"), exports);
 const view_text_website = async (url) => {
     console.log(`[Tool:view_text_website] Called with URL: "${url}"`);

@@ -1,0 +1,22 @@
+
+> jarvis-local@2.0.0 dev
+> concurrently "npm:dev:next" "npm:dev:mcp"
+
+[dev:next]
+[dev:next] > jarvis-local@2.0.0 dev:next
+[dev:next] > next dev
+[dev:next]
+[dev:mcp]
+[dev:mcp] > jarvis-local@2.0.0 dev:mcp
+[dev:mcp] > npm run build:mcp && node dist-mcp/server.js
+[dev:mcp]
+[dev:mcp]
+[dev:mcp] > jarvis-local@2.0.0 build:mcp
+[dev:mcp] > tsc --project tsconfig.mcp.json
+[dev:mcp]
+[dev:next]  ⚠ Port 3000 is in use, trying 3001 instead.
+[dev:next]   ▲ Next.js 14.2.32
+[dev:next]   - Local:        http://localhost:3001
+[dev:next]   - Environments: .env
+[dev:next]
+[dev:next]  ✓ Starting...

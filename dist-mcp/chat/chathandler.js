@@ -84,6 +84,20 @@ async function handleChat(req, res) {
             }
             if (toolCall && toolCall.tool) {
                 const { tool: toolName, ...args } = toolCall;
+                if (toolName === 'update_persona') {
+                    const newPrompt = (args.parameters || args).new_prompt;
+                    if (newPrompt) {
+                        // Re-initialize the chat with the new persona
+                        await initializeChatWithPersona(newPrompt);
+                        // Send a special response to the client to update its state
+                        res.json({
+                            type: 'persona_update',
+                            new_prompt: newPrompt,
+                            response: `System: Persona has been updated for this session.`,
+                        });
+                        return; // Stop further processing
+                    }
+                }
                 const jsonRpcRequest = {
                     jsonrpc: "2.0",
                     method: "tools/call",

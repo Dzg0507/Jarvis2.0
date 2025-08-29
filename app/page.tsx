@@ -82,6 +82,7 @@ export default function CyberpunkChat() {
   
   const [selectedVoiceId, setSelectedVoiceId] = useState("21m00Tcm4TlvDq8ikWAM"); // Default voice
   const [isTestingVoice, setIsTestingVoice] = useState(false);
+  const [serverCommands, setServerCommands] = useState<any[]>([]);
   
   const [chatHistory, setChatHistory] = useState<string[]>([])
 
@@ -130,6 +131,27 @@ export default function CyberpunkChat() {
     };
     fetchInitialData();
   }, [showSettings, voices.length, personas.length, selectedVoiceId, selectedPersonaId]);
+
+  useEffect(() => {
+    const fetchTools = async () => {
+      try {
+        const response = await fetch('/api/tools');
+        const tools = await response.json();
+        if (Array.isArray(tools)) {
+          const formattedCommands = tools.map(tool => ({
+            id: tool.name,
+            name: `/${tool.name}`,
+            description: tool.description,
+            action: () => setInputValue(`/${tool.name} `)
+          }));
+          setServerCommands(formattedCommands);
+        }
+      } catch (error) {
+        console.error("Failed to fetch tools:", error);
+      }
+    };
+    fetchTools();
+  }, []);
 
   const handleTestVoice = async () => {
     setIsTestingVoice(true);
@@ -464,6 +486,7 @@ const handleEnhancePrompt = async () => {
   }
 
   const commands = [
+    ...serverCommands,
     { id: "video", name: "/video", description: "Search for videos", action: () => handleVideoSearch(inputValue.slice(7).trim()) },
     { id: "memory", name: "/memory", description: "Search memory fragments", action: () => setInputValue("/memory ") },
     {
