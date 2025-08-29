@@ -2,8 +2,9 @@ import { z } from 'zod';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import * as textToSpeech from '@google-cloud/text-to-speech';
 import PaperGenerator from '../tools/paper-generator.js';
-import { listFiles, readFile, view_text_website, save_speech_to_file, video_search, web_search, save_note, read_notes, addToClipboard, readClipboardHistory, searchClipboard, clearClipboardHistory, calculate, getCurrentDateTime } from '../tools/index.js';
+import { listFiles, readFile, readUploadedFile, view_text_website, save_speech_to_file, video_search, web_search, save_note, read_notes, addToClipboard, readClipboardHistory, searchClipboard, clearClipboardHistory, calculate, getCurrentDateTime } from '../tools/index.js';
 import { config } from '../config.js';
+import updatePersonaTool from '../tools/definitions/update_persona.js';
 
 export function getToolConfig(genAI: GoogleGenerativeAI, ttsClient: textToSpeech.TextToSpeechClient) {
     const model = genAI.getGenerativeModel({ model: config.ai.modelName as string });
@@ -45,6 +46,11 @@ export function getToolConfig(genAI: GoogleGenerativeAI, ttsClient: textToSpeech
     defineTool(
         "fs_read", { description: "Reads the content of a file.", inputSchema: { path: z.string() } },
         async ({ path }: { path: string }) => ({ content: [{ type: "text", text: await readFile(path) }] })
+    );
+
+    defineTool(
+        "read_uploaded_file", { title: "Read Uploaded File", description: "Reads the content of a file that has been uploaded by the user.", inputSchema: { filename: z.string() } },
+        async ({ filename }: { filename: string }) => ({ content: [{ type: "text", text: await readUploadedFile(filename) }] })
     );
 
     defineTool(
@@ -116,6 +122,8 @@ defineTool(
         async ({ query, options }: { query: string, options: any }) => ({ content: [{ type: "text", text: await video_search(query, options) }] })
     );
     // --- END OF MODIFICATION ---
+
+    defineTool(updatePersonaTool.name, updatePersonaTool.definition, updatePersonaTool.implementation);
 
     return { toolImplementations };
 }

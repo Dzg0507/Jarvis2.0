@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback } from "react"
+import { useState, useCallback, useEffect } from "react"
 
 interface MemoryFragment {
   id: string
@@ -37,6 +37,71 @@ export function useMemorySystem() {
     topicMap: new Map(),
     fileMap: new Map(),
   })
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const loadMemory = async () => {
+      try {
+        const response = await fetch('/api/memory');
+        if (!response.ok) {
+          throw new Error('Failed to load memory');
+        }
+        const data = await response.json();
+
+        const fragments = data.fragments.map((f: any) => ({
+          ...f,
+          timestamp: new Date(f.timestamp),
+        }));
+
+        const topicMap = new Map(Object.entries(data.topicMap || {}));
+        const fileMap = new Map(Object.entries(data.fileMap || {}));
+
+        setMemorySystem({
+          fragments,
+          sessions: data.sessions || [],
+          topicMap,
+          fileMap,
+        });
+      } catch (error) {
+        console.error("Failed to load memory from server:", error);
+      } finally {
+        setIsLoaded(true);
+      }
+    };
+    loadMemory();
+  }, []); // Load once on component mount
+
+  useEffect(() => {
+    if (!isLoaded) {
+      return; // Don't save until memory is loaded from disk
+    }
+    const saveMemory = async () => {
+      try {
+        const memoryToSave = {
+          ...memorySystem,
+          topicMap: Object.fromEntries(memorySystem.topicMap),
+          fileMap: Object.fromEntries(memorySystem.fileMap),
+        };
+        await fetch('/api/memory', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(memoryToSave),
+        });
+      } catch (error) {
+        console.error("Failed to save memory to server:", error);
+      }
+    };
+
+    // Debounce saving to avoid excessive requests
+    const handler = setTimeout(() => {
+        saveMemory();
+    }, 1000);
+
+    return () => {
+        clearTimeout(handler);
+    };
+
+  }, [memorySystem, isLoaded]); // Save when memory changes, but only after it's loaded
 
   const extractTopics = useCallback((text: string): string[] => {
     const commonWords = new Set([
@@ -159,7 +224,10 @@ export function useMemorySystem() {
             return score
           }, 0)
 
-          return bRelevance * b.importance - aRelevance * a.importance
+          // Sort by relevance, then importance, then timestamp
+          const relevanceDiff = (bRelevance * b.importance) - (aRelevance * a.importance);
+          if (relevanceDiff !== 0) return relevanceDiff;
+          return b.timestamp.getTime() - a.timestamp.getTime();
         })
         .slice(0, limit)
     },

@@ -41,6 +41,26 @@ export const readFile = async (filePath: string): Promise<string> => {
   }
 }
 
+export const readUploadedFile = async (filename: string): Promise<string> => {
+    console.log(`[Tool:readUploadedFile] Called with filename: "${filename}"`);
+    try {
+        const uploadDir = path.join(process.cwd(), 'uploads');
+        const resolvedPath = path.resolve(path.join(uploadDir, filename));
+
+        // Security check: Ensure the file path is within the 'uploads' directory
+        if (!resolvedPath.startsWith(uploadDir)) {
+            return "Error: Access denied. You can only access files within the 'uploads' directory.";
+        }
+
+        return await fsPromises.readFile(resolvedPath, 'utf-8');
+    } catch (error: any) {
+        if (error.code === 'ENOENT') {
+            return `Error: File not found: ${filename}`;
+        }
+        return `Error reading uploaded file: ${error.message}`;
+    }
+};
+
 export * from './web-search.js';
 
 export const view_text_website = async (url: string): Promise<string> => {

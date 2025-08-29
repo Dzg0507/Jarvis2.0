@@ -17,7 +17,8 @@ import { ClipboardManager } from "@/components/ui/clipboard-manager"
 import { CommandMenu } from "@/components/ui/command-menu"
 import { useMemorySystem } from "@/hooks/use-memory-system"
 import { useClipboard } from "@/hooks/use-clipboard"
-import { personas, Persona } from '@/lib/personas'
+import { Persona } from '@/lib/personas'
+import path from "path"
 
 // --- Interface Definitions ---
 interface Message {
@@ -59,12 +60,14 @@ export default function CyberpunkChat() {
   const [activeTool, setActiveTool] = useState("")
   const [showClipboard, setShowClipboard] = useState(false)
   const [showSettings, setShowSettings] = useState(false)
- const [selectedPersonaId, setSelectedPersonaId] = useState<string>(personas[0].id);
+  const [personas, setPersonas] = useState<Persona[]>([]);
+  const [selectedPersonaId, setSelectedPersonaId] = useState<string>('');
   const [customPersona, setCustomPersona] = useState<string>('');
   const [isEnhancing, setIsEnhancing] = useState<boolean>(false);
   const [showCommandMenu, setShowCommandMenu] = useState(false)
   const [showFileUpload, setShowFileUpload] = useState(false)
-  const [uploadedFiles, setUploadedFiles] = useState<File[]>([])
+  const [uploadedFiles, setUploadedFiles] = useState<string[]>([])
+  const [isUploading, setIsUploading] = useState(false);
   
   const [settings, setSettings] = useState({
     aiModel: "gemini",
@@ -88,26 +91,45 @@ export default function CyberpunkChat() {
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
-  // useEffect to fetch voices from the API when the settings panel is opened
-  useEffect(() => {
-    if (showSettings && voices.length === 0) {
-      const fetchVoices = async () => {
-        try {
-          const response = await fetch('/api/get-voices');
-          const data = await response.json();
-          if (Array.isArray(data)) {
-            setVoices(data);
-            if (data.length > 0) {
-              setSelectedVoiceId(data[0].voice_id); // Set default to the first voice in the list
+  // useEffect to fetch voices and personas from the API when the settings panel is opened
+   useEffect(() => {
+    const fetchInitialData = async () => {
+      if (showSettings) {
+        // Fetch Voices
+        if (voices.length === 0) {
+          try {
+            const response = await fetch('/api/get-voices');
+            const data = await response.json();
+            if (Array.isArray(data)) {
+              setVoices(data);
+              if (data.length > 0 && !selectedVoiceId) {
+                setSelectedVoiceId(data[0].voice_id);
+              }
             }
+          } catch (error) {
+            console.error("Failed to fetch ElevenLabs voices:", error);
           }
-        } catch (error) {
-          console.error("Failed to fetch ElevenLabs voices:", error);
         }
-      };
-      fetchVoices();
-    }
-  }, [showSettings, voices.length]);
+
+        // Fetch Personas
+        if (personas.length === 0) {
+            try {
+                const response = await fetch('/api/generate-persona');
+                const data = await response.json();
+                if(Array.isArray(data)) {
+                    setPersonas(data);
+                    if(data.length > 0 && !selectedPersonaId) {
+                        setSelectedPersonaId(data[0].id);
+                    }
+                }
+            } catch (error) {
+                console.error("Failed to fetch personas:", error);
+            }
+        }
+      }
+    };
+    fetchInitialData();
+  }, [showSettings, voices.length, personas.length, selectedVoiceId, selectedPersonaId]);
 
   const handleTestVoice = async () => {
     setIsTestingVoice(true);
@@ -146,7 +168,15 @@ export default function CyberpunkChat() {
   }
 
   const handleSendMessage = async () => {
-    const prompt = inputValue.trim();
+    let prompt = inputValue.trim();
+    if (!prompt && uploadedFiles.length === 0) return;
+
+    if (uploadedFiles.length > 0) {
+        const filePreamble = `The user has uploaded the following files: ${uploadedFiles.join(', ')}. You can read them using the 'fs_read' tool. If the user's prompt is empty, summarize the files.`;
+        prompt = `${filePreamble}\n\nUser Prompt: ${prompt || 'Summarize the uploaded files.'}`;
+        setUploadedFiles([]); // Clear files after they are included in the prompt
+    }
+
     if (!prompt) return;
 
     // --- NEW: Direct Video Search Bypass Logic ---
@@ -230,7 +260,8 @@ export default function CyberpunkChat() {
     setIsThinking(true);
     setActiveTool("neural");
 
-    let activePersonaPrompt = personas.find(p => p.id === selectedPersonaId)?.prompt || personas[0].prompt;
+    const defaultPersona = personas.length > 0 ? personas[0] : { prompt: "You are a helpful assistant." };
+    let activePersonaPrompt = personas.find(p => p.id === selectedPersonaId)?.prompt || defaultPersona.prompt;
     if (selectedPersonaId === 'custom' && customPersona) {
       activePersonaPrompt = customPersona;
     }
@@ -247,6 +278,12 @@ export default function CyberpunkChat() {
       }
 
       const result = await response.json();
+
+      if (result.type === 'persona_update') {
+        setSelectedPersonaId('custom');
+        setCustomPersona(result.new_prompt);
+      }
+
       let aiContent = result.response;
       let videoData: VideoResult[] | undefined = undefined;
 
@@ -319,6 +356,26 @@ const handleEnhancePrompt = async () => {
         setIsEnhancing(false);
     }
   };
+
+  const handleGeneratePersona = async () => {
+    const descriptionInput = document.getElementById('new-persona-desc') as HTMLTextAreaElement;
+    const description = descriptionInput.value.trim();
+    if (!description) return;
+
+    try {
+        const response = await fetch('/api/generate-persona', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ description }),
+        });
+        if (!response.ok) throw new Error('Failed to generate persona');
+        const newPersona = await response.json();
+        setPersonas((prev) => [...prev, newPersona]);
+        descriptionInput.value = ''; // Clear the input
+    } catch (error) {
+        console.error("Persona generation error:", error);
+    }
+  };
   const handleVideoSearch = (query: string) => {
     setInputValue(`search for videos of ${query}`);
     Promise.resolve().then(() => {
@@ -331,12 +388,61 @@ const handleEnhancePrompt = async () => {
     });
   };
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files
-    if (files) {
-      setUploadedFiles((prev) => [...prev, ...Array.from(files)])
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files) return;
+
+    setIsUploading(true);
+    const uploadedFilePaths: string[] = [];
+
+    for (const file of Array.from(files)) {
+      try {
+        const formData = new FormData();
+        formData.append('file', file);
+
+        const response = await fetch('/api/upload', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error(`Upload failed with status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        if (result.success) {
+          uploadedFilePaths.push(result.filePath);
+
+          const systemMessage: Message = {
+            id: `file-${Date.now()}`,
+            content: `System: File "${file.name}" uploaded successfully. The AI can now access it.`,
+            isUser: false,
+            timestamp: new Date(),
+          };
+          setMessages((prev) => [...prev, systemMessage]);
+
+        } else {
+            throw new Error(result.error || 'Unknown upload error');
+        }
+      } catch (error) {
+        console.error("File upload error:", error);
+        const errorMessage: Message = {
+            id: `err-${Date.now()}`,
+            content: `System: Error uploading file "${file.name}". Please try again.`,
+            isUser: false,
+            timestamp: new Date(),
+          };
+        setMessages((prev) => [...prev, errorMessage]);
+      }
     }
-  }
+
+    setUploadedFiles((prev) => [...prev, ...uploadedFilePaths]);
+    setIsUploading(false);
+    // Clear the file input so the same file can be uploaded again
+    if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+    }
+  };
 
   const getSmartSuggestions = () => {
     const recentTopics = chatHistory.slice(-5).join(" ").toLowerCase()
@@ -530,19 +636,20 @@ const handleEnhancePrompt = async () => {
                 <div className="space-y-2">
                   <Button
                     onClick={() => fileInputRef.current?.click()}
-                    className="w-full p-3 rounded-lg glass border-yellow-500/30 hover:border-yellow-500 hover:bg-yellow-500/10 text-yellow-400"
+                    disabled={isUploading}
+                    className="w-full p-3 rounded-lg glass border-yellow-500/30 hover:border-yellow-500 hover:bg-yellow-500/10 text-yellow-400 disabled:opacity-50"
                   >
                     <Upload className="w-4 h-4 mr-2" />
-                    Upload Files
+                    {isUploading ? 'UPLOADING...' : 'Upload Files'}
                   </Button>
                 </div>
                 {uploadedFiles.length > 0 && (
                   <div className="mt-3 pt-3 border-t border-yellow-500/30">
-                    <p className="text-xs text-yellow-400 mb-2">UPLOADED:</p>
+                    <p className="text-xs text-yellow-400 mb-2">UPLOAD QUEUE:</p>
                     <div className="space-y-1 max-h-20 overflow-y-auto">
-                      {uploadedFiles.map((file, index) => (
+                      {uploadedFiles.map((filePath, index) => (
                         <div key={index} className="text-xs text-white font-mono truncate">
-                          {file.name}
+                          {path.basename(filePath)}
                         </div>
                       ))}
                     </div>
@@ -588,6 +695,14 @@ const handleEnhancePrompt = async () => {
                                               </Button>
                                           </div>
                                       )}
+                                      <div className="space-y-2 pt-4 border-t border-cyan-500/20">
+                                        <h4 className="text-sm font-semibold text-cyan-400">GENERATE NEW PERSONA</h4>
+                                        <textarea id="new-persona-desc" placeholder="Describe the new persona..." rows={2} className="w-full p-2 rounded-lg glass bg-black/50 text-white font-mono text-sm"></textarea>
+                                        <Button onClick={handleGeneratePersona} className="w-full bg-green-600 hover:bg-green-500">
+                                            <Wand2 className="w-4 h-4 mr-2" />
+                                            Generate Persona
+                                        </Button>
+                                      </div>
                                   </div>
                   {/* Voice Settings */}
                   <div className="space-y-4">
