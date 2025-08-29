@@ -1,0 +1,525 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color scheme for cyberpunk neon theme */
+  --background: oklch(0.05 0 0); /* Deep black */
+  --foreground: oklch(0.95 0 0); /* Bright white */
+  --card: oklch(0.08 0 0); /* Very dark card background */
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.08 0 0);
+  --popover-foreground: oklch(0.95 0 0);
+  --primary: oklch(0.7 0.3 180); /* Neon cyan */
+  --primary-foreground: oklch(0.05 0 0);
+  --secondary: oklch(0.6 0.25 120); /* Neon green */
+  --secondary-foreground: oklch(0.05 0 0);
+  --muted: oklch(0.15 0 0);
+  --muted-foreground: oklch(0.6 0 0);
+  --accent: oklch(0.65 0.28 300); /* Neon purple */
+  --accent-foreground: oklch(0.05 0 0);
+  --destructive: oklch(0.6 0.3 0); /* Neon red */
+  --destructive-foreground: oklch(0.95 0 0);
+  --border: oklch(0.2 0.15 180); /* Subtle cyan border */
+  --input: oklch(0.1 0 0);
+  --ring: oklch(0.7 0.3 180);
+  --chart-1: oklch(0.7 0.3 180);
+  --chart-2: oklch(0.6 0.25 120);
+  --chart-3: oklch(0.65 0.28 300);
+  --chart-4: oklch(0.6 0.3 60);
+  --chart-5: oklch(0.6 0.3 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.08 0 0);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.7 0.3 180);
+  --sidebar-primary-foreground: oklch(0.05 0 0);
+  --sidebar-accent: oklch(0.15 0 0);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.2 0.15 180);
+  --sidebar-ring: oklch(0.7 0.3 180);
+
+  /* Added cyberpunk-specific color variables */
+  --neon-cyan: #00ffff;
+  --neon-green: #39ff14;
+  --neon-pink: #ff007f;
+  --neon-purple: #bf00ff;
+  --neon-blue: #0080ff;
+  --deep-black: #000000;
+  --void-black: #0a0a0a;
+  --glass-dark: rgba(0, 0, 0, 0.7);
+  --glass-darker: rgba(0, 0, 0, 0.9);
+  --cyan-glow: rgba(0, 255, 255, 0.8);
+  --green-glow: rgba(57, 255, 20, 0.8);
+  --purple-glow: rgba(191, 0, 255, 0.8);
+}
+
+.dark {
+  /* Dark mode uses same cyberpunk colors */
+  --background: oklch(0.05 0 0);
+  --foreground: oklch(0.95 0 0);
+  --card: oklch(0.08 0 0);
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.08 0 0);
+  --popover-foreground: oklch(0.95 0 0);
+  --primary: oklch(0.7 0.3 180);
+  --primary-foreground: oklch(0.05 0 0);
+  --secondary: oklch(0.6 0.25 120);
+  --secondary-foreground: oklch(0.05 0 0);
+  --muted: oklch(0.15 0 0);
+  --muted-foreground: oklch(0.6 0 0);
+  --accent: oklch(0.65 0.28 300);
+  --accent-foreground: oklch(0.05 0 0);
+  --destructive: oklch(0.6 0.3 0);
+  --destructive-foreground: oklch(0.95 0 0);
+  --border: oklch(0.2 0.15 180);
+  --input: oklch(0.1 0 0);
+  --ring: oklch(0.7 0.3 180);
+  --chart-1: oklch(0.7 0.3 180);
+  --chart-2: oklch(0.6 0.25 120);
+  --chart-3: oklch(0.65 0.28 300);
+  --chart-4: oklch(0.6 0.3 60);
+  --chart-5: oklch(0.6 0.3 0);
+  --sidebar: oklch(0.08 0 0);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.7 0.3 180);
+  --sidebar-primary-foreground: oklch(0.05 0 0);
+  --sidebar-accent: oklch(0.15 0 0);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.2 0.15 180);
+  --sidebar-ring: oklch(0.7 0.3 180);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* Theme-specific color variables */
+.theme-cyber-blue {
+  --primary: oklch(0.7 0.3 240); /* Cyber blue */
+  --secondary: oklch(0.6 0.25 200); /* Light blue */
+  --accent: oklch(0.65 0.28 220); /* Electric blue */
+  --neon-primary: #3b82f6;
+  --neon-secondary: #60a5fa;
+  --primary-glow: rgba(59, 130, 246, 0.8);
+}
+
+.theme-matrix-green {
+  --primary: oklch(0.7 0.3 120); /* Matrix green */
+  --secondary: oklch(0.6 0.25 140); /* Bright green */
+  --accent: oklch(0.65 0.28 100); /* Lime green */
+  --neon-primary: #22c55e;
+  --neon-secondary: #4ade80;
+  --primary-glow: rgba(34, 197, 94, 0.8);
+}
+
+@layer base {
+  * {
+    border-color: var(--border); /* Use the CSS variable directly */
+    outline-color: oklch(var(--ring) / 0.5); /* Use the CSS variable directly */
+  }
+  body {
+    background-color: var(--background); /* Use the CSS variable directly */
+    color: var(--foreground); /* Use the CSS variable directly */
+    overflow: hidden;
+    font-family: "Orbitron", "Inter", system-ui, sans-serif;
+  }
+}
+
+@keyframes neon-pulse {
+  0%,
+  100% {
+    text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor, 0 0 20px currentColor;
+    box-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+  }
+  50% {
+    text-shadow: 0 0 2px currentColor, 0 0 5px currentColor, 0 0 8px currentColor, 0 0 12px currentColor;
+    box-shadow: 0 0 2px currentColor, 0 0 5px currentColor, 0 0 8px currentColor;
+  }
+}
+
+@keyframes particle-float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  33% {
+    transform: translateY(-15px) rotate(120deg);
+    opacity: 0.6;
+  }
+  66% {
+    transform: translateY(8px) rotate(240deg);
+    opacity: 0.4;
+  }
+}
+
+@keyframes grid-pulse {
+  0%,
+  100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Added scanner sweep animation for video search */
+@keyframes scanner-sweep {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Added new scanner line animation for thinking states */
+@keyframes scanner-line {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Adding tool-specific scanner animations */
+@keyframes video-scan {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes network-scan {
+  0%,
+  100% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes data-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Added neon drift animation for background particles */
+@keyframes neon-drift {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Enhanced scanner line with better animation */
+.scanner-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanner-line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, var(--neon-cyan) 50%, transparent 100%);
+  animation: scanner-line 2s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+/* Adding tool-specific scanner effects */
+.video-scanner::before {
+  background: linear-gradient(90deg, transparent 0%, var(--neon-blue) 30%, var(--neon-cyan) 70%, transparent 100%);
+  animation: video-scan 2.5s linear infinite;
+}
+
+.network-scanner::before {
+  background: linear-gradient(90deg, transparent 0%, var(--neon-green) 50%, transparent 100%);
+  animation: network-scan 1.8s ease-in-out infinite;
+}
+
+.data-scanner::before {
+  background: linear-gradient(90deg, transparent 0%, var(--neon-purple) 50%, transparent 100%);
+  animation: data-pulse 2.2s ease-in-out infinite;
+}
+
+.file-scanner::before {
+  background: linear-gradient(90deg, transparent 0%, #ffff00 50%, transparent 100%);
+  animation: scanner-line 2s ease-in-out infinite;
+}
+
+/* Enhanced scrollbar with neon glow effects */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--neon-cyan);
+  border-radius: 3px;
+  box-shadow: 0 0 5px var(--cyan-glow);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-green);
+  box-shadow: 0 0 8px var(--green-glow);
+}
+
+/* Enhanced glass effects with better blur and neon borders */
+.glass {
+  background: var(--glass-dark);
+  backdrop-filter: blur(15px) saturate(180%);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  box-shadow: inset 0 1px 0 rgba(0, 255, 255, 0.2), 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+.glass-strong {
+  background: var(--glass-darker);
+  backdrop-filter: blur(25px) saturate(200%);
+  border: 1px solid rgba(0, 255, 255, 0.5);
+  box-shadow: inset 0 1px 0 rgba(0, 255, 255, 0.3), inset 0 -1px 0 rgba(255, 0, 127, 0.2), 0 0 30px
+    rgba(0, 255, 255, 0.2);
+}
+
+/* Added utility classes for cyberpunk effects */
+.neon-glow {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+.particle {
+  animation: particle-float 6s ease-in-out infinite;
+}
+
+.grid-overlay {
+  animation: grid-pulse 4s ease-in-out infinite;
+}
+
+.typing-effect {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 2s steps(20, end), blink 1s step-end infinite;
+}
+
+.neon-border-cyan {
+  border: 1px solid var(--neon-cyan);
+  box-shadow: 0 0 10px var(--cyan-glow);
+}
+
+.neon-border-green {
+  border: 1px solid var(--neon-green);
+  box-shadow: 0 0 10px var(--green-glow);
+}
+
+.neon-border-purple {
+  border: 1px solid var(--neon-purple);
+  box-shadow: 0 0 10px var(--purple-glow);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 10px var(--cyan-glow);
+}
+
+.text-glow-green {
+  text-shadow: 0 0 10px var(--green-glow);
+}
+
+.text-glow-purple {
+  text-shadow: 0 0 10px var(--purple-glow);
+}
+
+/* Matrix rain animation */
+@keyframes matrix-rain {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.matrix-rain {
+  animation: matrix-rain 3s linear infinite;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  color: #00ff41;
+  text-shadow: 0 0 5px #00ff41;
+}
+
+/* Enhanced scanner animations for different themes */
+.theme-cyber-blue .scanner-line::before {
+  background: linear-gradient(90deg, transparent 0%, #3b82f6 50%, transparent 100%);
+}
+
+.theme-matrix-green .scanner-line::before {
+  background: linear-gradient(90deg, transparent 0%, #22c55e 50%, transparent 100%);
+}
+
+/* Theme-specific glass effects */
+.theme-cyber-blue .glass {
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: inset 0 1px 0 rgba(59, 130, 246, 0.2), 0 0 20px rgba(59, 130, 246, 0.1);
+}
+
+.theme-cyber-blue .glass-strong {
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  box-shadow: inset 0 1px 0 rgba(59, 130, 246, 0.3), inset 0 -1px 0 rgba(147, 51, 234, 0.2), 0 0 30px
+    rgba(59, 130, 246, 0.2);
+}
+
+.theme-matrix-green .glass {
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  box-shadow: inset 0 1px 0 rgba(34, 197, 94, 0.2), 0 0 20px rgba(34, 197, 94, 0.1);
+}
+
+.theme-matrix-green .glass-strong {
+  border: 1px solid rgba(34, 197, 94, 0.5);
+  box-shadow: inset 0 1px 0 rgba(34, 197, 94, 0.3), inset 0 -1px 0 rgba(74, 222, 128, 0.2), 0 0 30px
+    rgba(34, 197, 94, 0.2);
+}
+
+/* Theme-specific scrollbar colors */
+.theme-cyber-blue .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  box-shadow: 0 0 5px rgba(59, 130, 246, 0.8);
+}
+
+.theme-cyber-blue .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #60a5fa;
+  box-shadow: 0 0 8px rgba(96, 165, 250, 0.8);
+}
+
+.theme-matrix-green .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #22c55e;
+  box-shadow: 0 0 5px rgba(34, 197, 94, 0.8);
+}
+
+.theme-matrix-green .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #4ade80;
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.8);
+}
+
+/* Enhanced particle effects for different themes */
+.theme-cyber-blue .particle {
+  background: #3b82f6 !important;
+}
+
+.theme-matrix-green .particle {
+  background: #22c55e !important;
+}
+
+/* Theme-specific neon glow animations */
+.theme-cyber-blue .neon-glow {
+  animation: neon-pulse-blue 2s ease-in-out infinite;
+}
+
+.theme-matrix-green .neon-glow {
+  animation: neon-pulse-green 2s ease-in-out infinite;
+}
+
+@keyframes neon-pulse-blue {
+  0%,
+  100% {
+    text-shadow: 0 0 5px #3b82f6, 0 0 10px #3b82f6, 0 0 15px #3b82f6, 0 0 20px #3b82f6;
+    box-shadow: 0 0 5px #3b82f6, 0 0 10px #3b82f6, 0 0 15px #3b82f6;
+  }
+  50% {
+    text-shadow: 0 0 2px #3b82f6, 0 0 5px #3b82f6, 0 0 8px #3b82f6, 0 0 12px #3b82f6;
+    box-shadow: 0 0 2px #3b82f6, 0 0 5px #3b82f6, 0 0 8px #3b82f6;
+  }
+}
+
+@keyframes neon-pulse-green {
+  0%,
+  100% {
+    text-shadow: 0 0 5px #22c55e, 0 0 10px #22c55e, 0 0 15px #22c55e, 0 0 20px #22c55e;
+    box-shadow: 0 0 5px #22c55e, 0 0 10px #22c55e, 0 0 15px #22c55e;
+  }
+  50% {
+    text-shadow: 0 0 2px #22c55e, 0 0 5px #22c55e, 0 0 8px #22c55e, 0 0 12px #22c55e;
+    box-shadow: 0 0 2px #22c55e, 0 0 5px #22c55e, 0 0 8px #22c55e;
+  }
+}
