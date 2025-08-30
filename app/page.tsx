@@ -411,7 +411,7 @@ const handleEnhancePrompt = async () => {
 
   return (
     <div className={`min-h-screen bg-black text-white relative overflow-hidden`}>
-      <Suspense fallback={null}>{isClient && settings.theme === "matrix-green" && <MatrixRain />}</Suspense>
+      {isClient && settings.theme === "matrix-green" && <MatrixRain />}
 
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0">
