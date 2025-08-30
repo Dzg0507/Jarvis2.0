@@ -1,4 +1,4 @@
-﻿"use client"
+"use client"
 
 import type React from "react"
 import { Suspense, useState, useRef, useEffect } from "react"
@@ -45,6 +45,7 @@ interface Voice {
 }
 
 export default function CyberpunkChat() {
+  const [isClient, setIsClient] = useState(false)
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
@@ -88,6 +89,9 @@ export default function CyberpunkChat() {
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
   // useEffect to fetch voices from the API when the settings panel is opened
   useEffect(() => {
     if (showSettings && voices.length === 0) {
@@ -407,7 +411,7 @@ const handleEnhancePrompt = async () => {
 
   return (
     <div className={`min-h-screen bg-black text-white relative overflow-hidden`}>
-      <Suspense fallback={null}>{settings.theme === "matrix-green" && <MatrixRain />}</Suspense>
+      <Suspense fallback={null}>{isClient && settings.theme === "matrix-green" && <MatrixRain />}</Suspense>
 
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0">
