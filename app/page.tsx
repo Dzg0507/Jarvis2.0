@@ -1,12 +1,14 @@
 "use client"
 
 import type React from "react"
-import { Suspense, useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card } from "@/components/ui/card"
 import { Send, Settings, Clipboard, Volume2, Plus, X, Upload, FileText, Video, Music, Clock, User, Play, Wand2, Maximize2, Minimize2, Grid3X3, Zap, Brain, Cpu } from "lucide-react"
 import dynamic from 'next/dynamic'
+import { supabase } from "@/lib/supabase"
+import { useRouter } from "next/navigation"
 
 // --- Modular Components ---
 import { ThinkingAnimation } from "@/components/chat/thinking-animation"
@@ -77,6 +79,10 @@ const AiMessageContent = ({ content }: { content: string }) => {
 
 
 export default function CyberpunkChat() {
+  const [user, setUser] = useState<any>(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const router = useRouter()
+
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
@@ -128,6 +134,51 @@ export default function CyberpunkChat() {
   const containerRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  // Check authentication status
+  useEffect(() => {
+    const checkAuth = async () => {
+      const { data: { session } } = await supabase.auth.getSession()
+      if (session?.user) {
+        setUser(session.user)
+      } else {
+        router.push('/signin')
+      }
+      setIsLoading(false)
+    }
+    
+    checkAuth()
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_OUT' || !session) {
+        setUser(null)
+        router.push('/signin')
+      } else if (session?.user) {
+        setUser(session.user)
+      }
+    })
+
+    return () => subscription.unsubscribe()
+  }, [router])
+
+  const handleSignOut = async () => {
+    await supabase.auth.signOut()
+  }
+
+  if (isLoading) {
+    return (
+      <div className="h-screen w-screen bg-black text-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-8 h-8 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <p className="text-cyan-400">Initializing Neural Interface...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (!user) {
+    return null // Will redirect to signin
+  }
 
   // Toggle fullscreen mode
   const toggleFullScreen = () => {
@@ -648,7 +699,7 @@ const handleEnhancePrompt = async () => {
 
   return (
     <div ref={containerRef} className={`h-screen w-screen bg-black text-white relative overflow-hidden`}>
-      <Suspense fallback={null}>{settings.theme === "matrix-green" && <MatrixRain />}</Suspense>
+      {settings.theme === "matrix-green" && <MatrixRain />}
 
       {/* Animated background elements */}
       <div className="absolute inset-0 z-0">
@@ -691,6 +742,9 @@ const handleEnhancePrompt = async () => {
           <span className="text-xs text-muted-foreground">
             <Brain className="inline mr-1" size={12} /> {clipboardItems.length} MEMORY FRAGMENTS
           </span>
+          <span className="text-xs text-cyan-400">
+            <User className="inline mr-1" size={12} /> {user?.email}
+          </span>
           <Button 
             onClick={toggleFullScreen} 
             size="sm" 
@@ -706,6 +760,14 @@ const handleEnhancePrompt = async () => {
             className={`${themeClasses.primary} hover:${themeClasses.bg}/20`}
           >
             <Settings className="w-4 h-4" />
+          </Button>
+          <Button 
+            onClick={handleSignOut} 
+            size="sm" 
+            variant="ghost" 
+            className="text-red-400 hover:text-red-300 hover:bg-red-500/20"
+          >
+            <X className="w-4 h-4" />
           </Button>
         </div>
       </div>
