@@ -70,6 +70,9 @@ export async function handleChat(req: Request, res: Response) {
         return res.status(500).json({ error: 'MCP server not configured' });
     }
 
+    // Wait for the tool context to be initialized
+    await dynamicJarvisContextPromise;
+
     if (!dynamicToolsContext) {
         console.warn('[ChatHandler] Chat received before tool context was initialized.');
         return res.status(503).json({ error: 'Jarvis is still initializing tools. Please try again in a moment.' });

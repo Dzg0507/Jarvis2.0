@@ -5,12 +5,12 @@
   "scripts": {
     "dev": "concurrently \"npm:dev:next\" \"npm:dev:mcp\"",
     "dev:next": "next dev",
-    "dev:mcp": "npm run build:mcp && cross-env TS_NODE_PROJECT=tsconfig.mcp.json node -r tsconfig-paths/register dist-mcp/mcp-main.js",
+    "dev:mcp": "npm run build:mcp && cross-env TS_NODE_PROJECT=tsconfig.mcp.json node -r tsconfig-paths/register dist-mcp/src/mcp-main.js",
     "build": "next build",
     "build:mcp": "tsc --project tsconfig.mcp.json",
     "start": "npm run build:mcp && concurrently \"npm:start:next\" \"npm:start:mcp\"",
     "start:next": "next start",
-    "start:mcp": "cross-env TS_NODE_PROJECT=tsconfig.mcp.json node -r tsconfig-paths/register dist-mcp/mcp-main.js",
+    "start:mcp": "cross-env TS_NODE_PROJECT=tsconfig.mcp.json node -r tsconfig-paths/register dist-mcp/src/mcp-main.js",
     "lint": "next lint",
     "test": "vitest src"
   },

@@ -1,5 +1,6 @@
 import { setupMcpServer } from './mcp/mcp-server';
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { handleChat } from './chat/chathandler';
+import { initializeJarvisContext } from './chat/mcp-client';
 import * as textToSpeech from '@google-cloud/text-to-speech';
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import express from 'express';
@@ -8,6 +9,9 @@ import { config } from './config';
 
 async function main() {
   console.log('[MCP Main] Starting MCP HTTP server...');
+
+  // Initialize the Jarvis context
+  await initializeJarvisContext();
 
   // Initialize TextToSpeechClient (removing GoogleGenerativeAI as it's not needed here)
   const ttsClient = new textToSpeech.TextToSpeechClient();
@@ -105,13 +109,9 @@ async function main() {
             }
           });
         }
-      } else if (req.body && typeof req.body === 'object') {
-        console.log('[MCP Main] Processing non-tool MCP request...');
-        console.log('[MCP Main] Request body:', JSON.stringify(req.body, null, 2));
-        res.json({ success: true, message: 'MCP request processed' });
       } else {
-        console.log('[MCP Main] Invalid request format:', req.body);
-        res.status(400).json({ error: 'Invalid MCP request format' });
+        // This is a regular chat message, not a tool call, so we use the chat handler
+        await handleChat(req, res);
       }
     } catch (error) {
       console.error('[MCP Main] Error processing MCP request:', error);
