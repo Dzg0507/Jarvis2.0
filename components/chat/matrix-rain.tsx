@@ -5,6 +5,8 @@ import { useEffect, useRef } from "react"
 export function MatrixRain() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
+  console.log("Rendering MatrixRain");
+
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return

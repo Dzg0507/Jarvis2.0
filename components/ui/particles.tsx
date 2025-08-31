@@ -15,6 +15,7 @@ export function Particles({
   staticity = 50,
   ease = 50,
 }: ParticlesProps) {
+  console.log("Rendering Particles");
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const canvasContainerRef = useRef<HTMLDivElement>(null)
   const context = useRef<CanvasRenderingContext2D | null>(null)

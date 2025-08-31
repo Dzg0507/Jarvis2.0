@@ -52,6 +52,8 @@ function BootingSequence({ onBooted }: { onBooted: () => void }) {
 export default function AuthCallbackPage() {
   const [isBooted, setIsBooted] = useState(false);
 
+  console.log("Rendering AuthCallbackPage");
+
   useEffect(() => {
     if (isBooted) {
       const timer = setTimeout(() => {

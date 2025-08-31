@@ -78,6 +78,7 @@ const AiMessageContent = ({ content }: { content: string }) => {
 
 
 export default function CyberpunkChat() {
+  console.log("Rendering CyberpunkChat");
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",

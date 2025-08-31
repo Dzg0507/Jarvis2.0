@@ -109,6 +109,7 @@ function BootingSequence({ onBooted }: { onBooted: () => void }) {
 export default function AuthPage() {
   const [isLoginView, setIsLoginView] = useState(true)
   const [isBooted, setIsBooted] = useState(false)
+  console.log("Rendering AuthPage");
   const supabase = createClient();
   
   useEffect(() => {
