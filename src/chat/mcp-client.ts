@@ -56,26 +56,25 @@ function generateSchemaDescription(schema: any, indent = '  '): string {
 async function initializeMcpClient(): Promise<string> {
     console.log('[MCPClient] Initializing MCP client to discover tools...');
     try {
-        // For now, return a basic context without connecting to MCP server
-        // This will be updated once the MCP server setup is working properly
-        console.log('[MCPClient] Using fallback tool discovery (MCP server connection pending).');
+        const client = new Client({
+            name: "jarvis-chat-client",
+            version: "1.0.0",
+        });
 
-        // Return a basic context with some common tools
-        const fallbackTools = [
-            { name: 'web_search', description: 'Search the web for information' },
-            { name: 'calculator', description: 'Perform mathematical calculations' },
-            { name: 'fs_read', description: 'Read files from the filesystem' },
-            { name: 'fs_write', description: 'Write files to the filesystem' }
-        ];
+        const transport = new (await import('@modelcontextprotocol/sdk/client/sse.js')).SSEClientTransport(new URL(config.mcp.serverUrl));
+        await client.connect(transport);
 
-        const toolListString: string = fallbackTools.map((tool, index) => {
-            return `${index + 1}. **'${tool.name}'**: ${tool.description}\n   * **Parameters:**\n     - query (string; search query or file path)`;
+        console.log('[MCPClient] Connected to MCP server, discovering tools...');
+        const tools = await client.listTools();
+
+        const toolListString = tools.map((tool: McpTool) => {
+            const schemaDesc = tool.inputSchema ? generateSchemaDescription(tool.inputSchema) : '  None';
+            return `* **'${tool.name}'**: ${tool.description}\n   * **Parameters:**\n${schemaDesc}`;
         }).join('\n\n');
 
         const baseContext = buildBasePrompt(toolListString);
-        console.log("[MCPClient] Successfully built fallback Jarvis context.");
+        console.log("[MCPClient] Successfully built Jarvis context from discovered tools.");
         return baseContext;
-
     } catch (error) {
         console.error("[MCPClient] Failed to initialize MCP client or discover tools:", error);
         return "Error: Could not connect to MCP server to discover tools. Tool usage will not be available.";
