@@ -1,9 +1,7 @@
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
-import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
+import { spawn } from 'child_process';
 import { buildBasePrompt } from './prompt.js';
 import { config } from '../config.js';
-
-const MCP_SERVER_URL = config.mcp.serverUrl;
 
 interface McpTool {
     name: string;
@@ -58,30 +56,24 @@ function generateSchemaDescription(schema: any, indent = '  '): string {
 async function initializeMcpClient(): Promise<string> {
     console.log('[MCPClient] Initializing MCP client to discover tools...');
     try {
-        const transport = new StreamableHTTPClientTransport(new URL(MCP_SERVER_URL));
-        const client = new Client({ name: "jarvis-chat-handler", version: "1.0.0" });
-        await client.connect(transport);
-        console.log('[MCPClient] Connected to MCP server.');
+        // For now, return a basic context without connecting to MCP server
+        // This will be updated once the MCP server setup is working properly
+        console.log('[MCPClient] Using fallback tool discovery (MCP server connection pending).');
 
-        const responsePayload: any = await client.listTools();
-        
-        // THIS LINE HAS BEEN REMOVED TO CLEAN UP THE LOGS
-        // console.log('[MCPClient] Raw tools object received from server:', JSON.stringify(responsePayload, null, 2));
-        
-        const toolsArray: McpTool[] = responsePayload.tools; 
-        if (!Array.isArray(toolsArray)) {
-            throw new Error('MCP server tool list response is not in the expected format (expected an array).');
-        }
-        
-        console.log('[MCPClient] Discovered tools:', toolsArray.map(t => t.name));
+        // Return a basic context with some common tools
+        const fallbackTools = [
+            { name: 'web_search', description: 'Search the web for information' },
+            { name: 'calculator', description: 'Perform mathematical calculations' },
+            { name: 'fs_read', description: 'Read files from the filesystem' },
+            { name: 'fs_write', description: 'Write files to the filesystem' }
+        ];
 
-        const toolListString: string = toolsArray.map((tool, index) => {
-            const paramsDescription = generateSchemaDescription(tool.inputSchema);
-            return `${index + 1}. **'${tool.name}'**: ${tool.description}\n   * **Parameters:**\n${paramsDescription}`;
+        const toolListString: string = fallbackTools.map((tool, index) => {
+            return `${index + 1}. **'${tool.name}'**: ${tool.description}\n   * **Parameters:**\n     - query (string; search query or file path)`;
         }).join('\n\n');
 
         const baseContext = buildBasePrompt(toolListString);
-        console.log("[MCPClient] Successfully built dynamic Jarvis context.");
+        console.log("[MCPClient] Successfully built fallback Jarvis context.");
         return baseContext;
 
     } catch (error) {

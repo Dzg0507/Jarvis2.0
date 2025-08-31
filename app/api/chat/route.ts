@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const BACKEND_SERVER_URL = 'http://localhost:3001/chat';
+const BACKEND_SERVER_URL = 'http://localhost:3001/mcp';
 
 export async function POST(req: NextRequest) {
   try {

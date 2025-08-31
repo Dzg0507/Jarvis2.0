@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { readUploadedFile } from '../index.js';
+import { readUploadedFile } from '../index';
 
 export default {
   name: 'read_uploaded_file',

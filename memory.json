@@ -1,0 +1,206 @@
+{
+  "fragments": [
+    {
+      "id": "memory_1756618580773_346ft5ahu",
+      "content": "Hey!",
+      "context": "[Memory: 8/31/2025] Hey!... | [Memory: 8/31/2025] Hey!... | [Memory: 8/31/2025] Hey!...",
+      "importance": 2,
+      "timestamp": "2025-08-31T05:36:20.772Z",
+      "tags": [],
+      "relatedFiles": [],
+      "conversationId": "default"
+    },
+    {
+      "id": "memory_1756618437523_9fvflssij",
+      "content": "Hey!",
+      "context": "[Memory: 8/31/2025] Hey!... | [Memory: 8/31/2025] Hey!... | [Memory: 8/30/2025] Hey!...",
+      "importance": 2,
+      "timestamp": "2025-08-31T05:33:57.523Z",
+      "tags": [],
+      "relatedFiles": [],
+      "conversationId": "default"
+    },
+    {
+      "id": "memory_1756617837165_9gmi1ro2t",
+      "content": "Hey!",
+      "context": "[Memory: 8/31/2025] Hey!... | [Memory: 8/30/2025] Hey!... | [Memory: 8/31/2025] Hey...",
+      "importance": 2,
+      "timestamp": "2025-08-31T05:23:57.164Z",
+      "tags": [],
+      "relatedFiles": [],
+      "conversationId": "default"
+    },
+    {
+      "id": "memory_1756617603339_juzgj22bv",
+      "content": "How are you doing?",
+      "context": "[Memory: 8/30/2025] Hey how are you?!... | [Memory: 8/30/2025] That's too broad a request.  To help you, I need a more specific question.  What do you want to know... | [Memory: 8/30/2025] This looks like a log excerpt from a development server, likely Node.js based, showing compilation t...",
+      "importance": 3,
+      "timestamp": "2025-08-31T05:20:03.339Z",
+      "tags": [
+        "doing"
+      ],
+      "relatedFiles": [],
+      "conversationId": "default"
+    },
+    {
+      "id": "memory_1756617577341_qvuk4wa5d",
+      "content": "Hey",
+      "context": "[Memory: 8/30/2025] Hey how are you?!... | [Memory: 8/31/2025] Hey!... | [Memory: 8/31/2025] Hey...",
+      "importance": 2,
+      "timestamp": "2025-08-31T05:19:37.340Z",
+      "tags": [],
+      "relatedFiles": [],
+      "conversationId": "default"
+    },
+    {
+      "id": "memory_1756617359597_7t082w9lf",
+      "content": "Hey!",
+      "context": "[Memory: 8/30/2025] Hey!... | [Memory: 8/31/2025] Hey...",
+      "importance": 2,
+      "timestamp": "2025-08-31T05:15:59.597Z",
+      "tags": [],
+      "relatedFiles": [],
+      "conversationId": "default"
+    },
+    {
+      "id": "memory_1756616893597_l1u5ftbn8",
+      "content": "Hey",
+      "context": "[Memory: 8/30/2025] Hey how are you?!... | [Memory: 8/30/2025] Hey!...",
+      "importance": 2,
+      "timestamp": "2025-08-31T05:08:13.597Z",
+      "tags": [],
+      "relatedFiles": [],
+      "conversationId": "default"
+    },
+    {
+      "id": "memory_1756615536258_0l9hzv42w",
+      "content": "Hey!",
+      "context": "",
+      "importance": 1,
+      "timestamp": "2025-08-31T04:45:36.258Z",
+      "tags": [],
+      "relatedFiles": [],
+      "conversationId": "default"
+    },
+    {
+      "id": "memory_1756613768157_bpc07r0h6",
+      "content": "Hey how are you?!",
+      "context": "[Memory: 8/30/2025] This looks like a log excerpt from a development server, likely Node.js based, showing compilation t... | [Memory: 8/30/2025] That's too broad a request.  To help you, I need a more specific question.  What do you want to know... | [Memory: 8/30/2025] Can you show me images of dogs...",
+      "importance": 3,
+      "timestamp": "2025-08-31T04:16:08.157Z",
+      "tags": [],
+      "relatedFiles": [],
+      "conversationId": "default"
+    },
+    {
+      "id": "memory_1756597772170_i5x6huztt",
+      "content": "That's too broad a request.  To help you, I need a more specific question.  What do you want to know about neural networks?  For example, are you interested in:\n\n* A specific type of neural network (e.g., convolutional neural networks, recurrent neural networks)?\n* A particular application of neural networks (e.g., image recognition, natural language processing)?\n* The underlying mathematics or algorithms?\n* The history of neural networks?\n* The current state of research in the field?\n\n\nPlease refine your request with a specific query.",
+      "context": "",
+      "importance": 3,
+      "timestamp": "2025-08-30T23:49:32.169Z",
+      "tags": [
+        "broad",
+        "request",
+        "help",
+        "need",
+        "more",
+        "specific",
+        "question",
+        "what",
+        "want",
+        "know"
+      ],
+      "relatedFiles": [],
+      "conversationId": "default"
+    },
+    {
+      "id": "memory_1756597770943_hx9by9950",
+      "content": "Search the neural network",
+      "context": "[Memory: 8/30/2025] This looks like a log excerpt from a development server, likely Node.js based, showing compilation t...",
+      "importance": 2,
+      "timestamp": "2025-08-30T23:49:30.943Z",
+      "tags": [
+        "search",
+        "neural",
+        "network"
+      ],
+      "relatedFiles": [],
+      "conversationId": "default"
+    },
+    {
+      "id": "memory_1756597738928_f42h49dtv",
+      "content": "This looks like a log excerpt from a development server, likely Node.js based, showing compilation times and HTTP requests.  The \"Watchpack Error\" lines indicate that the system is attempting to monitor files it doesn't have permission to access (likely system files like the pagefile).  This is not something I can directly help with using the available tools; it's a configuration issue within the development environment.  To resolve it, a developer would need to investigate why the watchpack is trying to access these protected files and adjust the configuration to exclude them.",
+      "context": "",
+      "importance": 2,
+      "timestamp": "2025-08-30T23:48:58.927Z",
+      "tags": [
+        "looks",
+        "like",
+        "excerpt",
+        "from",
+        "development",
+        "server",
+        "likely",
+        "node",
+        "based",
+        "showing"
+      ],
+      "relatedFiles": [],
+      "conversationId": "default"
+    },
+    {
+      "id": "memory_1756597734430_k2vjgc7xc",
+      "content": "dev:next]  ✓ Compiled / in 3.9s (486 modules) [dev:next] Watchpack Error (initial scan): Error: EINVAL: invalid argument, lstat 'C:\\DumpStack.log.tmp' [dev:next] Watchpack Error (initial scan): Error: EINVAL: invalid argument, lstat 'C:\\hiberfil.sys' [dev:next] Watchpack Error (initial scan): Error: EINVAL: invalid argument, lstat 'C:\\pagefile.sys' [dev:next] Watchpack Error (initial scan): Error: EINVAL: invalid argument, lstat 'C:\\swapfile.sys' [dev:next]  GET / 200 in 4399ms [dev:next]  ○ Compiling /_not-found ... [dev:next]  ✓ Compiled /_not-found in 4.4s (456 modules) [dev:next]  GET /& 404 in 4111ms [dev:next]  ✓ Compiled /auth in 431ms (469 modules) [dev:next]  GET /auth 200 in 553ms",
+      "context": "",
+      "importance": 2,
+      "timestamp": "2025-08-30T23:48:54.430Z",
+      "tags": [
+        "next",
+        "compiled",
+        "modules",
+        "next",
+        "watchpack",
+        "error",
+        "initial",
+        "scan",
+        "error",
+        "einval"
+      ],
+      "relatedFiles": [],
+      "conversationId": "default"
+    },
+    {
+      "id": "memory_1756537327414_y11nd7ila",
+      "content": "Found 10 video results for your query.",
+      "context": "",
+      "importance": 1,
+      "timestamp": "2025-08-30T07:02:07.413Z",
+      "tags": [
+        "found",
+        "video",
+        "results",
+        "your",
+        "query"
+      ],
+      "relatedFiles": [],
+      "conversationId": "default"
+    },
+    {
+      "id": "memory_1756537316356_bhtkgh01r",
+      "content": "Can you show me images of dogs",
+      "context": "",
+      "importance": 1,
+      "timestamp": "2025-08-30T07:01:56.356Z",
+      "tags": [
+        "show",
+        "images",
+        "dogs"
+      ],
+      "relatedFiles": [],
+      "conversationId": "default"
+    }
+  ],
+  "sessions": [],
+  "topicMap": {},
+  "fileMap": {}
+}

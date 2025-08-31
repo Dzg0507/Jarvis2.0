@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { save_speech_to_file } from '../index.js';
+import { save_speech_to_file } from '../index';
 
 export default {
   name: 'save_speech_to_file',

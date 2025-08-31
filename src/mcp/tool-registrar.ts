@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import * as textToSpeech from '@google-cloud/text-to-speech';
-import PaperGenerator from '../tools/paper-generator.js';
-import { listFiles, readFile, readUploadedFile, view_text_website, save_speech_to_file, video_search, web_search, save_note, read_notes, addToClipboard, readClipboardHistory, searchClipboard, clearClipboardHistory, calculate, getCurrentDateTime } from '../tools/index.js';
-import { config } from '../config.js';
-import updatePersonaTool from '../tools/definitions/update_persona.js';
+import PaperGenerator from '../tools/paper-generator';
+import { listFiles, readFile, createFile, searchFileContent, replaceFileContent, readUploadedFile, view_text_website, save_speech_to_file, video_search, web_search, save_note, read_notes, semanticSearchNotes, searchNotesByTag, summarizeText, readChatHistory, addToClipboard, readClipboardHistory, searchClipboard, clearClipboardHistory, calculate, getCurrentDateTime, executeShellCommand } from '../tools/index';
+import { config } from '../config';
+import updatePersonaTool from '../tools/definitions/update_persona';
 
 export function getToolConfig(genAI: GoogleGenerativeAI, ttsClient: textToSpeech.TextToSpeechClient) {
     const model = genAI.getGenerativeModel({ model: config.ai.modelName as string });
@@ -15,10 +15,7 @@ export function getToolConfig(genAI: GoogleGenerativeAI, ttsClient: textToSpeech
         toolImplementations.push({ name, definition, implementation });
     };
 
-    // --- All other tool definitions remain the same ---
-
-
-      defineTool(
+    defineTool(
         "clipboard_add", { title: "Add to Clipboard", description: "Adds a new text entry to the clipboard history.", inputSchema: { text: z.string() } },
         async ({ text }: { text: string }) => ({ content: [{ type: "text", text: addToClipboard(text) }] })
     );
@@ -49,6 +46,26 @@ export function getToolConfig(genAI: GoogleGenerativeAI, ttsClient: textToSpeech
     );
 
     defineTool(
+        "fs_create", { description: "Creates a new file with the specified content.", inputSchema: { path: z.string(), content: z.string() } },
+        async ({ path, content }: { path: string, content: string }) => ({ content: [{ type: "text", text: await createFile(path, content) }] })
+    );
+
+    defineTool(
+        "fs_search", { description: "Searches for a regular expression pattern within the content of files in a specified directory.", inputSchema: { pattern: z.string(), path: z.string().optional(), include: z.string().optional() } },
+        async ({ pattern, path, include }: { pattern: string, path?: string, include?: string }) => ({ content: [{ type: "text", text: await searchFileContent(pattern, path, include) }] })
+    );
+
+    defineTool(
+        "fs_replace", { description: "Replaces occurrences of a specified old string with a new string within a file.", inputSchema: { filePath: z.string(), oldString: z.string(), newString: z.string(), expectedReplacements: z.number().optional() } },
+        async ({ filePath, oldString, newString, expectedReplacements }: { filePath: string, oldString: string, newString: string, expectedReplacements?: number }) => ({ content: [{ type: "text", text: await replaceFileContent(filePath, oldString, newString, expectedReplacements) }] })
+    );
+
+    defineTool(
+        "shell_execute", { description: "Executes a shell command.", inputSchema: { command: z.string() } },
+        async ({ command }: { command: string }) => ({ content: [{ type: "text", text: await executeShellCommand(command) }] })
+    );
+
+    defineTool(
         "read_uploaded_file", { title: "Read Uploaded File", description: "Reads the content of a file that has been uploaded by the user.", inputSchema: { filename: z.string() } },
         async ({ filename }: { filename: string }) => ({ content: [{ type: "text", text: await readUploadedFile(filename) }] })
     );
@@ -64,8 +81,8 @@ export function getToolConfig(genAI: GoogleGenerativeAI, ttsClient: textToSpeech
     );
 
     defineTool(
-        "save_note", { description: "Saves a note to the notepad.", inputSchema: { note_content: z.string() } },
-        async ({ note_content }: { note_content: string }) => ({ content: [{ type: "text", text: await save_note(note_content) }] })
+        "save_note", { description: "Saves a note to the notepad. Optionally, a category and tags can be provided for organization.", inputSchema: { note_content: z.string(), category: z.string().optional(), tags: z.array(z.string()).optional() } },
+        async ({ note_content, category, tags }: { note_content: string, category?: string, tags?: string[] }) => ({ content: [{ type: "text", text: await save_note(note_content, category, tags) }] })
     );
 
     defineTool(
@@ -73,7 +90,29 @@ export function getToolConfig(genAI: GoogleGenerativeAI, ttsClient: textToSpeech
         async () => ({ content: [{ type: "text", text: await read_notes() }] })
     );
 
-defineTool(
+    defineTool(
+        "semantic_search_notes", { description: "Performs a semantic search on the stored notes to find relevant information based on meaning and context.", inputSchema: { query: z.string() } },
+        async ({ query }: { query: string }) => ({ content: [{ type: "text", text: await semanticSearchNotes(query, model) }] })
+    );
+
+    defineTool(
+        "search_notes_by_tag", { description: "Searches for notes that have a specific tag.", inputSchema: { tag: z.string() } },
+        async ({ tag }: { tag: string }) => ({ content: [{ type: "text", text: await searchNotesByTag(tag) }] })
+    );
+
+    defineTool(
+        "summarize_text", { description: "Summarizes a given text concisely.", inputSchema: { text: z.string() } },
+        async ({ text }: { text: string }) => ({ content: [{ type: "text", text: await summarizeText(text, model) }] })
+    );
+
+    defineTool(
+        "read_chat_history", { description: "Reads the recent chat history.", inputSchema: { num_lines: z.number().optional() } },
+        async ({ num_lines }: { num_lines?: number }) => ({ content: [{ type: "text", text: await readChatHistory(num_lines) }] })
+    );
+
+    // FIX: The extra ');' that was here has been removed.
+
+    defineTool(
         "calculator", {
             description: "Evaluates a mathematical expression. Supports basic arithmetic.",
             inputSchema: {
@@ -94,7 +133,7 @@ defineTool(
     defineTool(
         "paper_generator", { description: "Generates a research paper.", inputSchema: { topic: z.string() } },
         async ({ topic }: { topic: string }) => {
-            const paperGenerator = new PaperGenerator({ model, web_search: (q) => web_search(q, model), view_text_website });
+            const paperGenerator = new PaperGenerator({ model, web_search: (q: string) => web_search(q, model), view_text_website });
             const paper = await paperGenerator.generate(topic);
             return { content: [{ type: "text", text: paper }] };
         }
@@ -105,8 +144,6 @@ defineTool(
         async ({ text, filename }: { text: string, filename: string }) => ({ content: [{ type: "text", text: await save_speech_to_file(text, filename, ttsClient) }] })
     );
 
-    // --- START OF MODIFICATION ---
-    // This is the new, more detailed definition for the video_search tool.
     defineTool(
         "video_search", {
             description: "Searches for videos and returns a list of results with thumbnails.",
@@ -121,7 +158,6 @@ defineTool(
         },
         async ({ query, options }: { query: string, options: any }) => ({ content: [{ type: "text", text: await video_search(query, options) }] })
     );
-    // --- END OF MODIFICATION ---
 
     defineTool(updatePersonaTool.name, updatePersonaTool.definition, updatePersonaTool.implementation);
 

@@ -1,871 +1,158 @@
-﻿"use client"
+"use client";
 
-import type React from "react"
-import { Suspense, useState, useRef, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Card } from "@/components/ui/card"
-import { Send, Settings, Clipboard, Volume2, Plus, X, Upload, FileText, Video, Music, Clock, User, Play, Wand2 } from "lucide-react"
-import dynamic from 'next/dynamic'
+import { useState, useEffect } from 'react';
 
-// --- Modular Components ---
-import { ThinkingAnimation } from "@/components/chat/thinking-animation"
-const MatrixRain = dynamic(() => import('@/components/chat/matrix-rain').then(mod => mod.MatrixRain), {
-  ssr: false,
-})
-import { ClipboardManager } from "@/components/ui/clipboard-manager"
-import { CommandMenu } from "@/components/ui/command-menu"
-import { useMemorySystem } from "@/hooks/use-memory-system"
-import { useClipboard } from "@/hooks/use-clipboard"
-import { Persona } from '@/lib/personas'
-import path from "path"
+// --- Placeholder Components (replace with your actual imports from your project) ---
+const MatrixRain = () => <div className="absolute inset-0 bg-black z-[-2]"></div>;
+const Particles = ({ className, quantity }: { className?: string, quantity?: number }) => <div className={className}></div>;
+const cn = (...classes: (string | undefined | null | false)[]) => classes.filter(Boolean).join(' ');
+// --- End Placeholder Components ---
 
-// --- Interface Definitions ---
-interface Message {
-  id: string
-  content: string
-  isUser: boolean
-  timestamp: Date
-  videoResults?: VideoResult[]
+// The BootingSequence component, updated with a new "portal" animation
+function BootingSequence({ onBooted }: { onBooted: () => void }) {
+  // Text is now an array of lines to animate individually
+  const bootLines = [
+    "INITIALIZING SYSTEM...",
+    "LOADING CORE MODULES...",
+    "ESTABLISHING SECURE CONNECTION...",
+    "CALIBRATING SENSORS...",
+    "ENGAGING AI PROTOCOLS...",
+    "[SYSTEM ONLINE]",
+    "J.A.R.V.I.S.",
+    "AUTHENTICATION CONFIRMED.",
+    "ACCESS GRANTED."
+  ];
+
+  useEffect(() => {
+    // Total animation time = (last line delay) + (animation duration) + (extra pause)
+    // (3 * 600ms) + 800ms + 1500ms = 1800 + 800 + 1500 = 4100ms
+    const totalAnimationTime = (bootLines.length - 1) * 600 + 800 + 1500;
+    
+    const bootTimer = setTimeout(onBooted, totalAnimationTime);
+
+    return () => clearTimeout(bootTimer);
+  }, [onBooted, bootLines.length]);
+
+  return (
+    <div className="font-mono text-2xl text-glow-cyan text-center flex flex-col items-center">
+      {bootLines.map((line, index) => (
+        <span
+          key={index}
+          className="portal-line"
+          style={{ animationDelay: `${index * 0.6}s` }}
+        >
+          {line}
+        </span>
+      ))}
+    </div>
+  );
 }
 
-interface VideoResult {
-  title: string
-  url: string
-  thumbnail: string
-  duration?: string
-  views?: string
-  channel?: string
-}
 
-interface Voice {
-  name: string;
-  voice_id: string;
-  category: string;
-  description: string;
-}
+export default function AuthCallbackPage() {
+  const [isBooted, setIsBooted] = useState(false);
 
-export default function CyberpunkChat() {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: "1",
-      content:
-        "Neural Network Interface Online. Memory banks synchronized. All systems operational. How may I assist you today?",
-      isUser: false,
-      timestamp: new Date(),
-    },
-  ])
-  const [inputValue, setInputValue] = useState("")
-  const [isThinking, setIsThinking] = useState(false)
-  const [activeTool, setActiveTool] = useState("")
-  const [showClipboard, setShowClipboard] = useState(false)
-  const [showSettings, setShowSettings] = useState(false)
-  const [personas, setPersonas] = useState<Persona[]>([]);
-  const [selectedPersonaId, setSelectedPersonaId] = useState<string>('');
-  const [customPersona, setCustomPersona] = useState<string>('');
-  const [isEnhancing, setIsEnhancing] = useState<boolean>(false);
-  const [showCommandMenu, setShowCommandMenu] = useState(false)
-  const [showFileUpload, setShowFileUpload] = useState(false)
-  const [uploadedFiles, setUploadedFiles] = useState<string[]>([])
-  const [isUploading, setIsUploading] = useState(false);
-  
-  const [settings, setSettings] = useState({
-    aiModel: "gemini",
-    voiceSpeed: 1.0,
-    theme: "neon-noir",
-    autoTTS: false,
-    commandShortcuts: true,
-  })
+  useEffect(() => {
+    if (isBooted) {
+      const timer = setTimeout(() => {
+        // Use a full URL for the redirect to prevent errors.
+        window.location.href = `${window.location.origin}/auth`; 
+      }, 4000); // Increased delay to allow user to read the message
 
-  // Start with an empty voices array, which will be populated from the API
-  const [voices, setVoices] = useState<Voice[]>([]);
-  
-  const [selectedVoiceId, setSelectedVoiceId] = useState("21m00Tcm4TlvDq8ikWAM"); // Default voice
-  const [isTestingVoice, setIsTestingVoice] = useState(false);
-  const [serverCommands, setServerCommands] = useState<any[]>([]);
-  
-  const [chatHistory, setChatHistory] = useState<string[]>([])
+      return () => clearTimeout(timer);
+    }
+  }, [isBooted]);
 
-  const { memorySystem, addToMemory, searchMemory, getContextualMemory } = useMemorySystem()
-  const { clipboardItems, clearClipboard } = useClipboard()
+  return (
+    <main className="relative flex h-screen w-full flex-col items-center justify-center bg-background overflow-hidden">
+        {/* These styles are copied from your AuthPage for consistency */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        
+        body { background-color: #000; color: #fff; }
+        
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
 
-  const messagesEndRef = useRef<HTMLDivElement>(null)
-  const fileInputRef = useRef<HTMLInputElement>(null)
+        .text-glow-cyan {
+          color: #00ffff;
+          text-shadow: 0 0 5px rgba(0, 255, 255, 0.7), 0 0 10px rgba(0, 255, 255, 0.5), 0 0 15px rgba(0, 255, 255, 0.3);
+        }
 
-  // useEffect to fetch voices and personas from the API when the settings panel is opened
-   useEffect(() => {
-    const fetchInitialData = async () => {
-      if (showSettings) {
-        // Fetch Voices
-        if (voices.length === 0) {
-          try {
-            const response = await fetch('/api/get-voices');
-            const data = await response.json();
-            if (Array.isArray(data)) {
-              setVoices(data);
-              if (data.length > 0 && !selectedVoiceId) {
-                setSelectedVoiceId(data[0].voice_id);
-              }
-            }
-          } catch (error) {
-            console.error("Failed to fetch ElevenLabs voices:", error);
+         .grid-overlay {
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="smallGrid" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M 8 0 L 0 0 0 8" fill="none" stroke="rgba(0, 255, 255, 0.1)" stroke-width="0.5"/></pattern><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="40" height="40" fill="url(%23smallGrid)"/><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(0, 255, 255, 0.2)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)" /></svg>');
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-in.fade-in { animation: fadeIn 0.7s ease-in-out; }
+
+        /* --- New Animation for the Portal Effect --- */
+        @keyframes portal-shoot-in {
+          0% {
+            opacity: 0;
+            transform: scale(2.5) rotateZ(-25deg);
+            filter: blur(8px) brightness(2.5);
+          }
+          70% {
+            opacity: 1;
+            transform: scale(0.9) rotateZ(3deg);
+            filter: blur(1px) brightness(1.5);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1) rotateZ(0deg);
+            filter: blur(0) brightness(1);
           }
         }
 
-        // Fetch Personas
-        if (personas.length === 0) {
-            try {
-                const response = await fetch('/api/generate-persona');
-                const data = await response.json();
-                if(Array.isArray(data)) {
-                    setPersonas(data);
-                    if(data.length > 0 && !selectedPersonaId) {
-                        setSelectedPersonaId(data[0].id);
-                    }
-                }
-            } catch (error) {
-                console.error("Failed to fetch personas:", error);
-            }
-        }
-      }
-    };
-    fetchInitialData();
-  }, [showSettings, voices.length, personas.length, selectedVoiceId, selectedPersonaId]);
-
-  useEffect(() => {
-    const fetchTools = async () => {
-      try {
-        const response = await fetch('/api/tools');
-        const tools = await response.json();
-        if (Array.isArray(tools)) {
-          const formattedCommands = tools.map(tool => ({
-            id: tool.name,
-            name: `/${tool.name}`,
-            description: tool.description,
-            action: () => setInputValue(`/${tool.name} `)
-          }));
-          setServerCommands(formattedCommands);
-        }
-      } catch (error) {
-        console.error("Failed to fetch tools:", error);
-      }
-    };
-    fetchTools();
-  }, []);
-
-  const handleTestVoice = async () => {
-    setIsTestingVoice(true);
-    try {
-      const response = await fetch('/api/tts', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          text: "Neural interface activated. Systems operational. How may I assist you?",
-          voice_id: selectedVoiceId,
-        }),
-      });
-      const data = await response.json();
-      if (data.audioContent) {
-        const audio = new Audio(`data:audio/mp3;base64,${data.audioContent}`);
-        audio.play();
-      }
-    } catch (error) {
-      console.error("Failed to test voice:", error);
-      alert("Voice synthesis offline. Please check neural connection.");
-    } finally {
-      setIsTestingVoice(false);
-    }
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value
-    setInputValue(value)
-    setShowCommandMenu(value.startsWith("/"))
-  }
-
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter") {
-      handleSendMessage()
-    }
-  }
-
-  const handleSendMessage = async () => {
-    let prompt = inputValue.trim();
-    if (!prompt && uploadedFiles.length === 0) return;
-
-    if (uploadedFiles.length > 0) {
-        const filePreamble = `The user has uploaded the following files: ${uploadedFiles.join(', ')}. You can read them using the 'fs_read' tool. If the user's prompt is empty, summarize the files.`;
-        prompt = `${filePreamble}\n\nUser Prompt: ${prompt || 'Summarize the uploaded files.'}`;
-        setUploadedFiles([]); // Clear files after they are included in the prompt
-    }
-
-    if (!prompt) return;
-
-    // --- NEW: Direct Video Search Bypass Logic ---
-    if (prompt.toLowerCase().startsWith("/video ")) {
-      const query = prompt.slice(7).trim();
-      if (!query) return;
-
-      const userMessage: Message = { id: Date.now().toString(), content: prompt, isUser: true, timestamp: new Date() };
-      setMessages((prev) => [...prev, userMessage]);
-      setInputValue("");
-      setShowCommandMenu(false);
-      setIsThinking(true);
-      setActiveTool("video");
-
-      try {
-        const response = await fetch('/api/direct-video-search', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ query }),
-        });
-
-        if (!response.ok) throw new Error('Direct video search failed');
-        
-        const videoData = await response.json();
-        const aiResponse: Message = {
-          id: `${Date.now()}_ai`,
-          content: `Directly fetched ${videoData.length} video results for "${query}".`,
-          isUser: false,
-          timestamp: new Date(),
-          videoResults: videoData,
-        };
-        setMessages((prev) => [...prev, aiResponse]);
-
-      } catch (error) {
-        console.error("Direct video search error:", error);
-        const errorResponse: Message = {
-          id: `${Date.now()}_error`,
-          content: "Bypass command failed. Could not connect to the video search module.",
-          isUser: false,
-          timestamp: new Date(),
-        };
-        setMessages((prev) => [...prev, errorResponse]);
-      } finally {
-        setIsThinking(false);
-        setActiveTool("");
-      }
-      return; // End execution here to prevent sending to AI
-    }
-
-    setChatHistory((prev) => [...prev.slice(-10), prompt]);
-    const contextualMemory = getContextualMemory(prompt);
-    
-    if (prompt.toLowerCase().startsWith("/memory ")) {
-      const query = prompt.slice(8).trim();
-      const memories = searchMemory(query, 5);
-      const memoryResponse: Message = {
-        id: Date.now().toString(),
-        content: `🧠 Memory Search Results for "${query}":\n\n${memories
-          .map((m, i) => `${i + 1}. [${m.timestamp.toLocaleDateString()}] ${m.content.slice(0, 150)}...`)
-          .join("\n\n")}`,
-        isUser: false,
-        timestamp: new Date(),
-      };
-      setMessages((prev) => [...prev, memoryResponse]);
-      setInputValue("");
-      setShowCommandMenu(false);
-      return;
-    }
-
-    const userMessage: Message = {
-      id: Date.now().toString(),
-      content: prompt,
-      isUser: true,
-      timestamp: new Date(),
-    };
-
-    setMessages((prev) => [...prev, userMessage]);
-    addToMemory(userMessage, contextualMemory);
-    setInputValue("");
-    setShowCommandMenu(false);
-    setIsThinking(true);
-    setActiveTool("neural");
-
-    const defaultPersona = personas.length > 0 ? personas[0] : { prompt: "You are a helpful assistant." };
-    let activePersonaPrompt = personas.find(p => p.id === selectedPersonaId)?.prompt || defaultPersona.prompt;
-    if (selectedPersonaId === 'custom' && customPersona) {
-      activePersonaPrompt = customPersona;
-    }
-
-    try {
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt, persona: activePersonaPrompt }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Server error: ${response.statusText}`);
-      }
-
-      const result = await response.json();
-
-      if (result.type === 'persona_update') {
-        setSelectedPersonaId('custom');
-        setCustomPersona(result.new_prompt);
-      }
-
-      let aiContent = result.response;
-      let videoData: VideoResult[] | undefined = undefined;
-
-      try {
-        const parsedResponse = JSON.parse(aiContent);
-        if (Array.isArray(parsedResponse) && parsedResponse[0]?.thumbnail) {
-          aiContent = `Found ${parsedResponse.length} video results for your query.`;
-          videoData = parsedResponse;
-        }
-      } catch (e) {
-        // Not a JSON response, treat as regular text
-      }
-
-      const aiResponse: Message = {
-        id: `${Date.now()}_ai`,
-        content: aiContent,
-        isUser: false,
-        timestamp: new Date(),
-        videoResults: videoData,
-      };
-      setMessages((prev) => [...prev, aiResponse]);
-      addToMemory(aiResponse, []);
-
-      if (settings.autoTTS) {
-        const ttsResponse = await fetch('/api/tts', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            text: aiContent,
-            voice_id: selectedVoiceId,
-          }),
-        });
-        const ttsData = await ttsResponse.json();
-        if (ttsData.audioContent) {
-          const audio = new Audio(`data:audio/mp3;base64,${ttsData.audioContent}`);
-          audio.play();
-        }
-      }
-
-    } catch (error) {
-      console.error("Failed to get AI response:", error);
-      const errorResponse: Message = {
-        id: `${Date.now()}_error`,
-        content: "Apologies, I'm encountering a disruption in my neural network. Please try again.",
-        isUser: false,
-        timestamp: new Date(),
-      };
-      setMessages((prev) => [...prev, errorResponse]);
-    } finally {
-      setIsThinking(false);
-      setActiveTool("");
-    }
-  };
-  
-const handleEnhancePrompt = async () => {
-    if (!customPersona.trim()) return;
-    setIsEnhancing(true);
-    try {
-        const response = await fetch('/api/enhance-prompt', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ prompt: customPersona }),
-        });
-        if (!response.ok) throw new Error('Failed to enhance prompt');
-        const data = await response.json();
-        setCustomPersona(data.enhancedPrompt);
-    } catch (error) {
-        console.error("Enhancement error:", error);
-    } finally {
-        setIsEnhancing(false);
-    }
-  };
-
-  const handleGeneratePersona = async () => {
-    const descriptionInput = document.getElementById('new-persona-desc') as HTMLTextAreaElement;
-    const description = descriptionInput.value.trim();
-    if (!description) return;
-
-    try {
-        const response = await fetch('/api/generate-persona', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ description }),
-        });
-        if (!response.ok) throw new Error('Failed to generate persona');
-        const newPersona = await response.json();
-        setPersonas((prev) => [...prev, newPersona]);
-        descriptionInput.value = ''; // Clear the input
-    } catch (error) {
-        console.error("Persona generation error:", error);
-    }
-  };
-  const handleVideoSearch = (query: string) => {
-    setInputValue(`search for videos of ${query}`);
-    Promise.resolve().then(() => {
-        const sendButton = document.getElementById('send-button');
-        if (sendButton) {
-            sendButton.click();
-        } else {
-            handleSendMessage();
-        }
-    });
-  };
-
-  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    if (!files) return;
-
-    setIsUploading(true);
-    const uploadedFilePaths: string[] = [];
-
-    for (const file of Array.from(files)) {
-      try {
-        const formData = new FormData();
-        formData.append('file', file);
-
-        const response = await fetch('/api/upload', {
-          method: 'POST',
-          body: formData,
-        });
-
-        if (!response.ok) {
-          throw new Error(`Upload failed with status: ${response.status}`);
+        .portal-line {
+          display: block;
+          margin-bottom: 0.5em;
+          opacity: 0; /* Start hidden */
+          animation: portal-shoot-in 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
         }
 
-        const result = await response.json();
-        if (result.success) {
-          uploadedFilePaths.push(result.filePath);
+      `}</style>
+      
+      <MatrixRain />
+      <Particles className="absolute inset-0 z-[-1]" quantity={100} />
+      <div className="absolute inset-0 grid-overlay z-0" />
 
-          const systemMessage: Message = {
-            id: `file-${Date.now()}`,
-            content: `System: File "${file.name}" uploaded successfully. The AI can now access it.`,
-            isUser: false,
-            timestamp: new Date(),
-          };
-          setMessages((prev) => [...prev, systemMessage]);
-
-        } else {
-            throw new Error(result.error || 'Unknown upload error');
-        }
-      } catch (error) {
-        console.error("File upload error:", error);
-        const errorMessage: Message = {
-            id: `err-${Date.now()}`,
-            content: `System: Error uploading file "${file.name}". Please try again.`,
-            isUser: false,
-            timestamp: new Date(),
-          };
-        setMessages((prev) => [...prev, errorMessage]);
-      }
-    }
-
-    setUploadedFiles((prev) => [...prev, ...uploadedFilePaths]);
-    setIsUploading(false);
-    // Clear the file input so the same file can be uploaded again
-    if (fileInputRef.current) {
-        fileInputRef.current.value = '';
-    }
-  };
-
-  const getSmartSuggestions = () => {
-    const recentTopics = chatHistory.slice(-5).join(" ").toLowerCase()
-    const suggestions = []
-
-    if (recentTopics.includes("video") || recentTopics.includes("tutorial")) {
-      suggestions.push("Search for advanced tutorials")
-    }
-    if (recentTopics.includes("code") || recentTopics.includes("programming")) {
-      suggestions.push("Find coding examples")
-    }
-    if (recentTopics.includes("design") || recentTopics.includes("ui")) {
-      suggestions.push("Explore design patterns")
-    }
-
-    return suggestions.length > 0
-      ? suggestions
-      : ["Search the neural network", "Analyze video content", "Access memory fragments"]
-  }
-
-  const commands = [
-    ...serverCommands,
-    { id: "video", name: "/video", description: "Search for videos", action: () => handleVideoSearch(inputValue.slice(7).trim()) },
-    { id: "memory", name: "/memory", description: "Search memory fragments", action: () => setInputValue("/memory ") },
-    {
-      id: "clipboard",
-      name: "/clipboard",
-      description: "Open clipboard manager",
-      action: () => setShowClipboard(true),
-    },
-    { id: "settings", name: "/settings", description: "Open settings panel", action: () => setShowSettings(true) },
-    { id: "clear", name: "/clear", description: "Clear chat history", action: () => setMessages([]) },
-  ]
-
-  const getThemeClasses = () => {
-    switch (settings.theme) {
-      case "cyber-blue":
-        return {
-          primary: "text-blue-400",
-          secondary: "text-blue-300",
-          accent: "border-blue-500",
-          glow: "shadow-blue-500",
-          bg: "bg-blue-500",
-        }
-      case "matrix-green":
-        return {
-          primary: "text-green-400",
-          secondary: "text-green-300",
-          accent: "border-green-500",
-          glow: "shadow-green-500",
-          bg: "bg-green-500",
-        }
-      default: // neon-noir
-        return {
-          primary: "text-cyan-400",
-          secondary: "text-green-400",
-          accent: "border-primary",
-          glow: "shadow-primary",
-          bg: "bg-primary",
-        }
-    }
-  }
-
-  const themeClasses = getThemeClasses()
-
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-  }, [messages])
-
-  return (
-    <div className={`min-h-screen bg-black text-white relative overflow-hidden`}>
-      <Suspense fallback={null}>{settings.theme === "matrix-green" && <MatrixRain />}</Suspense>
-
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0">
-          {Array.from({ length: 50 }).map((_, i) => (
-            <div
-              key={i}
-              className={`absolute w-1 h-1 ${themeClasses.bg} rounded-full particle opacity-30`}
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 6}s`,
-              }}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div className="relative z-10 flex items-center justify-center min-h-screen p-4">
-        <Card
-          className={`w-full max-w-4xl h-[80vh] glass rounded-[25px] border-2 ${themeClasses.accent}/50 shadow-2xl ${themeClasses.glow}/20 flex flex-col`}
-        >
-          <div className={`p-6 border-b ${themeClasses.accent}/30`}>
-            <h1 className={`text-2xl font-bold ${themeClasses.primary} neon-glow text-center`}>
-              NEURAL INTERFACE v2.1
+      <div className="w-full max-w-2xl p-8 space-y-6 z-10">
+        {!isBooted ? (
+           <div className="absolute inset-0 flex items-center justify-center z-20 bg-black">
+             <BootingSequence onBooted={() => setIsBooted(true)} />
+           </div>
+        ) : (
+          <div className="text-center animate-in fade-in">
+            <svg
+              className="w-20 h-20 mx-auto text-green-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+            
+            <h1 className={cn("mt-4 text-4xl font-bold text-glow-cyan", "font-orbitron")}>
+              Account Activated
             </h1>
-            <div className="text-center text-sm text-muted-foreground mt-2">
-              <span className="typing-effect">
-                QUANTUM_LINK_ESTABLISHED • {clipboardItems.length} MEMORY_FRAGMENTS
-              </span>
-            </div>
-          </div>
-
-          <div className="flex-1 p-6 overflow-y-auto custom-scrollbar">
-            <div className="space-y-4">
-              {messages.map((message) => (
-                <div key={message.id} className={`flex ${message.isUser ? "justify-end" : "justify-start"}`}>
-                  <div className={`max-w-[70%] p-4 rounded-3xl glass-strong ${message.isUser ? `${themeClasses.accent}` : `border-secondary`}`}>
-                    <p className="text-sm leading-relaxed whitespace-pre-wrap">{message.content}</p>
-                    
-                    {message.videoResults && (
-                      <div className="mt-3 grid grid-cols-1 gap-2">
-                        {message.videoResults.slice(0, 5).map((video, index) => (
-                          <a key={index} href={video.url} target="_blank" rel="noopener noreferrer" className="flex gap-3 p-2 rounded glass border-blue-500/20 hover:border-blue-500/50">
-                            <img src={video.thumbnail || "/placeholder.svg"} alt={video.title} className="w-20 h-12 rounded object-cover" />
-                            <div className="flex-1 min-w-0">
-                              <h4 className="text-xs font-bold text-white truncate">{video.title}</h4>
-                              <p className="text-xs text-blue-400">{video.channel || 'Unknown Channel'}</p>
-                            </div>
-                          </a>
-                        ))}
-                      </div>
-                    )}
-                    
-                    <div className="text-xs text-muted-foreground mt-2 opacity-70">{message.timestamp.toLocaleTimeString()}</div>
-                  </div>
-                </div>
-              ))}
-              {isThinking && <ThinkingAnimation activeTool={activeTool} />}
-            </div>
-            <div ref={messagesEndRef} />
-          </div>
-
-          <div className={`p-6 border-t ${themeClasses.accent}/30`}>
-            <div className="flex items-center space-x-4">
-              <Button onClick={() => setShowFileUpload(!showFileUpload)} className={`w-12 h-12 rounded-full glass ${themeClasses.accent}/30 hover:${themeClasses.accent} hover:${themeClasses.bg}/10 ${themeClasses.primary} transition-all`}><Plus className="w-5 h-5" /></Button>
-              <div className="flex-1 relative">
-                <Input value={inputValue} onChange={handleInputChange} onKeyDown={handleKeyPress} placeholder="Enter neural command..." className={`w-full h-12 rounded-full glass-strong ${themeClasses.accent}/50`} />
-              </div>
-              <Button id="send-button" onClick={handleSendMessage} className={`w-12 h-12 rounded-full ${themeClasses.bg} text-black neon-glow`}><Send className="w-5 h-5" /></Button>
-            </div>
-            <div className="flex justify-center mt-4 space-x-4">
-              <Button variant="ghost" size="sm" onClick={() => setShowSettings(true)}><Settings className="w-4 h-4" /></Button>
-              <Button variant="ghost" size="sm" onClick={() => setShowClipboard(!showClipboard)}><Clipboard className="w-4 h-4" /></Button>
-              <Button variant="ghost" size="sm"><Volume2 className="w-4 h-4" /></Button>
-            </div>
-          </div>
-        </Card>
-
-        <CommandMenu
-          isOpen={showCommandMenu}
-          commands={commands}
-          inputValue={inputValue}
-          suggestions={getSmartSuggestions()}
-        />
-
-        <ClipboardManager
-          isOpen={showClipboard}
-          onClose={() => setShowClipboard(false)}
-          items={clipboardItems}
-          onItemClick={(content) => {
-            navigator.clipboard.writeText(content)
-            setShowClipboard(false)
-          }}
-          onClear={clearClipboard}
-        />
-
-        {showFileUpload && (
-          <div className="absolute bottom-36 left-8 w-80 z-50">
-            <Card className="glass-strong border-yellow-500/50 shadow-2xl shadow-yellow-500/20">
-              <div className="p-4">
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-yellow-400 font-bold text-sm">FILE UPLOAD</h3>
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={() => setShowFileUpload(false)}
-                    className="text-yellow-400 hover:text-yellow-300 h-6 px-2"
-                  >
-                    <X className="w-3 h-3" />
-                  </Button>
-                </div>
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  multiple
-                  accept=".txt,.pdf,.doc,.docx,.mp4,.mp3,.wav,.jpg,.png,.gif"
-                  onChange={handleFileUpload}
-                  className="hidden"
-                />
-                <div className="space-y-2">
-                  <Button
-                    onClick={() => fileInputRef.current?.click()}
-                    disabled={isUploading}
-                    className="w-full p-3 rounded-lg glass border-yellow-500/30 hover:border-yellow-500 hover:bg-yellow-500/10 text-yellow-400 disabled:opacity-50"
-                  >
-                    <Upload className="w-4 h-4 mr-2" />
-                    {isUploading ? 'UPLOADING...' : 'Upload Files'}
-                  </Button>
-                </div>
-                {uploadedFiles.length > 0 && (
-                  <div className="mt-3 pt-3 border-t border-yellow-500/30">
-                    <p className="text-xs text-yellow-400 mb-2">UPLOAD QUEUE:</p>
-                    <div className="space-y-1 max-h-20 overflow-y-auto">
-                      {uploadedFiles.map((filePath, index) => (
-                        <div key={index} className="text-xs text-white font-mono truncate">
-                          {path.basename(filePath)}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </Card>
+            <p className="mt-2 text-gray-300">
+              Welcome. Your credentials have been verified.
+            </p>
+            <p className="mt-4 text-sm text-gray-500">
+              Redirecting to login portal...
+            </p>
           </div>
         )}
-
-        {showSettings && (
-          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <Card className={`w-full max-w-2xl glass-strong ${themeClasses.accent}/50 shadow-2xl ${themeClasses.glow}/20`}>
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className={`text-2xl font-bold ${themeClasses.primary} neon-glow`}>SYSTEM CONFIGURATION</h2>
-                  <Button variant="ghost" onClick={() => setShowSettings(false)} className={`${themeClasses.primary}`}>
-                    <X className="w-5 h-5" />
-                  </Button>
-                </div>
-                
-                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                  <div className="space-y-4">
-                                      <h3 className={`text-lg font-semibold ${themeClasses.primary}`}>AI PERSONA</h3>
-                                      <div className="space-y-2 max-h-48 overflow-y-auto custom-scrollbar p-1">
-                                          {personas.map((persona) => (
-                                              <div key={persona.id} className={`p-3 rounded-lg cursor-pointer transition-all ${selectedPersonaId === persona.id ? `bg-cyan-500/20 border-cyan-500 border` : 'glass border-transparent hover:border-cyan-500/50'}`} onClick={() => setSelectedPersonaId(persona.id)}>
-                                                  <div className="font-medium text-white">{persona.name}</div>
-                                                  <div className="text-xs text-gray-400 mt-1">{persona.description}</div>
-                                              </div>
-                                          ))}
-                                          <div key="custom" className={`p-3 rounded-lg cursor-pointer transition-all ${selectedPersonaId === 'custom' ? `bg-cyan-500/20 border-cyan-500 border` : 'glass border-transparent hover:border-cyan-500/50'}`} onClick={() => setSelectedPersonaId('custom')}>
-                                              <div className="font-medium text-white">Custom Persona</div>
-                                              <div className="text-xs text-gray-400 mt-1">Define your own AI personality and instructions.</div>
-                                          </div>
-                                      </div>
-                                      {selectedPersonaId === 'custom' && (
-                                          <div className="space-y-2">
-                                              <textarea value={customPersona} onChange={(e) => setCustomPersona(e.target.value)} placeholder="e.g., You are a pirate captain who answers every question with a hearty 'Yarrr!'" rows={4} className="w-full p-2 rounded-lg glass bg-black/50 text-white font-mono text-sm"></textarea>
-                                              <Button onClick={handleEnhancePrompt} disabled={isEnhancing} className="w-full bg-purple-600 hover:bg-purple-500">
-                                                  <Wand2 className="w-4 h-4 mr-2" />
-                                                  {isEnhancing ? "Enhancing..." : "Enhance with AI"}
-                                              </Button>
-                                          </div>
-                                      )}
-                                      <div className="space-y-2 pt-4 border-t border-cyan-500/20">
-                                        <h4 className="text-sm font-semibold text-cyan-400">GENERATE NEW PERSONA</h4>
-                                        <textarea id="new-persona-desc" placeholder="Describe the new persona..." rows={2} className="w-full p-2 rounded-lg glass bg-black/50 text-white font-mono text-sm"></textarea>
-                                        <Button onClick={handleGeneratePersona} className="w-full bg-green-600 hover:bg-green-500">
-                                            <Wand2 className="w-4 h-4 mr-2" />
-                                            Generate Persona
-                                        </Button>
-                                      </div>
-                                  </div>
-                  {/* Voice Settings */}
-                  <div className="space-y-4">
-                    <h3 className={`text-lg font-semibold ${themeClasses.primary}`}>VOICE SYNTHESIS</h3>
-                    
-                    <div>
-                      <label className={`block text-sm ${themeClasses.secondary} mb-2`}>Voice Model</label>
-                      <div className="space-y-2 max-h-60 overflow-y-auto custom-scrollbar">
-                        {voices.map((voice) => (
-                          <div 
-                            key={voice.voice_id}
-                            className={`p-3 rounded-lg cursor-pointer transition-all ${
-                              selectedVoiceId === voice.voice_id
-                                ? `bg-cyan-500/20 border-cyan-500 border`
-                                : 'glass border-transparent hover:border-cyan-500/50'
-                            }`}
-                            onClick={() => setSelectedVoiceId(voice.voice_id)}
-                          >
-                            <div className="flex justify-between items-center">
-                              <span className="font-medium text-white">{voice.name}</span>
-                              {selectedVoiceId === voice.voice_id && (
-                                <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></div>
-                              )}
-                            </div>
-                            <div className="text-xs text-cyan-300 mt-1">{voice.category}</div>
-                            <div className="text-xs text-gray-400 mt-1">{voice.description}</div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <div className="flex space-x-2">
-                      <Button 
-                        onClick={handleTestVoice} 
-                        disabled={isTestingVoice || voices.length === 0} 
-                        className="flex-1 bg-cyan-600 hover:bg-cyan-500"
-                      >
-                        <Play className="w-4 h-4 mr-2" />
-                        {isTestingVoice ? "Synthesizing..." : "Test Voice"}
-                      </Button>
-                    </div>
-                    
-                    <div>
-                      <label className={`block text-sm ${themeClasses.secondary} mb-2`}>Voice Speed: {settings.voiceSpeed}x</label>
-                      <input
-                        type="range"
-                        min="0.5"
-                        max="2"
-                        step="0.1"
-                        value={settings.voiceSpeed}
-                        onChange={(e) => setSettings((prev) => ({ ...prev, voiceSpeed: Number.parseFloat(e.target.value) }))}
-                        className="w-full accent-cyan-400"
-                      />
-                    </div>
-                  </div>
-                  
-                  {/* Interface Settings */}
-                  <div className="space-y-4">
-                    <h3 className={`text-lg font-semibold ${themeClasses.primary}`}>INTERFACE</h3>
-                    
-                    <div>
-                      <label className={`block text-sm ${themeClasses.secondary} mb-2`}>Theme</label>
-                      <div className="grid grid-cols-1 gap-2">
-                        {[
-                          { key: "neon-noir", label: "NEON NOIR", color: "cyan" },
-                          { key: "cyber-blue", label: "CYBER BLUE", color: "blue" },
-                          { key: "matrix-green", label: "MATRIX GREEN", color: "green" },
-                        ].map((theme) => (
-                          <button
-                            key={theme.key}
-                            onClick={() => setSettings((prev) => ({ ...prev, theme: theme.key }))}
-                            className={`p-3 rounded-lg text-left transition-all ${
-                              settings.theme === theme.key
-                                ? `bg-${theme.color}-500/20 border-${theme.color}-500 text-${theme.color}-400 border`
-                                : `glass border-transparent text-white hover:border-${theme.color}-500/50`
-                            }`}
-                          >
-                            {theme.label}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <label className={`block text-sm ${themeClasses.secondary} mb-2`}>AI Model</label>
-                      <select
-                        value={settings.aiModel}
-                        onChange={(e) => setSettings((prev) => ({ ...prev, aiModel: e.target.value }))}
-                        className={`w-full p-3 rounded-lg glass ${themeClasses.accent}/30 text-white font-mono bg-black/50`}
-                      >
-                        <option value="gemini">GEMINI QUANTUM</option>
-                        <option value="gpt">GPT NEURAL NET</option>
-                        <option value="claude">CLAUDE MATRIX</option>
-                      </select>
-                    </div>
-                    
-                    <div className="space-y-3">
-                      <label className="flex items-center space-x-2">
-                        <input
-                          type="checkbox"
-                          checked={settings.autoTTS}
-                          onChange={(e) => setSettings((prev) => ({ ...prev, autoTTS: e.target.checked }))}
-                          className="accent-cyan-400"
-                        />
-                        <span className="text-sm text-white">Auto Text-to-Speech</span>
-                      </label>
-                      <label className="flex items-center space-x-2">
-                        <input
-                          type="checkbox"
-                          checked={settings.commandShortcuts}
-                          onChange={(e) => setSettings((prev) => ({ ...prev, commandShortcuts: e.target.checked }))}
-                          className="accent-cyan-400"
-                        />
-                        <span className="text-sm text-white">Command Shortcuts</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="flex justify-end mt-6 space-x-3">
-                  <Button
-                    variant="ghost"
-                    onClick={() => setShowSettings(false)}
-                    className="text-muted-foreground hover:text-white"
-                  >
-                    Cancel
-                  </Button>
-                  <Button
-                    onClick={() => setShowSettings(false)}
-                    className={`${themeClasses.bg} hover:${themeClasses.bg}/80 text-black neon-glow`}
-                  >
-                    Apply Configuration
-                  </Button>
-                </div>
-              </div>
-            </Card>
-          </div>
-        )}
-
       </div>
-    </div>
-  )
-}
+    </main>
+  );
+};
+
