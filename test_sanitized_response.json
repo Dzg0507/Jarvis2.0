@@ -1,0 +1,37 @@
+{
+  "response_type": "video_search_results",
+  "content_type": "json",
+  "data": {
+    "query": "stevie rust channel",
+    "total_results": 10,
+    "creator_results_count": 4,
+    "items": [
+      {
+        "title": "Our DUO STRUGGLE for POWER in Rust - ft. Stevie",
+        "video_url": "https://www.youtube.com/watch?v=pb4dbF7BFA8",
+        "thumbnail_url": "https://img.youtube.com/vi/pb4dbF7BFA8/maxresdefault.jpg",
+        "platform": "YouTube",
+        "is_creator_content": true,
+        "description": null,
+        "duration": null,
+        "view_count": null
+      }
+    ],
+    "search_metadata": {
+      "primary_search_successful": true,
+      "fallback_search_used": true,
+      "web_search_supplemented": true
+    },
+    "web_search_content": {
+      "youtube_channel_url": "https://www.youtube.com/@StreamerPro",
+      "twitch_channel_url": "https://www.twitch.tv/StreamerPro",
+      "additional_links": [
+        "https://www.youtube.com/results?search_query=StreamerPro"
+      ],
+      "extraction_metadata": {
+        "sources_found": 3,
+        "extraction_successful": true
+      }
+    }
+  }
+}

@@ -3,7 +3,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 // This URL points to the endpoint in your src/server.ts that directly calls the video_search tool
-const BACKEND_VIDEO_URL = 'http://localhost:3001/direct-video-search';
+const BACKEND_VIDEO_URL = 'http://localhost:8080/direct-video-search';
 
 export async function POST(req: NextRequest) {
   try {

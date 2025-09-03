@@ -13,16 +13,19 @@ export default {
             sortBy: z.string().optional(),
             uploadedAfter: z.string().optional().nullable(),
             duration: z.enum(['short', 'medium', 'long', 'any']).optional(),
-            quality: z.enum(['high', 'medium', 'low', 'any']).optional()
+            quality: z.enum(['high', 'medium', 'low', 'any']).optional(),
+            contentType: z.enum(['story', 'plot', 'narrative', 'any']).optional()
         }).optional()
     }
   },
   implementation: async ({ query, options }: { query: string, options: any }) => {
+    const resultString = await video_search(query, options);
+    const result = JSON.parse(resultString);
     return {
       content: [
         {
-          type: 'text',
-          text: await video_search(query, options),
+          type: 'json',
+          json: result,
         },
       ],
     };

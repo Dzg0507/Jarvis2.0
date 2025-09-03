@@ -2,7 +2,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 
-const BACKEND_TTS_URL = 'http://localhost:3001/tts';
+const BACKEND_TTS_URL = 'http://localhost:8080/tts';
 
 export async function POST(req: NextRequest) {
   try {

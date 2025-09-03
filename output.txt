@@ -1,0 +1,4706 @@
+Folder PATH listing for volume OS
+Volume serial number is 3446-02BD
+C:.
++---.next
+¦   +---cache
+¦   ¦   +---swc
+¦   ¦   ¦   +---plugins
+¦   ¦   ¦       +---v7_windows_x86_64_0.106.15
+¦   ¦   +---webpack
+¦   ¦       +---client-development
+¦   ¦       +---client-production
+¦   ¦       +---edge-server-production
+¦   ¦       +---server-development
+¦   ¦       +---server-production
+¦   +---server
+¦   +---static
+¦   ¦   +---chunks
+¦   ¦   +---development
+¦   +---types
++---app
+¦   +---api
+¦   ¦   +---chat
+¦   ¦   +---direct-video-search
+¦   ¦   +---enhance-prompt
+¦   ¦   +---generate-persona
+¦   ¦   +---get-voices
+¦   ¦   +---login
+¦   ¦   +---memory
+¦   ¦   +---signup
+¦   ¦   +---tools
+¦   ¦   +---tts
+¦   ¦   +---upload
+¦   +---auth
+¦   ¦   +---callback
+¦   +---chat
+¦   +---confirm-email
+¦   +---dashboard
++---components
+¦   +---auth
+¦   +---chat
+¦   +---ui
++---dist-mcp
+¦   +---src
+¦       +---chat
+¦       +---mcp
+¦       +---tools
+¦           +---definitions
++---hooks
++---lib
+¦   +---supabase
++---node_modules
+¦   +---.bin
+¦   +---@alloc
+¦   ¦   +---quick-lru
+¦   +---@babel
+¦   ¦   +---code-frame
+¦   ¦   ¦   +---lib
+¦   ¦   +---helper-validator-identifier
+¦   ¦       +---lib
+¦   +---@bazel
+¦   ¦   +---runfiles
+¦   +---@cspotcode
+¦   ¦   +---source-map-support
+¦   ¦       +---node_modules
+¦   ¦           +---@jridgewell
+¦   ¦               +---trace-mapping
+¦   ¦                   +---dist
+¦   ¦                       +---types
+¦   +---@elevenlabs
+¦   ¦   +---elevenlabs-js
+¦   ¦       +---api
+¦   ¦       ¦   +---errors
+¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   +---audioIsolation
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---audioNative
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦       +---requests
+¦   ¦       ¦   ¦   +---conversationalAi
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---conversation
+¦   ¦       ¦   ¦   ¦   ¦   +---interfaces
+¦   ¦       ¦   ¦   ¦   ¦   +---mocks
+¦   ¦       ¦   ¦   ¦   ¦   +---__tests__
+¦   ¦       ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦       +---agents
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦       ¦       +---knowledgeBase
+¦   ¦       ¦   ¦   ¦       ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦       +---link
+¦   ¦       ¦   ¦   ¦       ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦       +---llmUsage
+¦   ¦       ¦   ¦   ¦       ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦       ¦       +---widget
+¦   ¦       ¦   ¦   ¦       ¦           +---client
+¦   ¦       ¦   ¦   ¦       ¦           ¦   +---requests
+¦   ¦       ¦   ¦   ¦       ¦           +---resources
+¦   ¦       ¦   ¦   ¦       ¦               +---avatar
+¦   ¦       ¦   ¦   ¦       ¦                   +---client
+¦   ¦       ¦   ¦   ¦       ¦                       +---requests
+¦   ¦       ¦   ¦   ¦       +---batchCalls
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦       +---conversations
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦       ¦   ¦   +---audio
+¦   ¦       ¦   ¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦   ¦   +---feedback
+¦   ¦       ¦   ¦   ¦       ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦       ¦   ¦           +---requests
+¦   ¦       ¦   ¦   ¦       ¦   +---types
+¦   ¦       ¦   ¦   ¦       +---dashboard
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦       ¦       +---settings
+¦   ¦       ¦   ¦   ¦       ¦           +---client
+¦   ¦       ¦   ¦   ¦       ¦           ¦   +---requests
+¦   ¦       ¦   ¦   ¦       ¦           +---types
+¦   ¦       ¦   ¦   ¦       +---knowledgeBase
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦       ¦       +---document
+¦   ¦       ¦   ¦   ¦       ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦       ¦       +---documents
+¦   ¦       ¦   ¦   ¦       ¦           +---client
+¦   ¦       ¦   ¦   ¦       ¦           ¦   +---requests
+¦   ¦       ¦   ¦   ¦       ¦           +---resources
+¦   ¦       ¦   ¦   ¦       ¦           ¦   +---chunk
+¦   ¦       ¦   ¦   ¦       ¦           ¦       +---client
+¦   ¦       ¦   ¦   ¦       ¦           +---types
+¦   ¦       ¦   ¦   ¦       +---llmUsage
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦       +---mcpServers
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦       ¦       +---approvalPolicy
+¦   ¦       ¦   ¦   ¦       ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦       ¦       +---toolApprovals
+¦   ¦       ¦   ¦   ¦       ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦       ¦       +---tools
+¦   ¦       ¦   ¦   ¦       ¦           +---client
+¦   ¦       ¦   ¦   ¦       +---phoneNumbers
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦       ¦   +---types
+¦   ¦       ¦   ¦   ¦       +---secrets
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦       +---settings
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦       +---sipTrunk
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦       +---tests
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦       ¦   ¦   +---invocations
+¦   ¦       ¦   ¦   ¦       ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦       ¦   ¦           +---requests
+¦   ¦       ¦   ¦   ¦       ¦   +---types
+¦   ¦       ¦   ¦   ¦       +---tools
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦       +---twilio
+¦   ¦       ¦   ¦   ¦           +---client
+¦   ¦       ¦   ¦   ¦               +---requests
+¦   ¦       ¦   ¦   +---dubbing
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   +---audio
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---resource
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---language
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---segment
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---speaker
+¦   ¦       ¦   ¦   ¦   ¦   ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦           ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦           +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦               +---segment
+¦   ¦       ¦   ¦   ¦   ¦   ¦                   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦                       +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---transcript
+¦   ¦       ¦   ¦   ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---types
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---forcedAlignment
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦       +---requests
+¦   ¦       ¦   ¦   +---history
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---models
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   +---music
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   +---compositionPlan
+¦   ¦       ¦   ¦   ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦           +---requests
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---pronunciationDictionaries
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   +---rules
+¦   ¦       ¦   ¦   ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---types
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---samples
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   +---serviceAccounts
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦       +---apiKeys
+¦   ¦       ¦   ¦   ¦           +---client
+¦   ¦       ¦   ¦   ¦           ¦   +---requests
+¦   ¦       ¦   ¦   ¦           +---types
+¦   ¦       ¦   ¦   +---speechToSpeech
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---speechToText
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---studio
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   +---projects
+¦   ¦       ¦   ¦   ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---resources
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---chapters
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦       +---snapshots
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦               +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---content
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---pronunciationDictionaries
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---snapshots
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦           +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---types
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---textToDialogue
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---textToSoundEffects
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---textToSpeech
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---textToVoice
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   +---preview
+¦   ¦       ¦   ¦   ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---usage
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦       +---requests
+¦   ¦       ¦   ¦   +---user
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦       +---subscription
+¦   ¦       ¦   ¦   ¦           +---client
+¦   ¦       ¦   ¦   +---v1TextToSpeechVoiceIdMultiStreamInput
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---v1TextToSpeechVoiceIdStreamInput
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---voices
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   +---ivc
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---pvc
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---samples
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦       +---audio
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦       +---speakers
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦       ¦       +---audio
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦       ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦       +---waveform
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---verification
+¦   ¦       ¦   ¦   ¦   ¦   ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦           ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦           +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦               +---captcha
+¦   ¦       ¦   ¦   ¦   ¦   ¦                   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦                       +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---samples
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---audio
+¦   ¦       ¦   ¦   ¦   ¦   ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---settings
+¦   ¦       ¦   ¦   ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---webhooks
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦       +---requests
+¦   ¦       ¦   ¦   +---workspace
+¦   ¦       ¦   ¦       +---client
+¦   ¦       ¦   ¦       +---resources
+¦   ¦       ¦   ¦           +---groups
+¦   ¦       ¦   ¦           ¦   +---client
+¦   ¦       ¦   ¦           ¦   ¦   +---requests
+¦   ¦       ¦   ¦           ¦   +---resources
+¦   ¦       ¦   ¦           ¦       +---members
+¦   ¦       ¦   ¦           ¦           +---client
+¦   ¦       ¦   ¦           ¦               +---requests
+¦   ¦       ¦   ¦           +---invites
+¦   ¦       ¦   ¦           ¦   +---client
+¦   ¦       ¦   ¦           ¦   ¦   +---requests
+¦   ¦       ¦   ¦           ¦   +---types
+¦   ¦       ¦   ¦           +---members
+¦   ¦       ¦   ¦           ¦   +---client
+¦   ¦       ¦   ¦           ¦   ¦   +---requests
+¦   ¦       ¦   ¦           ¦   +---types
+¦   ¦       ¦   ¦           +---resources
+¦   ¦       ¦   ¦               +---client
+¦   ¦       ¦   ¦               ¦   +---requests
+¦   ¦       ¦   ¦               +---types
+¦   ¦       ¦   +---types
+¦   ¦       +---assets
+¦   ¦       +---core
+¦   ¦       ¦   +---fetcher
+¦   ¦       ¦   +---form-data-utils
+¦   ¦       ¦   +---runtime
+¦   ¦       ¦   +---schemas
+¦   ¦       ¦   ¦   +---builders
+¦   ¦       ¦   ¦   ¦   +---bigint
+¦   ¦       ¦   ¦   ¦   +---date
+¦   ¦       ¦   ¦   ¦   +---enum
+¦   ¦       ¦   ¦   ¦   +---lazy
+¦   ¦       ¦   ¦   ¦   +---list
+¦   ¦       ¦   ¦   ¦   +---literals
+¦   ¦       ¦   ¦   ¦   +---object
+¦   ¦       ¦   ¦   ¦   +---object-like
+¦   ¦       ¦   ¦   ¦   +---primitives
+¦   ¦       ¦   ¦   ¦   +---record
+¦   ¦       ¦   ¦   ¦   +---schema-utils
+¦   ¦       ¦   ¦   ¦   +---set
+¦   ¦       ¦   ¦   ¦   +---undiscriminated-union
+¦   ¦       ¦   ¦   ¦   +---union
+¦   ¦       ¦   ¦   +---utils
+¦   ¦       ¦   +---stream
+¦   ¦       ¦   +---url
+¦   ¦       +---dist
+¦   ¦       ¦   +---api
+¦   ¦       ¦   ¦   +---errors
+¦   ¦       ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   +---audioIsolation
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---audioNative
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       +---requests
+¦   ¦       ¦   ¦   ¦   +---conversationalAi
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---conversation
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---interfaces
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---mocks
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__tests__
+¦   ¦       ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦       +---agents
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---knowledgeBase
+¦   ¦       ¦   ¦   ¦   ¦       ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---link
+¦   ¦       ¦   ¦   ¦   ¦       ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---llmUsage
+¦   ¦       ¦   ¦   ¦   ¦       ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---widget
+¦   ¦       ¦   ¦   ¦   ¦       ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦           ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦           +---resources
+¦   ¦       ¦   ¦   ¦   ¦       ¦               +---avatar
+¦   ¦       ¦   ¦   ¦   ¦       ¦                   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦                       +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---batchCalls
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---conversations
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---audio
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---feedback
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦           +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---types
+¦   ¦       ¦   ¦   ¦   ¦       +---dashboard
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---settings
+¦   ¦       ¦   ¦   ¦   ¦       ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦           ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦           +---types
+¦   ¦       ¦   ¦   ¦   ¦       +---knowledgeBase
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---document
+¦   ¦       ¦   ¦   ¦   ¦       ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---documents
+¦   ¦       ¦   ¦   ¦   ¦       ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦           ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦           +---resources
+¦   ¦       ¦   ¦   ¦   ¦       ¦           ¦   +---chunk
+¦   ¦       ¦   ¦   ¦   ¦       ¦           ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦           +---types
+¦   ¦       ¦   ¦   ¦   ¦       +---llmUsage
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---mcpServers
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---approvalPolicy
+¦   ¦       ¦   ¦   ¦   ¦       ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---toolApprovals
+¦   ¦       ¦   ¦   ¦   ¦       ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---tools
+¦   ¦       ¦   ¦   ¦   ¦       ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦       +---phoneNumbers
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---types
+¦   ¦       ¦   ¦   ¦   ¦       +---secrets
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---settings
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---sipTrunk
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---tests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---invocations
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦           +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---types
+¦   ¦       ¦   ¦   ¦   ¦       +---tools
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---twilio
+¦   ¦       ¦   ¦   ¦   ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦               +---requests
+¦   ¦       ¦   ¦   ¦   +---dubbing
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---audio
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---resource
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       +---language
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       +---segment
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       +---speaker
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦           ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦           +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦               +---segment
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦                   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦                       +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---transcript
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---types
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---forcedAlignment
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       +---requests
+¦   ¦       ¦   ¦   ¦   +---history
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---models
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   +---music
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---compositionPlan
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦           +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---pronunciationDictionaries
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---rules
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---types
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---samples
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   +---serviceAccounts
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦       +---apiKeys
+¦   ¦       ¦   ¦   ¦   ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦           ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦           +---types
+¦   ¦       ¦   ¦   ¦   +---speechToSpeech
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---speechToText
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---studio
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---projects
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   +---chapters
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   ¦       +---snapshots
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   ¦               +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   +---content
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   +---pronunciationDictionaries
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   +---snapshots
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦           +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---types
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---textToDialogue
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---textToSoundEffects
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---textToSpeech
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---textToVoice
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---preview
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---usage
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       +---requests
+¦   ¦       ¦   ¦   ¦   +---user
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦       +---subscription
+¦   ¦       ¦   ¦   ¦   ¦           +---client
+¦   ¦       ¦   ¦   ¦   +---v1TextToSpeechVoiceIdMultiStreamInput
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---v1TextToSpeechVoiceIdStreamInput
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---voices
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---ivc
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---pvc
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       +---samples
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       ¦       +---audio
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       ¦       +---speakers
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       ¦       ¦       +---audio
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       ¦       ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       ¦       +---waveform
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       +---verification
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦           ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦           +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦               +---captcha
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦                   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦                       +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---samples
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       +---audio
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---settings
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---webhooks
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       +---requests
+¦   ¦       ¦   ¦   ¦   +---workspace
+¦   ¦       ¦   ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦       +---resources
+¦   ¦       ¦   ¦   ¦           +---groups
+¦   ¦       ¦   ¦   ¦           ¦   +---client
+¦   ¦       ¦   ¦   ¦           ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦           ¦   +---resources
+¦   ¦       ¦   ¦   ¦           ¦       +---members
+¦   ¦       ¦   ¦   ¦           ¦           +---client
+¦   ¦       ¦   ¦   ¦           ¦               +---requests
+¦   ¦       ¦   ¦   ¦           +---invites
+¦   ¦       ¦   ¦   ¦           ¦   +---client
+¦   ¦       ¦   ¦   ¦           ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦           ¦   +---types
+¦   ¦       ¦   ¦   ¦           +---members
+¦   ¦       ¦   ¦   ¦           ¦   +---client
+¦   ¦       ¦   ¦   ¦           ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦           ¦   +---types
+¦   ¦       ¦   ¦   ¦           +---resources
+¦   ¦       ¦   ¦   ¦               +---client
+¦   ¦       ¦   ¦   ¦               ¦   +---requests
+¦   ¦       ¦   ¦   ¦               +---types
+¦   ¦       ¦   ¦   +---types
+¦   ¦       ¦   +---core
+¦   ¦       ¦   ¦   +---fetcher
+¦   ¦       ¦   ¦   +---form-data-utils
+¦   ¦       ¦   ¦   +---runtime
+¦   ¦       ¦   ¦   +---schemas
+¦   ¦       ¦   ¦   ¦   +---builders
+¦   ¦       ¦   ¦   ¦   ¦   +---bigint
+¦   ¦       ¦   ¦   ¦   ¦   +---date
+¦   ¦       ¦   ¦   ¦   ¦   +---enum
+¦   ¦       ¦   ¦   ¦   ¦   +---lazy
+¦   ¦       ¦   ¦   ¦   ¦   +---list
+¦   ¦       ¦   ¦   ¦   ¦   +---literals
+¦   ¦       ¦   ¦   ¦   ¦   +---object
+¦   ¦       ¦   ¦   ¦   ¦   +---object-like
+¦   ¦       ¦   ¦   ¦   ¦   +---primitives
+¦   ¦       ¦   ¦   ¦   ¦   +---record
+¦   ¦       ¦   ¦   ¦   ¦   +---schema-utils
+¦   ¦       ¦   ¦   ¦   ¦   +---set
+¦   ¦       ¦   ¦   ¦   ¦   +---undiscriminated-union
+¦   ¦       ¦   ¦   ¦   ¦   +---union
+¦   ¦       ¦   ¦   ¦   +---utils
+¦   ¦       ¦   ¦   +---stream
+¦   ¦       ¦   ¦   +---url
+¦   ¦       ¦   +---errors
+¦   ¦       ¦   +---serialization
+¦   ¦       ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   +---audioIsolation
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---conversationalAi
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦       +---agents
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---llmUsage
+¦   ¦       ¦   ¦   ¦   ¦       ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦               +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---batchCalls
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---conversations
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---feedback
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦           +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---types
+¦   ¦       ¦   ¦   ¦   ¦       +---dashboard
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---settings
+¦   ¦       ¦   ¦   ¦   ¦       ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦           ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦           +---types
+¦   ¦       ¦   ¦   ¦   ¦       +---knowledgeBase
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---document
+¦   ¦       ¦   ¦   ¦   ¦       ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---documents
+¦   ¦       ¦   ¦   ¦   ¦       ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦           ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦           +---types
+¦   ¦       ¦   ¦   ¦   ¦       +---llmUsage
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---mcpServers
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---approvalPolicy
+¦   ¦       ¦   ¦   ¦   ¦       ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---toolApprovals
+¦   ¦       ¦   ¦   ¦   ¦       ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦               +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---phoneNumbers
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---types
+¦   ¦       ¦   ¦   ¦   ¦       +---secrets
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---settings
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---sipTrunk
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---tests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---invocations
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦           +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---types
+¦   ¦       ¦   ¦   ¦   ¦       +---twilio
+¦   ¦       ¦   ¦   ¦   ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦               +---requests
+¦   ¦       ¦   ¦   ¦   +---dubbing
+¦   ¦       ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---resource
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       +---language
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       +---segment
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦       +---speaker
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦           ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦           +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦               +---segment
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦                   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦                       +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---transcript
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---types
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---history
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---models
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   +---music
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---compositionPlan
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦           +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---pronunciationDictionaries
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---rules
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---types
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---serviceAccounts
+¦   ¦       ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦       +---apiKeys
+¦   ¦       ¦   ¦   ¦   ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦           ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦           +---types
+¦   ¦       ¦   ¦   ¦   +---speechToSpeech
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---speechToText
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---studio
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---projects
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   +---chapters
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   ¦       +---snapshots
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   ¦               +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   +---pronunciationDictionaries
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   +---snapshots
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦           +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---types
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---textToDialogue
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---textToSoundEffects
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---textToSpeech
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---textToVoice
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---v1TextToSpeechVoiceIdMultiStreamInput
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---v1TextToSpeechVoiceIdStreamInput
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---voices
+¦   ¦       ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---pvc
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦           +---samples
+¦   ¦       ¦   ¦   ¦   ¦   ¦               +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦                   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   +---workspace
+¦   ¦       ¦   ¦   ¦       +---resources
+¦   ¦       ¦   ¦   ¦           +---groups
+¦   ¦       ¦   ¦   ¦           ¦   +---client
+¦   ¦       ¦   ¦   ¦           ¦   +---resources
+¦   ¦       ¦   ¦   ¦           ¦       +---members
+¦   ¦       ¦   ¦   ¦           ¦           +---client
+¦   ¦       ¦   ¦   ¦           ¦               +---requests
+¦   ¦       ¦   ¦   ¦           +---invites
+¦   ¦       ¦   ¦   ¦           ¦   +---client
+¦   ¦       ¦   ¦   ¦           ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦           ¦   +---types
+¦   ¦       ¦   ¦   ¦           +---members
+¦   ¦       ¦   ¦   ¦           ¦   +---client
+¦   ¦       ¦   ¦   ¦           ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦           ¦   +---types
+¦   ¦       ¦   ¦   ¦           +---resources
+¦   ¦       ¦   ¦   ¦               +---client
+¦   ¦       ¦   ¦   ¦               ¦   +---requests
+¦   ¦       ¦   ¦   ¦               +---types
+¦   ¦       ¦   ¦   +---types
+¦   ¦       ¦   +---wrapper
+¦   ¦       +---errors
+¦   ¦       +---scripts
+¦   ¦       +---serialization
+¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   +---audioIsolation
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---conversationalAi
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦       +---agents
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦       ¦       +---llmUsage
+¦   ¦       ¦   ¦   ¦       ¦           +---client
+¦   ¦       ¦   ¦   ¦       ¦               +---requests
+¦   ¦       ¦   ¦   ¦       +---batchCalls
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦       +---conversations
+¦   ¦       ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦       ¦   ¦   +---feedback
+¦   ¦       ¦   ¦   ¦       ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦       ¦   ¦           +---requests
+¦   ¦       ¦   ¦   ¦       ¦   +---types
+¦   ¦       ¦   ¦   ¦       +---dashboard
+¦   ¦       ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦       ¦       +---settings
+¦   ¦       ¦   ¦   ¦       ¦           +---client
+¦   ¦       ¦   ¦   ¦       ¦           ¦   +---requests
+¦   ¦       ¦   ¦   ¦       ¦           +---types
+¦   ¦       ¦   ¦   ¦       +---knowledgeBase
+¦   ¦       ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦       ¦       +---document
+¦   ¦       ¦   ¦   ¦       ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦       ¦       +---documents
+¦   ¦       ¦   ¦   ¦       ¦           +---client
+¦   ¦       ¦   ¦   ¦       ¦           ¦   +---requests
+¦   ¦       ¦   ¦   ¦       ¦           +---types
+¦   ¦       ¦   ¦   ¦       +---llmUsage
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦       +---mcpServers
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦       ¦       +---approvalPolicy
+¦   ¦       ¦   ¦   ¦       ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦       ¦       +---toolApprovals
+¦   ¦       ¦   ¦   ¦       ¦           +---client
+¦   ¦       ¦   ¦   ¦       ¦               +---requests
+¦   ¦       ¦   ¦   ¦       +---phoneNumbers
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦       ¦   +---types
+¦   ¦       ¦   ¦   ¦       +---secrets
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦       +---settings
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦       +---sipTrunk
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦       +---tests
+¦   ¦       ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   ¦       ¦   ¦   +---invocations
+¦   ¦       ¦   ¦   ¦       ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦       ¦   ¦           +---requests
+¦   ¦       ¦   ¦   ¦       ¦   +---types
+¦   ¦       ¦   ¦   ¦       +---twilio
+¦   ¦       ¦   ¦   ¦           +---client
+¦   ¦       ¦   ¦   ¦               +---requests
+¦   ¦       ¦   ¦   +---dubbing
+¦   ¦       ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   +---resource
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---language
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---segment
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦       ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦       +---speaker
+¦   ¦       ¦   ¦   ¦   ¦   ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦           ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦   ¦           +---resources
+¦   ¦       ¦   ¦   ¦   ¦   ¦               +---segment
+¦   ¦       ¦   ¦   ¦   ¦   ¦                   +---client
+¦   ¦       ¦   ¦   ¦   ¦   ¦                       +---requests
+¦   ¦       ¦   ¦   ¦   ¦   +---transcript
+¦   ¦       ¦   ¦   ¦   ¦       +---types
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---history
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---models
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   +---music
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   +---compositionPlan
+¦   ¦       ¦   ¦   ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦           +---requests
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---pronunciationDictionaries
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   +---rules
+¦   ¦       ¦   ¦   ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---types
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---serviceAccounts
+¦   ¦       ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦       +---apiKeys
+¦   ¦       ¦   ¦   ¦           +---client
+¦   ¦       ¦   ¦   ¦           ¦   +---requests
+¦   ¦       ¦   ¦   ¦           +---types
+¦   ¦       ¦   ¦   +---speechToSpeech
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---speechToText
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---studio
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   +---projects
+¦   ¦       ¦   ¦   ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---resources
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---chapters
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦       +---snapshots
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦           +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦               +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---pronunciationDictionaries
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   ¦       +---requests
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---snapshots
+¦   ¦       ¦   ¦   ¦   ¦       ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦           +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---types
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---textToDialogue
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---textToSoundEffects
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---textToSpeech
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---textToVoice
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---v1TextToSpeechVoiceIdMultiStreamInput
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---v1TextToSpeechVoiceIdStreamInput
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---voices
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   +---pvc
+¦   ¦       ¦   ¦   ¦   ¦       +---client
+¦   ¦       ¦   ¦   ¦   ¦       ¦   +---requests
+¦   ¦       ¦   ¦   ¦   ¦       +---resources
+¦   ¦       ¦   ¦   ¦   ¦           +---samples
+¦   ¦       ¦   ¦   ¦   ¦               +---client
+¦   ¦       ¦   ¦   ¦   ¦                   +---requests
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   +---workspace
+¦   ¦       ¦   ¦       +---resources
+¦   ¦       ¦   ¦           +---groups
+¦   ¦       ¦   ¦           ¦   +---client
+¦   ¦       ¦   ¦           ¦   +---resources
+¦   ¦       ¦   ¦           ¦       +---members
+¦   ¦       ¦   ¦           ¦           +---client
+¦   ¦       ¦   ¦           ¦               +---requests
+¦   ¦       ¦   ¦           +---invites
+¦   ¦       ¦   ¦           ¦   +---client
+¦   ¦       ¦   ¦           ¦   ¦   +---requests
+¦   ¦       ¦   ¦           ¦   +---types
+¦   ¦       ¦   ¦           +---members
+¦   ¦       ¦   ¦           ¦   +---client
+¦   ¦       ¦   ¦           ¦   ¦   +---requests
+¦   ¦       ¦   ¦           ¦   +---types
+¦   ¦       ¦   ¦           +---resources
+¦   ¦       ¦   ¦               +---client
+¦   ¦       ¦   ¦               ¦   +---requests
+¦   ¦       ¦   ¦               +---types
+¦   ¦       ¦   +---types
+¦   ¦       +---wrapper
+¦   +---@emnapi
+¦   +---@epic-web
+¦   ¦   +---invariant
+¦   ¦       +---dist
+¦   +---@esbuild
+¦   ¦   +---win32-x64
+¦   +---@eslint
+¦   ¦   +---eslintrc
+¦   ¦   ¦   +---conf
+¦   ¦   ¦   +---dist
+¦   ¦   ¦   +---lib
+¦   ¦   ¦       +---config-array
+¦   ¦   ¦       +---shared
+¦   ¦   +---js
+¦   ¦       +---src
+¦   ¦           +---configs
+¦   +---@eslint-community
+¦   ¦   +---eslint-utils
+¦   ¦   +---regexpp
+¦   +---@google
+¦   ¦   +---generative-ai
+¦   ¦       +---dist
+¦   ¦       ¦   +---server
+¦   ¦       ¦   ¦   +---src
+¦   ¦       ¦   ¦   ¦   +---methods
+¦   ¦       ¦   ¦   ¦   +---models
+¦   ¦       ¦   ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---server
+¦   ¦       ¦   ¦   +---types
+¦   ¦       ¦   ¦       +---server
+¦   ¦       ¦   +---src
+¦   ¦       ¦   ¦   +---methods
+¦   ¦       ¦   ¦   +---models
+¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   +---server
+¦   ¦       ¦   +---types
+¦   ¦       ¦       +---server
+¦   ¦       +---server
+¦   ¦       +---src
+¦   ¦       ¦   +---methods
+¦   ¦       ¦   +---models
+¦   ¦       ¦   +---requests
+¦   ¦       ¦   +---server
+¦   ¦       +---temp
+¦   ¦       ¦   +---main
+¦   ¦       ¦   +---server
+¦   ¦       +---test-integration
+¦   ¦       ¦   +---node
+¦   ¦       ¦   +---web
+¦   ¦       +---test-utils
+¦   ¦       ¦   +---mock-responses
+¦   ¦       +---types
+¦   ¦           +---server
+¦   +---@google-cloud
+¦   ¦   +---text-to-speech
+¦   ¦       +---build
+¦   ¦           +---protos
+¦   ¦           ¦   +---google
+¦   ¦           ¦       +---cloud
+¦   ¦           ¦           +---texttospeech
+¦   ¦           ¦               +---v1
+¦   ¦           ¦               +---v1beta1
+¦   ¦           +---src
+¦   ¦               +---v1
+¦   ¦               +---v1beta1
+¦   +---@grpc
+¦   ¦   +---grpc-js
+¦   ¦   ¦   +---build
+¦   ¦   ¦   ¦   +---src
+¦   ¦   ¦   ¦       +---generated
+¦   ¦   ¦   ¦           +---google
+¦   ¦   ¦   ¦           ¦   +---protobuf
+¦   ¦   ¦   ¦           +---grpc
+¦   ¦   ¦   ¦               +---channelz
+¦   ¦   ¦   ¦                   +---v1
+¦   ¦   ¦   +---node_modules
+¦   ¦   ¦   ¦   +---.bin
+¦   ¦   ¦   ¦   +---@grpc
+¦   ¦   ¦   ¦       +---proto-loader
+¦   ¦   ¦   ¦           +---build
+¦   ¦   ¦   ¦               +---bin
+¦   ¦   ¦   ¦               +---src
+¦   ¦   ¦   +---proto
+¦   ¦   ¦   +---src
+¦   ¦   ¦       +---generated
+¦   ¦   ¦           +---google
+¦   ¦   ¦           ¦   +---protobuf
+¦   ¦   ¦           +---grpc
+¦   ¦   ¦               +---channelz
+¦   ¦   ¦                   +---v1
+¦   ¦   +---proto-loader
+¦   ¦       +---build
+¦   ¦           +---bin
+¦   ¦           +---src
+¦   +---@hapi
+¦   ¦   +---hoek
+¦   ¦   ¦   +---lib
+¦   ¦   +---topo
+¦   ¦       +---lib
+¦   +---@hookform
+¦   ¦   +---resolvers
+¦   ¦       +---ajv
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---src
+¦   ¦       ¦       +---__tests__
+¦   ¦       ¦           +---__fixtures__
+¦   ¦       ¦           +---__snapshots__
+¦   ¦       +---arktype
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---src
+¦   ¦       ¦       +---__tests__
+¦   ¦       ¦           +---__fixtures__
+¦   ¦       ¦           +---__snapshots__
+¦   ¦       +---class-validator
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---src
+¦   ¦       ¦       +---__tests__
+¦   ¦       ¦           +---__fixtures__
+¦   ¦       ¦           +---__snapshots__
+¦   ¦       +---computed-types
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---src
+¦   ¦       ¦       +---__tests__
+¦   ¦       ¦           +---__fixtures__
+¦   ¦       ¦           +---__snapshots__
+¦   ¦       +---dist
+¦   ¦       +---effect-ts
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---src
+¦   ¦       ¦       +---__tests__
+¦   ¦       ¦           +---__fixtures__
+¦   ¦       ¦           +---__snapshots__
+¦   ¦       +---fluentvalidation-ts
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---src
+¦   ¦       ¦       +---__tests__
+¦   ¦       ¦           +---__fixtures__
+¦   ¦       ¦           +---__snapshots__
+¦   ¦       +---io-ts
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---src
+¦   ¦       ¦       +---__tests__
+¦   ¦       ¦           +---__fixtures__
+¦   ¦       ¦           +---__snapshots__
+¦   ¦       +---joi
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---src
+¦   ¦       ¦       +---__tests__
+¦   ¦       ¦           +---__fixtures__
+¦   ¦       ¦           +---__snapshots__
+¦   ¦       +---nope
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---src
+¦   ¦       ¦       +---__tests__
+¦   ¦       ¦           +---__fixtures__
+¦   ¦       ¦           +---__snapshots__
+¦   ¦       +---standard-schema
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---src
+¦   ¦       ¦       +---__tests__
+¦   ¦       ¦           +---__fixtures__
+¦   ¦       ¦           +---__snapshots__
+¦   ¦       +---superstruct
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---src
+¦   ¦       ¦       +---__tests__
+¦   ¦       ¦           +---__fixtures__
+¦   ¦       ¦           +---__snapshots__
+¦   ¦       +---typanion
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---src
+¦   ¦       ¦       +---__tests__
+¦   ¦       ¦           +---__fixtures__
+¦   ¦       ¦           +---__snapshots__
+¦   ¦       +---typebox
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---src
+¦   ¦       ¦       +---__tests__
+¦   ¦       ¦           +---__fixtures__
+¦   ¦       ¦           +---__snapshots__
+¦   ¦       +---typeschema
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---src
+¦   ¦       ¦       +---__tests__
+¦   ¦       ¦           +---__fixtures__
+¦   ¦       ¦           +---__snapshots__
+¦   ¦       +---valibot
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---src
+¦   ¦       ¦       +---__tests__
+¦   ¦       ¦           +---__fixtures__
+¦   ¦       ¦           +---__snapshots__
+¦   ¦       +---vest
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---src
+¦   ¦       ¦       +---__tests__
+¦   ¦       ¦           +---__fixtures__
+¦   ¦       ¦           +---__snapshots__
+¦   ¦       +---vine
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---src
+¦   ¦       ¦       +---__tests__
+¦   ¦       ¦           +---__fixtures__
+¦   ¦       ¦           +---__snapshots__
+¦   ¦       +---yup
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---src
+¦   ¦       ¦       +---__tests__
+¦   ¦       ¦           +---__fixtures__
+¦   ¦       ¦           +---__snapshots__
+¦   ¦       +---zod
+¦   ¦           +---dist
+¦   ¦           +---src
+¦   ¦               +---__tests__
+¦   ¦                   +---__fixtures__
+¦   ¦                   +---__snapshots__
+¦   +---@humanwhocodes
+¦   ¦   +---config-array
+¦   ¦   +---module-importer
+¦   ¦   ¦   +---dist
+¦   ¦   ¦   +---src
+¦   ¦   +---object-schema
+¦   ¦       +---src
+¦   +---@isaacs
+¦   ¦   +---cliui
+¦   ¦       +---build
+¦   ¦       ¦   +---lib
+¦   ¦       +---node_modules
+¦   ¦           +---ansi-regex
+¦   ¦           +---strip-ansi
+¦   +---@jridgewell
+¦   ¦   +---gen-mapping
+¦   ¦   ¦   +---dist
+¦   ¦   ¦   ¦   +---types
+¦   ¦   ¦   +---src
+¦   ¦   ¦   +---types
+¦   ¦   +---resolve-uri
+¦   ¦   ¦   +---dist
+¦   ¦   ¦       +---types
+¦   ¦   +---sourcemap-codec
+¦   ¦   ¦   +---dist
+¦   ¦   ¦   +---src
+¦   ¦   ¦   +---types
+¦   ¦   +---trace-mapping
+¦   ¦       +---dist
+¦   ¦       +---src
+¦   ¦       +---types
+¦   +---@js-sdsl
+¦   ¦   +---ordered-map
+¦   ¦       +---dist
+¦   ¦           +---cjs
+¦   ¦           +---esm
+¦   ¦           +---umd
+¦   +---@modelcontextprotocol
+¦   ¦   +---sdk
+¦   ¦       +---dist
+¦   ¦       ¦   +---cjs
+¦   ¦       ¦   ¦   +---client
+¦   ¦       ¦   ¦   +---examples
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   +---server
+¦   ¦       ¦   ¦   ¦   +---shared
+¦   ¦       ¦   ¦   +---server
+¦   ¦       ¦   ¦   ¦   +---auth
+¦   ¦       ¦   ¦   ¦       +---handlers
+¦   ¦       ¦   ¦   ¦       +---middleware
+¦   ¦       ¦   ¦   ¦       +---providers
+¦   ¦       ¦   ¦   +---shared
+¦   ¦       ¦   +---esm
+¦   ¦       ¦       +---client
+¦   ¦       ¦       +---examples
+¦   ¦       ¦       ¦   +---client
+¦   ¦       ¦       ¦   +---server
+¦   ¦       ¦       ¦   +---shared
+¦   ¦       ¦       +---server
+¦   ¦       ¦       ¦   +---auth
+¦   ¦       ¦       ¦       +---handlers
+¦   ¦       ¦       ¦       +---middleware
+¦   ¦       ¦       ¦       +---providers
+¦   ¦       ¦       +---shared
+¦   ¦       +---node_modules
+¦   ¦           +---accepts
+¦   ¦           +---body-parser
+¦   ¦           ¦   +---lib
+¦   ¦           ¦       +---types
+¦   ¦           +---content-disposition
+¦   ¦           +---cookie
+¦   ¦           +---cookie-signature
+¦   ¦           +---express
+¦   ¦           ¦   +---lib
+¦   ¦           +---finalhandler
+¦   ¦           +---fresh
+¦   ¦           +---iconv-lite
+¦   ¦           ¦   +---.github
+¦   ¦           ¦   +---.idea
+¦   ¦           ¦   ¦   +---codeStyles
+¦   ¦           ¦   ¦   +---inspectionProfiles
+¦   ¦           ¦   +---encodings
+¦   ¦           ¦   ¦   +---tables
+¦   ¦           ¦   +---lib
+¦   ¦           +---media-typer
+¦   ¦           +---merge-descriptors
+¦   ¦           +---mime-db
+¦   ¦           +---mime-types
+¦   ¦           +---negotiator
+¦   ¦           ¦   +---lib
+¦   ¦           +---send
+¦   ¦           +---serve-static
+¦   ¦           +---type-is
+¦   +---@napi-rs
+¦   +---@next
+¦   ¦   +---env
+¦   ¦   ¦   +---dist
+¦   ¦   +---eslint-plugin-next
+¦   ¦   ¦   +---dist
+¦   ¦   ¦       +---rules
+¦   ¦   ¦       +---utils
+¦   ¦   +---swc-win32-x64-msvc
+¦   +---@nodelib
+¦   ¦   +---fs.scandir
+¦   ¦   ¦   +---out
+¦   ¦   ¦       +---adapters
+¦   ¦   ¦       +---providers
+¦   ¦   ¦       +---types
+¦   ¦   ¦       +---utils
+¦   ¦   +---fs.stat
+¦   ¦   ¦   +---out
+¦   ¦   ¦       +---adapters
+¦   ¦   ¦       +---providers
+¦   ¦   ¦       +---types
+¦   ¦   +---fs.walk
+¦   ¦       +---out
+¦   ¦           +---providers
+¦   ¦           +---readers
+¦   ¦           +---types
+¦   +---@nolyfill
+¦   ¦   +---is-core-module
+¦   +---@pkgjs
+¦   ¦   +---parseargs
+¦   ¦       +---examples
+¦   ¦       +---internal
+¦   +---@protobufjs
+¦   ¦   +---aspromise
+¦   ¦   ¦   +---tests
+¦   ¦   +---base64
+¦   ¦   ¦   +---tests
+¦   ¦   +---codegen
+¦   ¦   ¦   +---tests
+¦   ¦   +---eventemitter
+¦   ¦   ¦   +---tests
+¦   ¦   +---fetch
+¦   ¦   ¦   +---tests
+¦   ¦   +---float
+¦   ¦   ¦   +---bench
+¦   ¦   ¦   +---tests
+¦   ¦   +---inquire
+¦   ¦   ¦   +---tests
+¦   ¦   ¦       +---data
+¦   ¦   +---path
+¦   ¦   ¦   +---tests
+¦   ¦   +---pool
+¦   ¦   ¦   +---tests
+¦   ¦   +---utf8
+¦   ¦       +---tests
+¦   ¦           +---data
+¦   +---@puppeteer
+¦   ¦   +---browsers
+¦   ¦       +---lib
+¦   ¦       ¦   +---cjs
+¦   ¦       ¦   ¦   +---browser-data
+¦   ¦       ¦   ¦   +---generated
+¦   ¦       ¦   +---esm
+¦   ¦       ¦       +---browser-data
+¦   ¦       ¦       +---generated
+¦   ¦       +---src
+¦   ¦           +---browser-data
+¦   ¦           +---generated
+¦   ¦           +---templates
+¦   +---@radix-ui
+¦   ¦   +---primitive
+¦   ¦   ¦   +---dist
+¦   ¦   +---react-collection
+¦   ¦   ¦   +---dist
+¦   ¦   +---react-compose-refs
+¦   ¦   ¦   +---dist
+¦   ¦   +---react-context
+¦   ¦   ¦   +---dist
+¦   ¦   +---react-dismissable-layer
+¦   ¦   ¦   +---dist
+¦   ¦   +---react-label
+¦   ¦   ¦   +---dist
+¦   ¦   +---react-portal
+¦   ¦   ¦   +---dist
+¦   ¦   +---react-presence
+¦   ¦   ¦   +---dist
+¦   ¦   +---react-primitive
+¦   ¦   ¦   +---dist
+¦   ¦   +---react-slot
+¦   ¦   ¦   +---dist
+¦   ¦   +---react-toast
+¦   ¦   ¦   +---dist
+¦   ¦   +---react-use-callback-ref
+¦   ¦   ¦   +---dist
+¦   ¦   +---react-use-controllable-state
+¦   ¦   ¦   +---dist
+¦   ¦   +---react-use-effect-event
+¦   ¦   ¦   +---dist
+¦   ¦   ¦   +---src
+¦   ¦   +---react-use-escape-keydown
+¦   ¦   ¦   +---dist
+¦   ¦   +---react-use-layout-effect
+¦   ¦   ¦   +---dist
+¦   ¦   +---react-visually-hidden
+¦   ¦       +---dist
+¦   +---@rollup
+¦   ¦   +---rollup-win32-x64-msvc
+¦   +---@rtsao
+¦   ¦   +---scc
+¦   +---@rushstack
+¦   ¦   +---eslint-patch
+¦   ¦       +---lib
+¦   ¦           +---eslint-bulk-suppressions
+¦   ¦           ¦   +---cli
+¦   ¦           ¦       +---utils
+¦   ¦           +---exports
+¦   +---@sideway
+¦   ¦   +---address
+¦   ¦   ¦   +---lib
+¦   ¦   +---formula
+¦   ¦   ¦   +---lib
+¦   ¦   +---pinpoint
+¦   ¦       +---lib
+¦   +---@standard-schema
+¦   ¦   +---utils
+¦   ¦       +---dist
+¦   +---@supabase
+¦   ¦   +---auth-js
+¦   ¦   ¦   +---dist
+¦   ¦   ¦   ¦   +---main
+¦   ¦   ¦   ¦   ¦   +---lib
+¦   ¦   ¦   ¦   +---module
+¦   ¦   ¦   ¦       +---lib
+¦   ¦   ¦   +---src
+¦   ¦   ¦       +---lib
+¦   ¦   +---functions-js
+¦   ¦   ¦   +---dist
+¦   ¦   ¦   ¦   +---main
+¦   ¦   ¦   ¦   +---module
+¦   ¦   ¦   +---src
+¦   ¦   +---node-fetch
+¦   ¦   ¦   +---lib
+¦   ¦   +---postgrest-js
+¦   ¦   ¦   +---dist
+¦   ¦   ¦   ¦   +---cjs
+¦   ¦   ¦   ¦   ¦   +---select-query-parser
+¦   ¦   ¦   ¦   +---esm
+¦   ¦   ¦   +---src
+¦   ¦   ¦       +---select-query-parser
+¦   ¦   +---realtime-js
+¦   ¦   ¦   +---dist
+¦   ¦   ¦   ¦   +---main
+¦   ¦   ¦   ¦   ¦   +---lib
+¦   ¦   ¦   ¦   +---module
+¦   ¦   ¦   ¦       +---lib
+¦   ¦   ¦   +---src
+¦   ¦   ¦       +---lib
+¦   ¦   +---ssr
+¦   ¦   ¦   +---dist
+¦   ¦   ¦   ¦   +---main
+¦   ¦   ¦   ¦   ¦   +---utils
+¦   ¦   ¦   ¦   +---module
+¦   ¦   ¦   ¦       +---utils
+¦   ¦   ¦   +---docs
+¦   ¦   ¦   +---src
+¦   ¦   ¦       +---utils
+¦   ¦   +---storage-js
+¦   ¦   ¦   +---dist
+¦   ¦   ¦   ¦   +---main
+¦   ¦   ¦   ¦   ¦   +---lib
+¦   ¦   ¦   ¦   ¦   +---packages
+¦   ¦   ¦   ¦   +---module
+¦   ¦   ¦   ¦   ¦   +---lib
+¦   ¦   ¦   ¦   ¦   +---packages
+¦   ¦   ¦   ¦   +---umd
+¦   ¦   ¦   +---src
+¦   ¦   ¦       +---lib
+¦   ¦   ¦       +---packages
+¦   ¦   +---supabase-js
+¦   ¦       +---dist
+¦   ¦       ¦   +---main
+¦   ¦       ¦   ¦   +---lib
+¦   ¦       ¦   +---module
+¦   ¦       ¦   ¦   +---lib
+¦   ¦       ¦   +---umd
+¦   ¦       +---src
+¦   ¦           +---lib
+¦   +---@swc
+¦   ¦   +---counter
+¦   ¦   +---helpers
+¦   ¦       +---cjs
+¦   ¦       +---esm
+¦   ¦       +---scripts
+¦   ¦       +---src
+¦   ¦       +---_
+¦   ¦           +---index
+¦   ¦           +---_apply_decorated_descriptor
+¦   ¦           +---_apply_decs_2203_r
+¦   ¦           +---_array_like_to_array
+¦   ¦           +---_array_without_holes
+¦   ¦           +---_array_with_holes
+¦   ¦           +---_assert_this_initialized
+¦   ¦           +---_async_generator
+¦   ¦           +---_async_generator_delegate
+¦   ¦           +---_async_iterator
+¦   ¦           +---_async_to_generator
+¦   ¦           +---_await_async_generator
+¦   ¦           +---_await_value
+¦   ¦           +---_check_private_redeclaration
+¦   ¦           +---_class_apply_descriptor_destructure
+¦   ¦           +---_class_apply_descriptor_get
+¦   ¦           +---_class_apply_descriptor_set
+¦   ¦           +---_class_apply_descriptor_update
+¦   ¦           +---_class_call_check
+¦   ¦           +---_class_check_private_static_access
+¦   ¦           +---_class_check_private_static_field_descriptor
+¦   ¦           +---_class_extract_field_descriptor
+¦   ¦           +---_class_name_tdz_error
+¦   ¦           +---_class_private_field_destructure
+¦   ¦           +---_class_private_field_get
+¦   ¦           +---_class_private_field_init
+¦   ¦           +---_class_private_field_loose_base
+¦   ¦           +---_class_private_field_loose_key
+¦   ¦           +---_class_private_field_set
+¦   ¦           +---_class_private_field_update
+¦   ¦           +---_class_private_method_get
+¦   ¦           +---_class_private_method_init
+¦   ¦           +---_class_private_method_set
+¦   ¦           +---_class_static_private_field_destructure
+¦   ¦           +---_class_static_private_field_spec_get
+¦   ¦           +---_class_static_private_field_spec_set
+¦   ¦           +---_class_static_private_field_update
+¦   ¦           +---_class_static_private_method_get
+¦   ¦           +---_construct
+¦   ¦           +---_create_class
+¦   ¦           +---_create_for_of_iterator_helper_loose
+¦   ¦           +---_create_super
+¦   ¦           +---_decorate
+¦   ¦           +---_defaults
+¦   ¦           +---_define_enumerable_properties
+¦   ¦           +---_define_property
+¦   ¦           +---_dispose
+¦   ¦           +---_export_star
+¦   ¦           +---_extends
+¦   ¦           +---_get
+¦   ¦           +---_get_prototype_of
+¦   ¦           +---_inherits
+¦   ¦           +---_inherits_loose
+¦   ¦           +---_initializer_define_property
+¦   ¦           +---_initializer_warning_helper
+¦   ¦           +---_instanceof
+¦   ¦           +---_interop_require_default
+¦   ¦           +---_interop_require_wildcard
+¦   ¦           +---_is_native_function
+¦   ¦           +---_is_native_reflect_construct
+¦   ¦           +---_iterable_to_array
+¦   ¦           +---_iterable_to_array_limit
+¦   ¦           +---_iterable_to_array_limit_loose
+¦   ¦           +---_jsx
+¦   ¦           +---_new_arrow_check
+¦   ¦           +---_non_iterable_rest
+¦   ¦           +---_non_iterable_spread
+¦   ¦           +---_object_destructuring_empty
+¦   ¦           +---_object_spread
+¦   ¦           +---_object_spread_props
+¦   ¦           +---_object_without_properties
+¦   ¦           +---_object_without_properties_loose
+¦   ¦           +---_possible_constructor_return
+¦   ¦           +---_read_only_error
+¦   ¦           +---_set
+¦   ¦           +---_set_prototype_of
+¦   ¦           +---_skip_first_generator_next
+¦   ¦           +---_sliced_to_array
+¦   ¦           +---_sliced_to_array_loose
+¦   ¦           +---_super_prop_base
+¦   ¦           +---_tagged_template_literal
+¦   ¦           +---_tagged_template_literal_loose
+¦   ¦           +---_throw
+¦   ¦           +---_to_array
+¦   ¦           +---_to_consumable_array
+¦   ¦           +---_to_primitive
+¦   ¦           +---_to_property_key
+¦   ¦           +---_ts_decorate
+¦   ¦           +---_ts_generator
+¦   ¦           +---_ts_metadata
+¦   ¦           +---_ts_param
+¦   ¦           +---_ts_values
+¦   ¦           +---_type_of
+¦   ¦           +---_unsupported_iterable_to_array
+¦   ¦           +---_update
+¦   ¦           +---_using
+¦   ¦           +---_wrap_async_generator
+¦   ¦           +---_wrap_native_super
+¦   ¦           +---_write_only_error
+¦   +---@tootallnate
+¦   ¦   +---once
+¦   ¦   ¦   +---dist
+¦   ¦   +---quickjs-emscripten
+¦   ¦       +---c
+¦   ¦       +---dist
+¦   ¦           +---generated
+¦   +---@tsconfig
+¦   ¦   +---node10
+¦   ¦   +---node12
+¦   ¦   +---node14
+¦   ¦   +---node16
+¦   +---@tybys
+¦   +---@types
+¦   ¦   +---body-parser
+¦   ¦   +---chai
+¦   ¦   +---connect
+¦   ¦   +---cookie
+¦   ¦   +---cors
+¦   ¦   +---debug
+¦   ¦   +---deep-eql
+¦   ¦   +---estree
+¦   ¦   +---express
+¦   ¦   +---express-serve-static-core
+¦   ¦   +---http-errors
+¦   ¦   +---is-plain-object
+¦   ¦   +---json5
+¦   ¦   +---marked
+¦   ¦   +---mime
+¦   ¦   +---ms
+¦   ¦   +---node
+¦   ¦   ¦   +---assert
+¦   ¦   ¦   +---compatibility
+¦   ¦   ¦   +---dns
+¦   ¦   ¦   +---fs
+¦   ¦   ¦   +---readline
+¦   ¦   ¦   +---stream
+¦   ¦   ¦   +---timers
+¦   ¦   ¦   +---ts5.6
+¦   ¦   ¦   ¦   +---compatibility
+¦   ¦   ¦   +---ts5.7
+¦   ¦   ¦       +---compatibility
+¦   ¦   +---node-fetch
+¦   ¦   +---phoenix
+¦   ¦   +---prop-types
+¦   ¦   +---qs
+¦   ¦   +---range-parser
+¦   ¦   +---react
+¦   ¦   ¦   +---ts5.0
+¦   ¦   +---react-dom
+¦   ¦   ¦   +---test-utils
+¦   ¦   +---selenium-webdriver
+¦   ¦   ¦   +---bidi
+¦   ¦   ¦   +---devtools
+¦   ¦   ¦   +---lib
+¦   ¦   +---send
+¦   ¦   +---serve-static
+¦   ¦   +---ws
+¦   ¦   +---yauzl
+¦   +---@typescript-eslint
+¦   ¦   +---parser
+¦   ¦   ¦   +---dist
+¦   ¦   +---scope-manager
+¦   ¦   ¦   +---dist
+¦   ¦   ¦       +---definition
+¦   ¦   ¦       +---lib
+¦   ¦   ¦       +---referencer
+¦   ¦   ¦       +---scope
+¦   ¦   ¦       +---variable
+¦   ¦   +---types
+¦   ¦   ¦   +---dist
+¦   ¦   ¦       +---generated
+¦   ¦   +---typescript-estree
+¦   ¦   ¦   +---dist
+¦   ¦   ¦   ¦   +---create-program
+¦   ¦   ¦   ¦   +---jsx
+¦   ¦   ¦   ¦   +---parseSettings
+¦   ¦   ¦   ¦   +---ts-estree
+¦   ¦   ¦   +---node_modules
+¦   ¦   ¦       +---brace-expansion
+¦   ¦   ¦       ¦   +---.github
+¦   ¦   ¦       +---minimatch
+¦   ¦   ¦           +---dist
+¦   ¦   ¦               +---cjs
+¦   ¦   ¦               +---mjs
+¦   ¦   +---visitor-keys
+¦   ¦       +---dist
+¦   +---@ungap
+¦   ¦   +---structured-clone
+¦   ¦       +---.github
+¦   ¦       ¦   +---workflows
+¦   ¦       +---cjs
+¦   ¦       +---esm
+¦   +---@unrs
+¦   ¦   +---resolver-binding-win32-x64-msvc
+¦   +---@vitest
+¦   ¦   +---expect
+¦   ¦   ¦   +---dist
+¦   ¦   +---mocker
+¦   ¦   ¦   +---dist
+¦   ¦   +---pretty-format
+¦   ¦   ¦   +---dist
+¦   ¦   +---runner
+¦   ¦   ¦   +---dist
+¦   ¦   +---snapshot
+¦   ¦   ¦   +---dist
+¦   ¦   +---spy
+¦   ¦   ¦   +---dist
+¦   ¦   +---utils
+¦   ¦       +---dist
+¦   +---abort-controller
+¦   ¦   +---dist
+¦   +---accepts
+¦   +---acorn
+¦   ¦   +---bin
+¦   ¦   +---dist
+¦   +---acorn-jsx
+¦   +---acorn-walk
+¦   ¦   +---dist
+¦   +---agent-base
+¦   ¦   +---dist
+¦   +---agentkeepalive
+¦   ¦   +---lib
+¦   +---ajv
+¦   ¦   +---dist
+¦   ¦   +---lib
+¦   ¦   ¦   +---compile
+¦   ¦   ¦   +---dot
+¦   ¦   ¦   +---dotjs
+¦   ¦   ¦   +---refs
+¦   ¦   +---scripts
+¦   +---ansi-regex
+¦   +---ansi-styles
+¦   +---any-promise
+¦   ¦   +---register
+¦   +---anymatch
+¦   +---arg
+¦   +---argparse
+¦   ¦   +---lib
+¦   +---aria-query
+¦   ¦   +---lib
+¦   ¦       +---etc
+¦   ¦       ¦   +---roles
+¦   ¦       ¦       +---abstract
+¦   ¦       ¦       +---dpub
+¦   ¦       ¦       +---graphics
+¦   ¦       ¦       +---literal
+¦   ¦       +---util
+¦   +---arr-union
+¦   +---array-buffer-byte-length
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---array-flatten
+¦   +---array-includes
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---array-union
+¦   +---array.prototype.findlast
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---array.prototype.findlastindex
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---array.prototype.flat
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---array.prototype.flatmap
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---array.prototype.tosorted
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---arraybuffer.prototype.slice
+¦   ¦   +---test
+¦   +---assertion-error
+¦   +---ast-types
+¦   ¦   +---.github
+¦   ¦   ¦   +---workflows
+¦   ¦   +---def
+¦   ¦   +---gen
+¦   ¦   +---lib
+¦   +---ast-types-flow
+¦   ¦   +---lib
+¦   +---async-function
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---asynckit
+¦   ¦   +---lib
+¦   +---autoprefixer
+¦   ¦   +---bin
+¦   ¦   +---data
+¦   ¦   +---lib
+¦   ¦       +---hacks
+¦   +---available-typed-arrays
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---axe-core
+¦   ¦   +---locales
+¦   +---axios
+¦   ¦   +---dist
+¦   ¦   ¦   +---browser
+¦   ¦   ¦   +---esm
+¦   ¦   ¦   +---node
+¦   ¦   +---lib
+¦   ¦       +---adapters
+¦   ¦       +---cancel
+¦   ¦       +---core
+¦   ¦       +---defaults
+¦   ¦       +---env
+¦   ¦       ¦   +---classes
+¦   ¦       +---helpers
+¦   ¦       +---platform
+¦   ¦           +---browser
+¦   ¦           ¦   +---classes
+¦   ¦           +---common
+¦   ¦           +---node
+¦   ¦               +---classes
+¦   +---axobject-query
+¦   ¦   +---lib
+¦   ¦       +---etc
+¦   ¦       ¦   +---objects
+¦   ¦       +---util
+¦   +---b4a
+¦   ¦   +---lib
+¦   +---balanced-match
+¦   ¦   +---.github
+¦   +---bare-events
+¦   ¦   +---lib
+¦   +---bare-fs
+¦   ¦   +---lib
+¦   ¦   +---prebuilds
+¦   ¦       +---android-arm
+¦   ¦       +---android-arm64
+¦   ¦       +---android-ia32
+¦   ¦       +---android-x64
+¦   ¦       +---darwin-arm64
+¦   ¦       +---darwin-x64
+¦   ¦       +---ios-arm64
+¦   ¦       +---ios-arm64-simulator
+¦   ¦       +---ios-x64-simulator
+¦   ¦       +---linux-arm64
+¦   ¦       +---linux-x64
+¦   ¦       +---win32-arm64
+¦   ¦       +---win32-x64
+¦   +---bare-os
+¦   ¦   +---lib
+¦   ¦   +---prebuilds
+¦   ¦       +---android-arm
+¦   ¦       +---android-arm64
+¦   ¦       +---android-ia32
+¦   ¦       +---android-x64
+¦   ¦       +---darwin-arm64
+¦   ¦       +---darwin-x64
+¦   ¦       +---ios-arm64
+¦   ¦       +---ios-arm64-simulator
+¦   ¦       +---ios-x64-simulator
+¦   ¦       +---linux-arm64
+¦   ¦       +---linux-x64
+¦   ¦       +---win32-arm64
+¦   ¦       +---win32-x64
+¦   +---bare-path
+¦   ¦   +---lib
+¦   +---bare-stream
+¦   +---base64-js
+¦   +---basic-ftp
+¦   ¦   +---dist
+¦   +---bignumber.js
+¦   ¦   +---doc
+¦   +---binary-extensions
+¦   +---body-parser
+¦   ¦   +---lib
+¦   ¦   ¦   +---types
+¦   ¦   +---node_modules
+¦   ¦       +---debug
+¦   ¦       ¦   +---src
+¦   ¦       +---ms
+¦   ¦       +---qs
+¦   ¦       ¦   +---.github
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---lib
+¦   ¦       ¦   +---test
+¦   ¦       +---raw-body
+¦   +---brace-expansion
+¦   +---braces
+¦   ¦   +---lib
+¦   +---browserslist
+¦   +---buffer-crc32
+¦   +---buffer-equal-constant-time
+¦   +---busboy
+¦   ¦   +---.github
+¦   ¦   ¦   +---workflows
+¦   ¦   +---bench
+¦   ¦   +---lib
+¦   ¦   ¦   +---types
+¦   ¦   +---test
+¦   +---bytes
+¦   +---cac
+¦   ¦   +---deno
+¦   ¦   +---dist
+¦   +---call-bind
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---call-bind-apply-helpers
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---call-bound
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---callsites
+¦   +---camelcase-css
+¦   +---caniuse-lite
+¦   ¦   +---data
+¦   ¦   ¦   +---features
+¦   ¦   ¦   +---regions
+¦   ¦   +---dist
+¦   ¦       +---lib
+¦   ¦       +---unpacker
+¦   +---chai
+¦   ¦   +---lib
+¦   ¦       +---chai
+¦   ¦           +---core
+¦   ¦           +---interface
+¦   ¦           +---utils
+¦   +---chalk
+¦   ¦   +---node_modules
+¦   ¦   ¦   +---supports-color
+¦   ¦   +---source
+¦   +---check-error
+¦   +---chokidar
+¦   ¦   +---lib
+¦   ¦   +---node_modules
+¦   ¦   ¦   +---glob-parent
+¦   ¦   +---types
+¦   +---chromium-bidi
+¦   ¦   +---lib
+¦   ¦       +---cjs
+¦   ¦       ¦   +---bidiMapper
+¦   ¦       ¦   ¦   +---modules
+¦   ¦       ¦   ¦       +---bluetooth
+¦   ¦       ¦   ¦       +---browser
+¦   ¦       ¦   ¦       +---cdp
+¦   ¦       ¦   ¦       +---context
+¦   ¦       ¦   ¦       +---emulation
+¦   ¦       ¦   ¦       +---input
+¦   ¦       ¦   ¦       +---log
+¦   ¦       ¦   ¦       +---network
+¦   ¦       ¦   ¦       +---permissions
+¦   ¦       ¦   ¦       +---script
+¦   ¦       ¦   ¦       +---session
+¦   ¦       ¦   ¦       +---storage
+¦   ¦       ¦   ¦       +---webExtension
+¦   ¦       ¦   +---bidiTab
+¦   ¦       ¦   +---cdp
+¦   ¦       ¦   +---protocol
+¦   ¦       ¦   ¦   +---generated
+¦   ¦       ¦   +---protocol-parser
+¦   ¦       ¦   ¦   +---generated
+¦   ¦       ¦   +---utils
+¦   ¦       +---esm
+¦   ¦       ¦   +---bidiMapper
+¦   ¦       ¦   ¦   +---modules
+¦   ¦       ¦   ¦       +---bluetooth
+¦   ¦       ¦   ¦       +---browser
+¦   ¦       ¦   ¦       +---cdp
+¦   ¦       ¦   ¦       +---context
+¦   ¦       ¦   ¦       +---emulation
+¦   ¦       ¦   ¦       +---input
+¦   ¦       ¦   ¦       +---log
+¦   ¦       ¦   ¦       +---network
+¦   ¦       ¦   ¦       +---permissions
+¦   ¦       ¦   ¦       +---script
+¦   ¦       ¦   ¦       +---session
+¦   ¦       ¦   ¦       +---storage
+¦   ¦       ¦   ¦       +---webExtension
+¦   ¦       ¦   +---bidiServer
+¦   ¦       ¦   +---bidiTab
+¦   ¦       ¦   +---cdp
+¦   ¦       ¦   +---protocol
+¦   ¦       ¦   ¦   +---generated
+¦   ¦       ¦   +---protocol-parser
+¦   ¦       ¦   ¦   +---generated
+¦   ¦       ¦   +---utils
+¦   ¦       +---iife
+¦   +---class-variance-authority
+¦   ¦   +---dist
+¦   +---client-only
+¦   +---cliui
+¦   ¦   +---build
+¦   ¦   ¦   +---lib
+¦   ¦   +---node_modules
+¦   ¦       +---emoji-regex
+¦   ¦       ¦   +---es2015
+¦   ¦       +---string-width
+¦   ¦       +---wrap-ansi
+¦   +---clone-deep
+¦   ¦   +---node_modules
+¦   ¦       +---is-plain-object
+¦   +---clsx
+¦   ¦   +---dist
+¦   +---color-convert
+¦   +---color-name
+¦   +---combined-stream
+¦   ¦   +---lib
+¦   +---command-exists
+¦   ¦   +---lib
+¦   ¦   +---test
+¦   +---commander
+¦   ¦   +---typings
+¦   +---concat-map
+¦   ¦   +---example
+¦   ¦   +---test
+¦   +---concurrently
+¦   ¦   +---dist
+¦   ¦   ¦   +---bin
+¦   ¦   ¦   +---src
+¦   ¦   ¦       +---command-parser
+¦   ¦   ¦       +---flow-control
+¦   ¦   +---docs
+¦   ¦       +---cli
+¦   +---content-disposition
+¦   +---content-type
+¦   +---cookie
+¦   ¦   +---dist
+¦   +---cookie-signature
+¦   +---cookies-next
+¦   ¦   +---lib
+¦   ¦   +---node_modules
+¦   ¦   ¦   +---cookie
+¦   ¦   +---src
+¦   +---core-util-is
+¦   ¦   +---lib
+¦   +---cors
+¦   ¦   +---lib
+¦   +---cosmiconfig
+¦   ¦   +---dist
+¦   +---create-require
+¦   +---cross-env
+¦   ¦   +---dist
+¦   ¦       +---bin
+¦   +---cross-spawn
+¦   ¦   +---lib
+¦   ¦       +---util
+¦   +---cssesc
+¦   ¦   +---bin
+¦   ¦   +---man
+¦   +---csstype
+¦   +---damerau-levenshtein
+¦   ¦   +---scripts
+¦   ¦   +---test
+¦   +---data-uri-to-buffer
+¦   ¦   +---dist
+¦   +---data-view-buffer
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---data-view-byte-length
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---data-view-byte-offset
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---debug
+¦   ¦   +---src
+¦   +---deep-eql
+¦   +---deep-is
+¦   ¦   +---example
+¦   ¦   +---test
+¦   +---deepmerge
+¦   ¦   +---dist
+¦   +---define-data-property
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---define-properties
+¦   ¦   +---.github
+¦   +---degenerator
+¦   ¦   +---dist
+¦   +---delayed-stream
+¦   ¦   +---lib
+¦   +---depd
+¦   ¦   +---lib
+¦   ¦       +---browser
+¦   +---destroy
+¦   +---devtools-protocol
+¦   ¦   +---json
+¦   ¦   +---pdl
+¦   ¦   +---types
+¦   +---didyoumean
+¦   +---diff
+¦   ¦   +---dist
+¦   ¦   +---lib
+¦   ¦       +---convert
+¦   ¦       +---diff
+¦   ¦       +---patch
+¦   ¦       +---util
+¦   +---dir-glob
+¦   +---dlv
+¦   ¦   +---dist
+¦   +---doctrine
+¦   ¦   +---lib
+¦   +---dotenv
+¦   ¦   +---lib
+¦   +---dunder-proto
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---duplexify
+¦   ¦   +---node_modules
+¦   ¦       +---readable-stream
+¦   ¦           +---lib
+¦   ¦               +---internal
+¦   ¦                   +---streams
+¦   +---eastasianwidth
+¦   +---ecdsa-sig-formatter
+¦   ¦   +---src
+¦   +---ee-first
+¦   +---electron-to-chromium
+¦   +---emoji-regex
+¦   ¦   +---es2015
+¦   +---encodeurl
+¦   +---end-of-stream
+¦   +---env-paths
+¦   +---error-ex
+¦   +---es-abstract
+¦   ¦   +---2015
+¦   ¦   ¦   +---tables
+¦   ¦   +---2016
+¦   ¦   ¦   +---tables
+¦   ¦   +---2017
+¦   ¦   ¦   +---tables
+¦   ¦   +---2018
+¦   ¦   ¦   +---tables
+¦   ¦   +---2019
+¦   ¦   ¦   +---tables
+¦   ¦   +---2020
+¦   ¦   ¦   +---BigInt
+¦   ¦   ¦   +---Number
+¦   ¦   ¦   +---tables
+¦   ¦   +---2021
+¦   ¦   ¦   +---BigInt
+¦   ¦   ¦   +---Number
+¦   ¦   ¦   +---tables
+¦   ¦   +---2022
+¦   ¦   ¦   +---BigInt
+¦   ¦   ¦   +---Number
+¦   ¦   ¦   +---tables
+¦   ¦   +---2023
+¦   ¦   ¦   +---BigInt
+¦   ¦   ¦   +---Number
+¦   ¦   ¦   +---tables
+¦   ¦   +---2024
+¦   ¦   ¦   +---BigInt
+¦   ¦   ¦   +---Number
+¦   ¦   ¦   +---tables
+¦   ¦   +---2025
+¦   ¦   ¦   +---BigInt
+¦   ¦   ¦   +---Number
+¦   ¦   ¦   +---tables
+¦   ¦   +---5
+¦   ¦   +---helpers
+¦   ¦   ¦   +---records
+¦   ¦   +---operations
+¦   +---es-define-property
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---es-errors
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---es-iterator-helpers
+¦   ¦   +---.github
+¦   ¦   +---aos
+¦   ¦   +---Iterator
+¦   ¦   +---Iterator.concat
+¦   ¦   +---Iterator.from
+¦   ¦   +---Iterator.prototype
+¦   ¦   +---Iterator.prototype.constructor
+¦   ¦   +---Iterator.prototype.drop
+¦   ¦   +---Iterator.prototype.every
+¦   ¦   +---Iterator.prototype.filter
+¦   ¦   +---Iterator.prototype.find
+¦   ¦   +---Iterator.prototype.flatMap
+¦   ¦   +---Iterator.prototype.forEach
+¦   ¦   +---Iterator.prototype.map
+¦   ¦   +---Iterator.prototype.reduce
+¦   ¦   +---Iterator.prototype.some
+¦   ¦   +---Iterator.prototype.take
+¦   ¦   +---Iterator.prototype.toArray
+¦   ¦   +---Iterator.zip
+¦   ¦   +---Iterator.zipKeyed
+¦   ¦   +---IteratorHelperPrototype
+¦   ¦   +---test
+¦   ¦   ¦   +---helpers
+¦   ¦   +---WrapForValidIteratorPrototype
+¦   +---es-module-lexer
+¦   ¦   +---dist
+¦   ¦   +---types
+¦   +---es-object-atoms
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---es-set-tostringtag
+¦   ¦   +---test
+¦   +---es-shim-unscopables
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---es-to-primitive
+¦   ¦   +---.github
+¦   ¦   +---helpers
+¦   ¦   +---test
+¦   +---esbuild
+¦   ¦   +---bin
+¦   ¦   +---lib
+¦   +---escalade
+¦   ¦   +---dist
+¦   ¦   +---sync
+¦   +---escape-html
+¦   +---escape-string-regexp
+¦   +---escodegen
+¦   ¦   +---bin
+¦   +---eslint
+¦   ¦   +---bin
+¦   ¦   +---conf
+¦   ¦   +---lib
+¦   ¦   ¦   +---cli-engine
+¦   ¦   ¦   ¦   +---formatters
+¦   ¦   ¦   +---config
+¦   ¦   ¦   +---eslint
+¦   ¦   ¦   +---linter
+¦   ¦   ¦   ¦   +---code-path-analysis
+¦   ¦   ¦   +---rule-tester
+¦   ¦   ¦   +---rules
+¦   ¦   ¦   ¦   +---utils
+¦   ¦   ¦   ¦       +---patterns
+¦   ¦   ¦   ¦       +---unicode
+¦   ¦   ¦   +---shared
+¦   ¦   ¦   +---source-code
+¦   ¦   ¦       +---token-store
+¦   ¦   +---messages
+¦   +---eslint-config-next
+¦   +---eslint-import-resolver-node
+¦   ¦   +---node_modules
+¦   ¦       +---debug
+¦   ¦           +---src
+¦   +---eslint-import-resolver-typescript
+¦   ¦   +---lib
+¦   +---eslint-module-utils
+¦   ¦   +---node_modules
+¦   ¦       +---debug
+¦   ¦           +---src
+¦   +---eslint-plugin-import
+¦   ¦   +---config
+¦   ¦   ¦   +---flat
+¦   ¦   +---docs
+¦   ¦   ¦   +---rules
+¦   ¦   +---lib
+¦   ¦   ¦   +---core
+¦   ¦   ¦   +---exportMap
+¦   ¦   ¦   +---rules
+¦   ¦   +---memo-parser
+¦   ¦   +---node_modules
+¦   ¦       +---.bin
+¦   ¦       +---debug
+¦   ¦       ¦   +---src
+¦   ¦       +---doctrine
+¦   ¦       ¦   +---lib
+¦   ¦       +---json5
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---lib
+¦   ¦       +---semver
+¦   ¦       ¦   +---bin
+¦   ¦       +---tsconfig-paths
+¦   ¦           +---lib
+¦   ¦           ¦   +---__tests__
+¦   ¦           ¦       +---data
+¦   ¦           +---src
+¦   ¦               +---__tests__
+¦   ¦                   +---data
+¦   +---eslint-plugin-jsx-a11y
+¦   ¦   +---docs
+¦   ¦   ¦   +---rules
+¦   ¦   +---lib
+¦   ¦   ¦   +---configs
+¦   ¦   ¦   +---rules
+¦   ¦   ¦   +---util
+¦   ¦   ¦       +---implicitRoles
+¦   ¦   +---__mocks__
+¦   ¦   +---__tests__
+¦   ¦       +---src
+¦   ¦       ¦   +---rules
+¦   ¦       ¦   +---util
+¦   ¦       ¦       +---implicitRoles
+¦   ¦       +---__util__
+¦   ¦           +---helpers
+¦   +---eslint-plugin-react
+¦   ¦   +---configs
+¦   ¦   +---lib
+¦   ¦   ¦   +---rules
+¦   ¦   ¦   +---util
+¦   ¦   +---node_modules
+¦   ¦       +---.bin
+¦   ¦       +---doctrine
+¦   ¦       ¦   +---lib
+¦   ¦       +---resolve
+¦   ¦       ¦   +---.github
+¦   ¦       ¦   +---bin
+¦   ¦       ¦   +---example
+¦   ¦       ¦   +---lib
+¦   ¦       ¦   +---test
+¦   ¦       ¦       +---dotdot
+¦   ¦       ¦       ¦   +---abc
+¦   ¦       ¦       +---module_dir
+¦   ¦       ¦       ¦   +---xmodules
+¦   ¦       ¦       ¦   ¦   +---aaa
+¦   ¦       ¦       ¦   +---ymodules
+¦   ¦       ¦       ¦   ¦   +---aaa
+¦   ¦       ¦       ¦   +---zmodules
+¦   ¦       ¦       ¦       +---bbb
+¦   ¦       ¦       +---node_path
+¦   ¦       ¦       ¦   +---x
+¦   ¦       ¦       ¦   ¦   +---aaa
+¦   ¦       ¦       ¦   ¦   +---ccc
+¦   ¦       ¦       ¦   +---y
+¦   ¦       ¦       ¦       +---bbb
+¦   ¦       ¦       ¦       +---ccc
+¦   ¦       ¦       +---pathfilter
+¦   ¦       ¦       ¦   +---deep_ref
+¦   ¦       ¦       +---precedence
+¦   ¦       ¦       ¦   +---aaa
+¦   ¦       ¦       ¦   +---bbb
+¦   ¦       ¦       +---resolver
+¦   ¦       ¦       ¦   +---baz
+¦   ¦       ¦       ¦   +---browser_field
+¦   ¦       ¦       ¦   +---dot_main
+¦   ¦       ¦       ¦   +---dot_slash_main
+¦   ¦       ¦       ¦   +---empty_main
+¦   ¦       ¦       ¦   +---false_main
+¦   ¦       ¦       ¦   +---incorrect_main
+¦   ¦       ¦       ¦   +---invalid_main
+¦   ¦       ¦       ¦   +---missing_index
+¦   ¦       ¦       ¦   +---missing_main
+¦   ¦       ¦       ¦   +---multirepo
+¦   ¦       ¦       ¦   ¦   +---packages
+¦   ¦       ¦       ¦   ¦       +---package-a
+¦   ¦       ¦       ¦   ¦       +---package-b
+¦   ¦       ¦       ¦   +---nested_symlinks
+¦   ¦       ¦       ¦   ¦   +---mylib
+¦   ¦       ¦       ¦   +---null_main
+¦   ¦       ¦       ¦   +---other_path
+¦   ¦       ¦       ¦   ¦   +---lib
+¦   ¦       ¦       ¦   +---quux
+¦   ¦       ¦       ¦   ¦   +---foo
+¦   ¦       ¦       ¦   +---same_names
+¦   ¦       ¦       ¦   ¦   +---foo
+¦   ¦       ¦       ¦   +---symlinked
+¦   ¦       ¦       ¦   ¦   +---package
+¦   ¦       ¦       ¦   ¦   +---_
+¦   ¦       ¦       ¦   ¦       +---node_modules
+¦   ¦       ¦       ¦   ¦       +---symlink_target
+¦   ¦       ¦       ¦   +---without_basedir
+¦   ¦       ¦       +---shadowed_core
+¦   ¦       ¦           +---node_modules
+¦   ¦       ¦               +---util
+¦   ¦       +---semver
+¦   ¦           +---bin
+¦   +---eslint-plugin-react-hooks
+¦   ¦   +---cjs
+¦   +---eslint-scope
+¦   ¦   +---dist
+¦   ¦   +---lib
+¦   +---eslint-visitor-keys
+¦   ¦   +---dist
+¦   ¦   +---lib
+¦   +---espree
+¦   ¦   +---dist
+¦   ¦   +---lib
+¦   +---esprima
+¦   ¦   +---bin
+¦   ¦   +---dist
+¦   +---esquery
+¦   ¦   +---dist
+¦   +---esrecurse
+¦   +---estraverse
+¦   +---estree-walker
+¦   ¦   +---src
+¦   ¦   +---types
+¦   +---esutils
+¦   ¦   +---lib
+¦   +---etag
+¦   +---event-target-shim
+¦   ¦   +---dist
+¦   +---eventsource
+¦   ¦   +---dist
+¦   ¦   +---src
+¦   +---eventsource-parser
+¦   ¦   +---dist
+¦   ¦   +---src
+¦   +---expect-type
+¦   ¦   +---dist
+¦   +---express
+¦   ¦   +---lib
+¦   ¦   ¦   +---middleware
+¦   ¦   ¦   +---router
+¦   ¦   +---node_modules
+¦   ¦       +---cookie
+¦   ¦       +---debug
+¦   ¦       ¦   +---src
+¦   ¦       +---ms
+¦   ¦       +---qs
+¦   ¦           +---.github
+¦   ¦           +---dist
+¦   ¦           +---lib
+¦   ¦           +---test
+¦   +---express-rate-limit
+¦   ¦   +---dist
+¦   +---extend
+¦   +---extract-zip
+¦   ¦   +---node_modules
+¦   ¦       +---get-stream
+¦   +---fast-deep-equal
+¦   ¦   +---es6
+¦   +---fast-fifo
+¦   +---fast-glob
+¦   ¦   +---node_modules
+¦   ¦   ¦   +---glob-parent
+¦   ¦   +---out
+¦   ¦       +---managers
+¦   ¦       +---providers
+¦   ¦       ¦   +---filters
+¦   ¦       ¦   +---matchers
+¦   ¦       ¦   +---transformers
+¦   ¦       +---readers
+¦   ¦       +---types
+¦   ¦       +---utils
+¦   +---fast-json-stable-stringify
+¦   ¦   +---.github
+¦   ¦   +---benchmark
+¦   ¦   +---example
+¦   ¦   +---test
+¦   +---fast-levenshtein
+¦   +---fastq
+¦   ¦   +---.github
+¦   ¦   ¦   +---workflows
+¦   ¦   +---test
+¦   +---fd-slicer
+¦   ¦   +---test
+¦   +---fetch-blob
+¦   +---file-entry-cache
+¦   +---fill-range
+¦   +---finalhandler
+¦   ¦   +---node_modules
+¦   ¦       +---debug
+¦   ¦       ¦   +---src
+¦   ¦       +---ms
+¦   +---find-up
+¦   +---flat-cache
+¦   ¦   +---src
+¦   +---flatted
+¦   ¦   +---cjs
+¦   ¦   +---esm
+¦   ¦   +---php
+¦   ¦   +---python
+¦   ¦   +---types
+¦   +---follow-redirects
+¦   +---for-each
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---for-in
+¦   +---for-own
+¦   +---foreground-child
+¦   ¦   +---dist
+¦   ¦   ¦   +---commonjs
+¦   ¦   ¦   +---esm
+¦   ¦   +---node_modules
+¦   ¦       +---signal-exit
+¦   ¦           +---dist
+¦   ¦               +---cjs
+¦   ¦               +---mjs
+¦   +---form-data
+¦   ¦   +---lib
+¦   +---formdata-polyfill
+¦   +---forwarded
+¦   +---fraction.js
+¦   +---fresh
+¦   +---fs-extra
+¦   ¦   +---lib
+¦   ¦       +---copy
+¦   ¦       +---empty
+¦   ¦       +---ensure
+¦   ¦       +---fs
+¦   ¦       +---json
+¦   ¦       +---mkdirs
+¦   ¦       +---move
+¦   ¦       +---output-file
+¦   ¦       +---path-exists
+¦   ¦       +---remove
+¦   ¦       +---util
+¦   +---fs.realpath
+¦   +---function-bind
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---function.prototype.name
+¦   ¦   +---.github
+¦   ¦   +---helpers
+¦   ¦   +---test
+¦   +---functions-have-names
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---gaxios
+¦   ¦   +---build
+¦   ¦   ¦   +---cjs
+¦   ¦   ¦   ¦   +---browser-test
+¦   ¦   ¦   ¦   +---src
+¦   ¦   ¦   ¦   +---system-test
+¦   ¦   ¦   ¦   +---test
+¦   ¦   ¦   +---esm
+¦   ¦   ¦       +---browser-test
+¦   ¦   ¦       +---src
+¦   ¦   ¦       +---system-test
+¦   ¦   ¦       +---test
+¦   ¦   +---node_modules
+¦   ¦       +---data-uri-to-buffer
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---src
+¦   ¦       +---node-fetch
+¦   ¦           +---@types
+¦   ¦           +---src
+¦   ¦               +---errors
+¦   ¦               +---utils
+¦   +---gcp-metadata
+¦   ¦   +---build
+¦   ¦       +---src
+¦   +---get-caller-file
+¦   +---get-intrinsic
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---get-proto
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---get-symbol-description
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---get-tsconfig
+¦   ¦   +---dist
+¦   +---get-uri
+¦   ¦   +---dist
+¦   +---glob
+¦   ¦   +---dist
+¦   ¦   ¦   +---commonjs
+¦   ¦   ¦   +---esm
+¦   ¦   +---node_modules
+¦   ¦       +---brace-expansion
+¦   ¦       ¦   +---.github
+¦   ¦       +---minimatch
+¦   ¦           +---dist
+¦   ¦               +---commonjs
+¦   ¦               +---esm
+¦   +---glob-parent
+¦   +---globals
+¦   +---globalthis
+¦   ¦   +---test
+¦   +---globby
+¦   +---google-auth-library
+¦   ¦   +---build
+¦   ¦       +---src
+¦   ¦           +---auth
+¦   ¦           +---crypto
+¦   ¦               +---browser
+¦   ¦               +---node
+¦   +---google-gax
+¦   ¦   +---build
+¦   ¦   ¦   +---protos
+¦   ¦   ¦   ¦   +---google
+¦   ¦   ¦   ¦       +---api
+¦   ¦   ¦   ¦       ¦   +---apikeys
+¦   ¦   ¦   ¦       ¦   ¦   +---v2
+¦   ¦   ¦   ¦       ¦   +---cloudquotas
+¦   ¦   ¦   ¦       ¦   ¦   +---v1
+¦   ¦   ¦   ¦       ¦   ¦   +---v1beta
+¦   ¦   ¦   ¦       ¦   +---expr
+¦   ¦   ¦   ¦       ¦   ¦   +---conformance
+¦   ¦   ¦   ¦       ¦   ¦   ¦   +---v1alpha1
+¦   ¦   ¦   ¦       ¦   ¦   +---v1alpha1
+¦   ¦   ¦   ¦       ¦   ¦   +---v1beta1
+¦   ¦   ¦   ¦       ¦   +---servicecontrol
+¦   ¦   ¦   ¦       ¦   ¦   +---v1
+¦   ¦   ¦   ¦       ¦   ¦   +---v2
+¦   ¦   ¦   ¦       ¦   +---servicemanagement
+¦   ¦   ¦   ¦       ¦   ¦   +---v1
+¦   ¦   ¦   ¦       ¦   +---serviceusage
+¦   ¦   ¦   ¦       ¦       +---v1
+¦   ¦   ¦   ¦       ¦       +---v1beta1
+¦   ¦   ¦   ¦       +---cloud
+¦   ¦   ¦   ¦       ¦   +---location
+¦   ¦   ¦   ¦       +---iam
+¦   ¦   ¦   ¦       ¦   +---v1
+¦   ¦   ¦   ¦       ¦       +---logging
+¦   ¦   ¦   ¦       +---logging
+¦   ¦   ¦   ¦       ¦   +---type
+¦   ¦   ¦   ¦       +---longrunning
+¦   ¦   ¦   ¦       +---monitoring
+¦   ¦   ¦   ¦       ¦   +---v3
+¦   ¦   ¦   ¦       +---protobuf
+¦   ¦   ¦   ¦       ¦   +---bridge
+¦   ¦   ¦   ¦       ¦   +---compiler
+¦   ¦   ¦   ¦       ¦   ¦   +---ruby
+¦   ¦   ¦   ¦       ¦   +---util
+¦   ¦   ¦   ¦       +---rpc
+¦   ¦   ¦   ¦       ¦   +---context
+¦   ¦   ¦   ¦       +---type
+¦   ¦   ¦   +---src
+¦   ¦   ¦       +---bundlingCalls
+¦   ¦   ¦       +---longRunningCalls
+¦   ¦   ¦       +---normalCalls
+¦   ¦   ¦       +---paginationCalls
+¦   ¦   ¦       +---streamingCalls
+¦   ¦   +---node_modules
+¦   ¦       +---data-uri-to-buffer
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---src
+¦   ¦       +---node-fetch
+¦   ¦           +---@types
+¦   ¦           +---src
+¦   ¦               +---errors
+¦   ¦               +---utils
+¦   +---google-logging-utils
+¦   ¦   +---build
+¦   ¦       +---src
+¦   +---gopd
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---graceful-fs
+¦   +---graphemer
+¦   ¦   +---lib
+¦   +---groq-sdk
+¦   ¦   +---lib
+¦   ¦   +---node_modules
+¦   ¦   ¦   +---@types
+¦   ¦   ¦   ¦   +---node
+¦   ¦   ¦   ¦       +---assert
+¦   ¦   ¦   ¦       +---compatibility
+¦   ¦   ¦   ¦       +---dns
+¦   ¦   ¦   ¦       +---fs
+¦   ¦   ¦   ¦       +---readline
+¦   ¦   ¦   ¦       +---stream
+¦   ¦   ¦   ¦       +---timers
+¦   ¦   ¦   ¦       +---ts5.6
+¦   ¦   ¦   +---form-data-encoder
+¦   ¦   ¦   ¦   +---@type
+¦   ¦   ¦   ¦   ¦   +---util
+¦   ¦   ¦   ¦   +---lib
+¦   ¦   ¦   ¦       +---cjs
+¦   ¦   ¦   ¦       ¦   +---util
+¦   ¦   ¦   ¦       +---esm
+¦   ¦   ¦   ¦           +---util
+¦   ¦   ¦   +---formdata-node
+¦   ¦   ¦   ¦   +---@type
+¦   ¦   ¦   ¦   +---lib
+¦   ¦   ¦   ¦       +---cjs
+¦   ¦   ¦   ¦       +---esm
+¦   ¦   ¦   +---undici-types
+¦   ¦   ¦   +---web-streams-polyfill
+¦   ¦   ¦       +---dist
+¦   ¦   ¦       +---es5
+¦   ¦   ¦       +---polyfill
+¦   ¦   ¦       ¦   +---es5
+¦   ¦   ¦       +---types
+¦   ¦   +---resources
+¦   ¦   ¦   +---audio
+¦   ¦   ¦   +---chat
+¦   ¦   +---shims
+¦   ¦   +---src
+¦   ¦   ¦   +---lib
+¦   ¦   ¦   +---resources
+¦   ¦   ¦   ¦   +---audio
+¦   ¦   ¦   ¦   +---chat
+¦   ¦   ¦   +---shims
+¦   ¦   ¦   +---_shims
+¦   ¦   ¦       +---auto
+¦   ¦   +---_shims
+¦   ¦       +---auto
+¦   +---gtoken
+¦   ¦   +---build
+¦   ¦       +---cjs
+¦   ¦       ¦   +---src
+¦   ¦       +---esm
+¦   ¦           +---src
+¦   +---has-bigints
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---has-flag
+¦   +---has-property-descriptors
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---has-proto
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---has-symbols
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   ¦       +---shams
+¦   +---has-tostringtag
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   ¦       +---shams
+¦   +---hasown
+¦   ¦   +---.github
+¦   +---http-errors
+¦   +---http-proxy-agent
+¦   ¦   +---dist
+¦   +---https-proxy-agent
+¦   ¦   +---dist
+¦   +---humanize-ms
+¦   +---iconv-lite
+¦   ¦   +---encodings
+¦   ¦   ¦   +---tables
+¦   ¦   +---lib
+¦   +---ignore
+¦   +---immediate
+¦   ¦   +---dist
+¦   ¦   +---lib
+¦   +---import-fresh
+¦   +---imurmurhash
+¦   +---inflight
+¦   +---inherits
+¦   +---internal-slot
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---ip-address
+¦   ¦   +---dist
+¦   ¦   ¦   +---v4
+¦   ¦   ¦   +---v6
+¦   ¦   +---src
+¦   ¦       +---v4
+¦   ¦       +---v6
+¦   +---ipaddr.js
+¦   ¦   +---lib
+¦   +---is-array-buffer
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---is-arrayish
+¦   +---is-async-function
+¦   ¦   +---test
+¦   +---is-bigint
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---is-binary-path
+¦   +---is-boolean-object
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---is-buffer
+¦   ¦   +---test
+¦   +---is-bun-module
+¦   ¦   +---dist
+¦   +---is-callable
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---is-core-module
+¦   ¦   +---test
+¦   +---is-data-view
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---is-date-object
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---is-extendable
+¦   +---is-extglob
+¦   +---is-finalizationregistry
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---is-fullwidth-code-point
+¦   +---is-generator-function
+¦   ¦   +---test
+¦   +---is-glob
+¦   +---is-map
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---is-negative-zero
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---is-number
+¦   +---is-number-object
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---is-path-inside
+¦   +---is-plain-object
+¦   ¦   +---dist
+¦   +---is-promise
+¦   +---is-regex
+¦   ¦   +---test
+¦   +---is-set
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---is-shared-array-buffer
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---is-string
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---is-symbol
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---is-typed-array
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---is-weakmap
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---is-weakref
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---is-weakset
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---isarray
+¦   +---isexe
+¦   ¦   +---test
+¦   +---isobject
+¦   +---iterator.prototype
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---jackspeak
+¦   ¦   +---dist
+¦   ¦       +---commonjs
+¦   ¦       +---esm
+¦   +---jiti
+¦   ¦   +---bin
+¦   ¦   +---dist
+¦   ¦   ¦   +---plugins
+¦   ¦   +---lib
+¦   +---joi
+¦   ¦   +---dist
+¦   ¦   +---lib
+¦   ¦       +---types
+¦   +---js-tokens
+¦   +---js-yaml
+¦   ¦   +---bin
+¦   ¦   +---dist
+¦   ¦   +---lib
+¦   ¦       +---schema
+¦   ¦       +---type
+¦   +---json-bigint
+¦   ¦   +---lib
+¦   +---json-buffer
+¦   ¦   +---test
+¦   +---json-parse-even-better-errors
+¦   +---json-schema-traverse
+¦   ¦   +---spec
+¦   ¦       +---fixtures
+¦   +---json-stable-stringify-without-jsonify
+¦   ¦   +---example
+¦   ¦   +---test
+¦   +---json5
+¦   ¦   +---dist
+¦   ¦   +---lib
+¦   +---jsonfile
+¦   +---jsx-ast-utils
+¦   ¦   +---.github
+¦   ¦   +---lib
+¦   ¦   ¦   +---values
+¦   ¦   ¦       +---expressions
+¦   ¦   +---src
+¦   ¦   ¦   +---values
+¦   ¦   ¦       +---expressions
+¦   ¦   +---__tests__
+¦   ¦       +---src
+¦   +---jszip
+¦   ¦   +---.github
+¦   ¦   ¦   +---workflows
+¦   ¦   +---dist
+¦   ¦   +---lib
+¦   ¦   ¦   +---generate
+¦   ¦   ¦   +---nodejs
+¦   ¦   ¦   +---reader
+¦   ¦   ¦   +---stream
+¦   ¦   +---node_modules
+¦   ¦   ¦   +---isarray
+¦   ¦   ¦   +---readable-stream
+¦   ¦   ¦   ¦   +---doc
+¦   ¦   ¦   ¦   ¦   +---wg-meetings
+¦   ¦   ¦   ¦   +---lib
+¦   ¦   ¦   ¦       +---internal
+¦   ¦   ¦   ¦           +---streams
+¦   ¦   ¦   +---safe-buffer
+¦   ¦   ¦   +---string_decoder
+¦   ¦   ¦       +---lib
+¦   ¦   +---vendor
+¦   +---jwa
+¦   +---jws
+¦   ¦   +---lib
+¦   +---keyv
+¦   ¦   +---src
+¦   +---kind-of
+¦   +---language-subtag-registry
+¦   ¦   +---data
+¦   ¦       +---json
+¦   +---language-tags
+¦   ¦   +---lib
+¦   +---lazy-cache
+¦   +---levn
+¦   ¦   +---lib
+¦   +---lie
+¦   ¦   +---dist
+¦   ¦   +---lib
+¦   +---lilconfig
+¦   ¦   +---src
+¦   +---lines-and-columns
+¦   ¦   +---build
+¦   +---locate-path
+¦   +---lodash
+¦   ¦   +---fp
+¦   +---lodash.camelcase
+¦   +---lodash.merge
+¦   +---long
+¦   ¦   +---umd
+¦   +---loose-envify
+¦   +---loupe
+¦   ¦   +---lib
+¦   +---lru-cache
+¦   ¦   +---dist
+¦   ¦       +---commonjs
+¦   ¦       +---esm
+¦   +---lucide-react
+¦   ¦   +---dist
+¦   ¦       +---cjs
+¦   ¦       +---esm
+¦   ¦       ¦   +---icons
+¦   ¦       ¦   +---shared
+¦   ¦       ¦       +---src
+¦   ¦       +---umd
+¦   +---magic-string
+¦   ¦   +---dist
+¦   +---make-error
+¦   ¦   +---dist
+¦   +---marked
+¦   ¦   +---bin
+¦   ¦   +---lib
+¦   ¦   +---man
+¦   +---math-intrinsics
+¦   ¦   +---.github
+¦   ¦   +---constants
+¦   ¦   +---test
+¦   +---media-typer
+¦   +---merge-deep
+¦   +---merge-descriptors
+¦   +---merge2
+¦   +---methods
+¦   +---micromatch
+¦   +---mime
+¦   ¦   +---src
+¦   +---mime-db
+¦   +---mime-types
+¦   +---minimatch
+¦   +---minimist
+¦   ¦   +---.github
+¦   ¦   +---example
+¦   ¦   +---test
+¦   +---minipass
+¦   ¦   +---dist
+¦   ¦       +---commonjs
+¦   ¦       +---esm
+¦   +---mitt
+¦   ¦   +---dist
+¦   +---mixin-object
+¦   ¦   +---node_modules
+¦   ¦       +---for-in
+¦   +---ms
+¦   +---mz
+¦   +---nanoid
+¦   ¦   +---async
+¦   ¦   +---bin
+¦   ¦   +---non-secure
+¦   ¦   +---url-alphabet
+¦   +---napi-postinstall
+¦   ¦   +---lib
+¦   +---natural-compare
+¦   +---negotiator
+¦   ¦   +---lib
+¦   +---netmask
+¦   ¦   +---example
+¦   ¦   +---lib
+¦   ¦   +---test
+¦   ¦   +---tests
+¦   +---next
+¦   ¦   +---compat
+¦   ¦   +---dist
+¦   ¦   ¦   +---api
+¦   ¦   ¦   +---bin
+¦   ¦   ¦   +---build
+¦   ¦   ¦   ¦   +---analysis
+¦   ¦   ¦   ¦   +---babel
+¦   ¦   ¦   ¦   ¦   +---loader
+¦   ¦   ¦   ¦   ¦   +---plugins
+¦   ¦   ¦   ¦   +---jest
+¦   ¦   ¦   ¦   ¦   +---__mocks__
+¦   ¦   ¦   ¦   +---manifests
+¦   ¦   ¦   ¦   ¦   +---formatter
+¦   ¦   ¦   ¦   +---output
+¦   ¦   ¦   ¦   +---polyfills
+¦   ¦   ¦   ¦   ¦   +---fetch
+¦   ¦   ¦   ¦   ¦   +---object.assign
+¦   ¦   ¦   ¦   +---swc
+¦   ¦   ¦   ¦   +---templates
+¦   ¦   ¦   ¦   +---turborepo-access-trace
+¦   ¦   ¦   ¦   +---webpack
+¦   ¦   ¦   ¦   ¦   +---alias
+¦   ¦   ¦   ¦   ¦   +---config
+¦   ¦   ¦   ¦   ¦   ¦   +---blocks
+¦   ¦   ¦   ¦   ¦   ¦       +---css
+¦   ¦   ¦   ¦   ¦   ¦       ¦   +---loaders
+¦   ¦   ¦   ¦   ¦   ¦       +---images
+¦   ¦   ¦   ¦   ¦   +---loaders
+¦   ¦   ¦   ¦   ¦   ¦   +---css-loader
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---src
+¦   ¦   ¦   ¦   ¦   ¦   ¦       +---plugins
+¦   ¦   ¦   ¦   ¦   ¦   ¦       +---runtime
+¦   ¦   ¦   ¦   ¦   ¦   +---lightningcss-loader
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---src
+¦   ¦   ¦   ¦   ¦   ¦   +---metadata
+¦   ¦   ¦   ¦   ¦   ¦   +---next-edge-app-route-loader
+¦   ¦   ¦   ¦   ¦   ¦   +---next-edge-ssr-loader
+¦   ¦   ¦   ¦   ¦   ¦   +---next-flight-loader
+¦   ¦   ¦   ¦   ¦   ¦   +---next-font-loader
+¦   ¦   ¦   ¦   ¦   ¦   +---next-image-loader
+¦   ¦   ¦   ¦   ¦   ¦   +---next-route-loader
+¦   ¦   ¦   ¦   ¦   ¦   +---next-style-loader
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---runtime
+¦   ¦   ¦   ¦   ¦   ¦   +---postcss-loader
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---src
+¦   ¦   ¦   ¦   ¦   ¦   +---resolve-url-loader
+¦   ¦   ¦   ¦   ¦   ¦       +---lib
+¦   ¦   ¦   ¦   ¦   +---plugins
+¦   ¦   ¦   ¦   ¦       +---next-types-plugin
+¦   ¦   ¦   ¦   ¦       +---terser-webpack-plugin
+¦   ¦   ¦   ¦   ¦       ¦   +---src
+¦   ¦   ¦   ¦   ¦       +---wellknown-errors-plugin
+¦   ¦   ¦   ¦   +---webpack-build
+¦   ¦   ¦   ¦   +---webpack-config-rules
+¦   ¦   ¦   +---cli
+¦   ¦   ¦   +---client
+¦   ¦   ¦   ¦   +---compat
+¦   ¦   ¦   ¦   +---components
+¦   ¦   ¦   ¦   ¦   +---react-dev-overlay
+¦   ¦   ¦   ¦   ¦   ¦   +---app
+¦   ¦   ¦   ¦   ¦   ¦   +---internal
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---components
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---CodeFrame
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---Dialog
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---hot-linked-text
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---LeftRightDialogHeader
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---Overlay
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---Terminal
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---Toast
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---VersionStalenessInfo
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---container
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---RuntimeError
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---helpers
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---hooks
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---icons
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---styles
+¦   ¦   ¦   ¦   ¦   ¦   +---pages
+¦   ¦   ¦   ¦   ¦   ¦   +---server
+¦   ¦   ¦   ¦   ¦   +---router-reducer
+¦   ¦   ¦   ¦   ¦       +---reducers
+¦   ¦   ¦   ¦   +---dev
+¦   ¦   ¦   ¦   ¦   +---error-overlay
+¦   ¦   ¦   ¦   +---legacy
+¦   ¦   ¦   ¦   +---portal
+¦   ¦   ¦   ¦   +---tracing
+¦   ¦   ¦   +---compiled
+¦   ¦   ¦   ¦   +---@ampproject
+¦   ¦   ¦   ¦   ¦   +---toolbox-optimizer
+¦   ¦   ¦   ¦   +---@babel
+¦   ¦   ¦   ¦   ¦   +---runtime
+¦   ¦   ¦   ¦   ¦       +---helpers
+¦   ¦   ¦   ¦   ¦       ¦   +---esm
+¦   ¦   ¦   ¦   ¦       +---regenerator
+¦   ¦   ¦   ¦   +---@edge-runtime
+¦   ¦   ¦   ¦   ¦   +---cookies
+¦   ¦   ¦   ¦   ¦   +---ponyfill
+¦   ¦   ¦   ¦   ¦   +---primitives
+¦   ¦   ¦   ¦   +---@hapi
+¦   ¦   ¦   ¦   ¦   +---accept
+¦   ¦   ¦   ¦   +---@mswjs
+¦   ¦   ¦   ¦   ¦   +---interceptors
+¦   ¦   ¦   ¦   ¦       +---ClientRequest
+¦   ¦   ¦   ¦   +---@napi-rs
+¦   ¦   ¦   ¦   ¦   +---triples
+¦   ¦   ¦   ¦   +---@next
+¦   ¦   ¦   ¦   ¦   +---font
+¦   ¦   ¦   ¦   ¦   ¦   +---dist
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---fontkit
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---google
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---local
+¦   ¦   ¦   ¦   ¦   ¦   +---google
+¦   ¦   ¦   ¦   ¦   ¦   +---local
+¦   ¦   ¦   ¦   ¦   +---react-refresh-utils
+¦   ¦   ¦   ¦   ¦       +---dist
+¦   ¦   ¦   ¦   ¦           +---internal
+¦   ¦   ¦   ¦   +---@opentelemetry
+¦   ¦   ¦   ¦   ¦   +---api
+¦   ¦   ¦   ¦   +---@vercel
+¦   ¦   ¦   ¦   ¦   +---nft
+¦   ¦   ¦   ¦   ¦   +---og
+¦   ¦   ¦   ¦   ¦       +---emoji
+¦   ¦   ¦   ¦   ¦       +---figma
+¦   ¦   ¦   ¦   ¦       +---language
+¦   ¦   ¦   ¦   ¦       +---satori
+¦   ¦   ¦   ¦   +---acorn
+¦   ¦   ¦   ¦   +---amphtml-validator
+¦   ¦   ¦   ¦   +---anser
+¦   ¦   ¦   ¦   +---arg
+¦   ¦   ¦   ¦   +---assert
+¦   ¦   ¦   ¦   +---async-retry
+¦   ¦   ¦   ¦   +---async-sema
+¦   ¦   ¦   ¦   +---babel
+¦   ¦   ¦   ¦   +---babel-packages
+¦   ¦   ¦   ¦   +---browserify-zlib
+¦   ¦   ¦   ¦   +---browserslist
+¦   ¦   ¦   ¦   +---buffer
+¦   ¦   ¦   ¦   +---bytes
+¦   ¦   ¦   ¦   +---ci-info
+¦   ¦   ¦   ¦   +---cli-select
+¦   ¦   ¦   ¦   +---client-only
+¦   ¦   ¦   ¦   +---commander
+¦   ¦   ¦   ¦   +---comment-json
+¦   ¦   ¦   ¦   +---compression
+¦   ¦   ¦   ¦   +---conf
+¦   ¦   ¦   ¦   +---constants-browserify
+¦   ¦   ¦   ¦   +---content-disposition
+¦   ¦   ¦   ¦   +---content-type
+¦   ¦   ¦   ¦   +---cookie
+¦   ¦   ¦   ¦   +---cross-spawn
+¦   ¦   ¦   ¦   +---crypto-browserify
+¦   ¦   ¦   ¦   +---css.escape
+¦   ¦   ¦   ¦   +---cssnano-simple
+¦   ¦   ¦   ¦   +---data-uri-to-buffer
+¦   ¦   ¦   ¦   +---debug
+¦   ¦   ¦   ¦   +---devalue
+¦   ¦   ¦   ¦   +---domain-browser
+¦   ¦   ¦   ¦   +---edge-runtime
+¦   ¦   ¦   ¦   +---events
+¦   ¦   ¦   ¦   +---find-cache-dir
+¦   ¦   ¦   ¦   +---find-up
+¦   ¦   ¦   ¦   +---fresh
+¦   ¦   ¦   ¦   +---get-orientation
+¦   ¦   ¦   ¦   +---glob
+¦   ¦   ¦   ¦   +---gzip-size
+¦   ¦   ¦   ¦   +---http-proxy
+¦   ¦   ¦   ¦   +---http-proxy-agent
+¦   ¦   ¦   ¦   +---https-browserify
+¦   ¦   ¦   ¦   +---https-proxy-agent
+¦   ¦   ¦   ¦   +---icss-utils
+¦   ¦   ¦   ¦   +---ignore-loader
+¦   ¦   ¦   ¦   +---image-size
+¦   ¦   ¦   ¦   +---is-animated
+¦   ¦   ¦   ¦   +---is-docker
+¦   ¦   ¦   ¦   +---is-wsl
+¦   ¦   ¦   ¦   +---jest-worker
+¦   ¦   ¦   ¦   +---json5
+¦   ¦   ¦   ¦   +---jsonwebtoken
+¦   ¦   ¦   ¦   +---loader-runner
+¦   ¦   ¦   ¦   +---loader-utils2
+¦   ¦   ¦   ¦   +---loader-utils3
+¦   ¦   ¦   ¦   +---lodash.curry
+¦   ¦   ¦   ¦   +---lru-cache
+¦   ¦   ¦   ¦   +---mini-css-extract-plugin
+¦   ¦   ¦   ¦   ¦   +---hmr
+¦   ¦   ¦   ¦   +---nanoid
+¦   ¦   ¦   ¦   +---native-url
+¦   ¦   ¦   ¦   +---neo-async
+¦   ¦   ¦   ¦   +---next-server
+¦   ¦   ¦   ¦   +---node-fetch
+¦   ¦   ¦   ¦   +---node-html-parser
+¦   ¦   ¦   ¦   +---ora
+¦   ¦   ¦   ¦   +---os-browserify
+¦   ¦   ¦   ¦   +---p-limit
+¦   ¦   ¦   ¦   +---path-browserify
+¦   ¦   ¦   ¦   +---path-to-regexp
+¦   ¦   ¦   ¦   +---picomatch
+¦   ¦   ¦   ¦   +---platform
+¦   ¦   ¦   ¦   +---postcss-flexbugs-fixes
+¦   ¦   ¦   ¦   +---postcss-modules-extract-imports
+¦   ¦   ¦   ¦   +---postcss-modules-local-by-default
+¦   ¦   ¦   ¦   +---postcss-modules-scope
+¦   ¦   ¦   ¦   +---postcss-modules-values
+¦   ¦   ¦   ¦   +---postcss-plugin-stub-for-cssnano-simple
+¦   ¦   ¦   ¦   +---postcss-preset-env
+¦   ¦   ¦   ¦   +---postcss-safe-parser
+¦   ¦   ¦   ¦   +---postcss-scss
+¦   ¦   ¦   ¦   +---postcss-value-parser
+¦   ¦   ¦   ¦   +---process
+¦   ¦   ¦   ¦   +---punycode
+¦   ¦   ¦   ¦   +---querystring-es3
+¦   ¦   ¦   ¦   +---raw-body
+¦   ¦   ¦   ¦   +---react
+¦   ¦   ¦   ¦   ¦   +---cjs
+¦   ¦   ¦   ¦   +---react-dom
+¦   ¦   ¦   ¦   ¦   +---cjs
+¦   ¦   ¦   ¦   +---react-dom-experimental
+¦   ¦   ¦   ¦   ¦   +---cjs
+¦   ¦   ¦   ¦   +---react-experimental
+¦   ¦   ¦   ¦   ¦   +---cjs
+¦   ¦   ¦   ¦   +---react-is
+¦   ¦   ¦   ¦   ¦   +---cjs
+¦   ¦   ¦   ¦   ¦   +---umd
+¦   ¦   ¦   ¦   +---react-refresh
+¦   ¦   ¦   ¦   ¦   +---cjs
+¦   ¦   ¦   ¦   +---react-server-dom-turbopack
+¦   ¦   ¦   ¦   ¦   +---cjs
+¦   ¦   ¦   ¦   +---react-server-dom-turbopack-experimental
+¦   ¦   ¦   ¦   ¦   +---cjs
+¦   ¦   ¦   ¦   +---react-server-dom-webpack
+¦   ¦   ¦   ¦   ¦   +---cjs
+¦   ¦   ¦   ¦   +---react-server-dom-webpack-experimental
+¦   ¦   ¦   ¦   ¦   +---cjs
+¦   ¦   ¦   ¦   +---regenerator-runtime
+¦   ¦   ¦   ¦   +---sass-loader
+¦   ¦   ¦   ¦   +---scheduler
+¦   ¦   ¦   ¦   ¦   +---cjs
+¦   ¦   ¦   ¦   +---scheduler-experimental
+¦   ¦   ¦   ¦   ¦   +---cjs
+¦   ¦   ¦   ¦   +---schema-utils2
+¦   ¦   ¦   ¦   +---schema-utils3
+¦   ¦   ¦   ¦   +---semver
+¦   ¦   ¦   ¦   +---send
+¦   ¦   ¦   ¦   +---server-only
+¦   ¦   ¦   ¦   +---setimmediate
+¦   ¦   ¦   ¦   +---shell-quote
+¦   ¦   ¦   ¦   +---source-map
+¦   ¦   ¦   ¦   +---source-map08
+¦   ¦   ¦   ¦   +---stacktrace-parser
+¦   ¦   ¦   ¦   +---stream-browserify
+¦   ¦   ¦   ¦   +---stream-http
+¦   ¦   ¦   ¦   +---string-hash
+¦   ¦   ¦   ¦   +---string_decoder
+¦   ¦   ¦   ¦   +---strip-ansi
+¦   ¦   ¦   ¦   +---superstruct
+¦   ¦   ¦   ¦   +---tar
+¦   ¦   ¦   ¦   +---terser
+¦   ¦   ¦   ¦   +---text-table
+¦   ¦   ¦   ¦   +---timers-browserify
+¦   ¦   ¦   ¦   +---tty-browserify
+¦   ¦   ¦   ¦   +---ua-parser-js
+¦   ¦   ¦   ¦   +---unistore
+¦   ¦   ¦   ¦   +---util
+¦   ¦   ¦   ¦   +---vm-browserify
+¦   ¦   ¦   ¦   +---watchpack
+¦   ¦   ¦   ¦   +---web-vitals
+¦   ¦   ¦   ¦   +---web-vitals-attribution
+¦   ¦   ¦   ¦   +---webpack
+¦   ¦   ¦   ¦   +---webpack-sources1
+¦   ¦   ¦   ¦   +---webpack-sources3
+¦   ¦   ¦   ¦   +---ws
+¦   ¦   ¦   ¦   +---zod
+¦   ¦   ¦   +---esm
+¦   ¦   ¦   ¦   +---api
+¦   ¦   ¦   ¦   +---build
+¦   ¦   ¦   ¦   ¦   +---analysis
+¦   ¦   ¦   ¦   ¦   +---babel
+¦   ¦   ¦   ¦   ¦   ¦   +---loader
+¦   ¦   ¦   ¦   ¦   ¦   +---plugins
+¦   ¦   ¦   ¦   ¦   +---manifests
+¦   ¦   ¦   ¦   ¦   ¦   +---formatter
+¦   ¦   ¦   ¦   ¦   +---output
+¦   ¦   ¦   ¦   ¦   +---polyfills
+¦   ¦   ¦   ¦   ¦   ¦   +---fetch
+¦   ¦   ¦   ¦   ¦   ¦   +---object.assign
+¦   ¦   ¦   ¦   ¦   +---swc
+¦   ¦   ¦   ¦   ¦   +---templates
+¦   ¦   ¦   ¦   ¦   +---turborepo-access-trace
+¦   ¦   ¦   ¦   ¦   +---webpack
+¦   ¦   ¦   ¦   ¦   ¦   +---alias
+¦   ¦   ¦   ¦   ¦   ¦   +---config
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---blocks
+¦   ¦   ¦   ¦   ¦   ¦   ¦       +---css
+¦   ¦   ¦   ¦   ¦   ¦   ¦       ¦   +---loaders
+¦   ¦   ¦   ¦   ¦   ¦   ¦       +---images
+¦   ¦   ¦   ¦   ¦   ¦   +---loaders
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---css-loader
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---src
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦       +---plugins
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦       +---runtime
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---lightningcss-loader
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---src
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---metadata
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---next-edge-app-route-loader
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---next-edge-ssr-loader
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---next-flight-loader
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---next-font-loader
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---next-image-loader
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---next-route-loader
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---next-style-loader
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---runtime
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---postcss-loader
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---src
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---resolve-url-loader
+¦   ¦   ¦   ¦   ¦   ¦   ¦       +---lib
+¦   ¦   ¦   ¦   ¦   ¦   +---plugins
+¦   ¦   ¦   ¦   ¦   ¦       +---next-types-plugin
+¦   ¦   ¦   ¦   ¦   ¦       +---terser-webpack-plugin
+¦   ¦   ¦   ¦   ¦   ¦       ¦   +---src
+¦   ¦   ¦   ¦   ¦   ¦       +---wellknown-errors-plugin
+¦   ¦   ¦   ¦   ¦   +---webpack-build
+¦   ¦   ¦   ¦   ¦   +---webpack-config-rules
+¦   ¦   ¦   ¦   +---client
+¦   ¦   ¦   ¦   ¦   +---compat
+¦   ¦   ¦   ¦   ¦   +---components
+¦   ¦   ¦   ¦   ¦   ¦   +---react-dev-overlay
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---app
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---internal
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---components
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---CodeFrame
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---Dialog
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---hot-linked-text
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---LeftRightDialogHeader
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---Overlay
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---Terminal
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---Toast
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---VersionStalenessInfo
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---container
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---RuntimeError
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---helpers
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---hooks
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---icons
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---styles
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---pages
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---server
+¦   ¦   ¦   ¦   ¦   ¦   +---router-reducer
+¦   ¦   ¦   ¦   ¦   ¦       +---reducers
+¦   ¦   ¦   ¦   ¦   +---dev
+¦   ¦   ¦   ¦   ¦   ¦   +---error-overlay
+¦   ¦   ¦   ¦   ¦   +---legacy
+¦   ¦   ¦   ¦   ¦   +---portal
+¦   ¦   ¦   ¦   ¦   +---tracing
+¦   ¦   ¦   ¦   +---export
+¦   ¦   ¦   ¦   ¦   +---helpers
+¦   ¦   ¦   ¦   ¦   +---routes
+¦   ¦   ¦   ¦   +---lib
+¦   ¦   ¦   ¦   ¦   +---eslint
+¦   ¦   ¦   ¦   ¦   +---fs
+¦   ¦   ¦   ¦   ¦   +---helpers
+¦   ¦   ¦   ¦   ¦   +---memory
+¦   ¦   ¦   ¦   ¦   +---metadata
+¦   ¦   ¦   ¦   ¦   ¦   +---generate
+¦   ¦   ¦   ¦   ¦   ¦   +---resolvers
+¦   ¦   ¦   ¦   ¦   ¦   +---types
+¦   ¦   ¦   ¦   ¦   +---typescript
+¦   ¦   ¦   ¦   +---pages
+¦   ¦   ¦   ¦   +---server
+¦   ¦   ¦   ¦   ¦   +---api-utils
+¦   ¦   ¦   ¦   ¦   ¦   +---node
+¦   ¦   ¦   ¦   ¦   +---app-render
+¦   ¦   ¦   ¦   ¦   ¦   +---rsc
+¦   ¦   ¦   ¦   ¦   ¦   +---static
+¦   ¦   ¦   ¦   ¦   +---async-storage
+¦   ¦   ¦   ¦   ¦   +---base-http
+¦   ¦   ¦   ¦   ¦   +---dev
+¦   ¦   ¦   ¦   ¦   ¦   +---turbopack
+¦   ¦   ¦   ¦   ¦   +---future
+¦   ¦   ¦   ¦   ¦   ¦   +---helpers
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---module-loader
+¦   ¦   ¦   ¦   ¦   ¦   +---normalizers
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---built
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---app
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---pages
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---request
+¦   ¦   ¦   ¦   ¦   ¦   +---route-definitions
+¦   ¦   ¦   ¦   ¦   ¦   +---route-matcher-managers
+¦   ¦   ¦   ¦   ¦   ¦   +---route-matcher-providers
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---dev
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---helpers
+¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦       +---file-reader
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---helpers
+¦   ¦   ¦   ¦   ¦   ¦   ¦       +---manifest-loaders
+¦   ¦   ¦   ¦   ¦   ¦   +---route-matchers
+¦   ¦   ¦   ¦   ¦   ¦   +---route-matches
+¦   ¦   ¦   ¦   ¦   ¦   +---route-modules
+¦   ¦   ¦   ¦   ¦   ¦       +---app-page
+¦   ¦   ¦   ¦   ¦   ¦       ¦   +---vendored
+¦   ¦   ¦   ¦   ¦   ¦       ¦       +---contexts
+¦   ¦   ¦   ¦   ¦   ¦       ¦       +---rsc
+¦   ¦   ¦   ¦   ¦   ¦       ¦       +---ssr
+¦   ¦   ¦   ¦   ¦   ¦       +---app-route
+¦   ¦   ¦   ¦   ¦   ¦       ¦   +---helpers
+¦   ¦   ¦   ¦   ¦   ¦       +---helpers
+¦   ¦   ¦   ¦   ¦   ¦       +---pages
+¦   ¦   ¦   ¦   ¦   ¦       ¦   +---builtin
+¦   ¦   ¦   ¦   ¦   ¦       ¦   +---vendored
+¦   ¦   ¦   ¦   ¦   ¦       ¦       +---contexts
+¦   ¦   ¦   ¦   ¦   ¦       +---pages-api
+¦   ¦   ¦   ¦   ¦   +---lib
+¦   ¦   ¦   ¦   ¦   ¦   +---incremental-cache
+¦   ¦   ¦   ¦   ¦   ¦   +---router-utils
+¦   ¦   ¦   ¦   ¦   ¦   +---server-ipc
+¦   ¦   ¦   ¦   ¦   ¦   +---squoosh
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---avif
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---mozjpeg
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---png
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---resize
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---webp
+¦   ¦   ¦   ¦   ¦   ¦   +---trace
+¦   ¦   ¦   ¦   ¦   +---og
+¦   ¦   ¦   ¦   ¦   +---response-cache
+¦   ¦   ¦   ¦   ¦   +---stream-utils
+¦   ¦   ¦   ¦   ¦   +---typescript
+¦   ¦   ¦   ¦   ¦   ¦   +---rules
+¦   ¦   ¦   ¦   ¦   +---web
+¦   ¦   ¦   ¦   ¦       +---exports
+¦   ¦   ¦   ¦   ¦       +---sandbox
+¦   ¦   ¦   ¦   ¦       +---spec-extension
+¦   ¦   ¦   ¦   ¦           +---adapters
+¦   ¦   ¦   ¦   +---shared
+¦   ¦   ¦   ¦       +---lib
+¦   ¦   ¦   ¦           +---i18n
+¦   ¦   ¦   ¦           +---isomorphic
+¦   ¦   ¦   ¦           +---lazy-dynamic
+¦   ¦   ¦   ¦           +---page-path
+¦   ¦   ¦   ¦           +---router
+¦   ¦   ¦   ¦           ¦   +---utils
+¦   ¦   ¦   ¦           +---utils
+¦   ¦   ¦   +---experimental
+¦   ¦   ¦   ¦   +---testmode
+¦   ¦   ¦   ¦       +---playwright
+¦   ¦   ¦   ¦       +---proxy
+¦   ¦   ¦   +---export
+¦   ¦   ¦   ¦   +---helpers
+¦   ¦   ¦   ¦   +---routes
+¦   ¦   ¦   +---lib
+¦   ¦   ¦   ¦   +---eslint
+¦   ¦   ¦   ¦   +---fs
+¦   ¦   ¦   ¦   +---helpers
+¦   ¦   ¦   ¦   +---memory
+¦   ¦   ¦   ¦   +---metadata
+¦   ¦   ¦   ¦   ¦   +---generate
+¦   ¦   ¦   ¦   ¦   +---resolvers
+¦   ¦   ¦   ¦   ¦   +---types
+¦   ¦   ¦   ¦   +---typescript
+¦   ¦   ¦   +---pages
+¦   ¦   ¦   +---server
+¦   ¦   ¦   ¦   +---api-utils
+¦   ¦   ¦   ¦   ¦   +---node
+¦   ¦   ¦   ¦   +---app-render
+¦   ¦   ¦   ¦   ¦   +---rsc
+¦   ¦   ¦   ¦   ¦   +---static
+¦   ¦   ¦   ¦   +---async-storage
+¦   ¦   ¦   ¦   +---base-http
+¦   ¦   ¦   ¦   +---dev
+¦   ¦   ¦   ¦   ¦   +---turbopack
+¦   ¦   ¦   ¦   +---future
+¦   ¦   ¦   ¦   ¦   +---helpers
+¦   ¦   ¦   ¦   ¦   ¦   +---module-loader
+¦   ¦   ¦   ¦   ¦   +---normalizers
+¦   ¦   ¦   ¦   ¦   ¦   +---built
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---app
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---pages
+¦   ¦   ¦   ¦   ¦   ¦   +---request
+¦   ¦   ¦   ¦   ¦   +---route-definitions
+¦   ¦   ¦   ¦   ¦   +---route-matcher-managers
+¦   ¦   ¦   ¦   ¦   +---route-matcher-providers
+¦   ¦   ¦   ¦   ¦   ¦   +---dev
+¦   ¦   ¦   ¦   ¦   ¦   ¦   +---helpers
+¦   ¦   ¦   ¦   ¦   ¦   ¦       +---file-reader
+¦   ¦   ¦   ¦   ¦   ¦   +---helpers
+¦   ¦   ¦   ¦   ¦   ¦       +---manifest-loaders
+¦   ¦   ¦   ¦   ¦   +---route-matchers
+¦   ¦   ¦   ¦   ¦   +---route-matches
+¦   ¦   ¦   ¦   ¦   +---route-modules
+¦   ¦   ¦   ¦   ¦       +---app-page
+¦   ¦   ¦   ¦   ¦       ¦   +---vendored
+¦   ¦   ¦   ¦   ¦       ¦       +---contexts
+¦   ¦   ¦   ¦   ¦       ¦       +---rsc
+¦   ¦   ¦   ¦   ¦       ¦       +---ssr
+¦   ¦   ¦   ¦   ¦       +---app-route
+¦   ¦   ¦   ¦   ¦       ¦   +---helpers
+¦   ¦   ¦   ¦   ¦       +---helpers
+¦   ¦   ¦   ¦   ¦       +---pages
+¦   ¦   ¦   ¦   ¦       ¦   +---builtin
+¦   ¦   ¦   ¦   ¦       ¦   +---vendored
+¦   ¦   ¦   ¦   ¦       ¦       +---contexts
+¦   ¦   ¦   ¦   ¦       +---pages-api
+¦   ¦   ¦   ¦   +---lib
+¦   ¦   ¦   ¦   ¦   +---incremental-cache
+¦   ¦   ¦   ¦   ¦   +---router-utils
+¦   ¦   ¦   ¦   ¦   +---server-ipc
+¦   ¦   ¦   ¦   ¦   +---squoosh
+¦   ¦   ¦   ¦   ¦   ¦   +---avif
+¦   ¦   ¦   ¦   ¦   ¦   +---mozjpeg
+¦   ¦   ¦   ¦   ¦   ¦   +---png
+¦   ¦   ¦   ¦   ¦   ¦   +---resize
+¦   ¦   ¦   ¦   ¦   ¦   +---rotate
+¦   ¦   ¦   ¦   ¦   ¦   +---webp
+¦   ¦   ¦   ¦   ¦   +---trace
+¦   ¦   ¦   ¦   +---og
+¦   ¦   ¦   ¦   +---response-cache
+¦   ¦   ¦   ¦   +---stream-utils
+¦   ¦   ¦   ¦   +---typescript
+¦   ¦   ¦   ¦   ¦   +---rules
+¦   ¦   ¦   ¦   +---web
+¦   ¦   ¦   ¦       +---exports
+¦   ¦   ¦   ¦       +---sandbox
+¦   ¦   ¦   ¦       +---spec-extension
+¦   ¦   ¦   ¦           +---adapters
+¦   ¦   ¦   +---shared
+¦   ¦   ¦   ¦   +---lib
+¦   ¦   ¦   ¦       +---i18n
+¦   ¦   ¦   ¦       +---isomorphic
+¦   ¦   ¦   ¦       +---lazy-dynamic
+¦   ¦   ¦   ¦       +---page-path
+¦   ¦   ¦   ¦       +---router
+¦   ¦   ¦   ¦       ¦   +---utils
+¦   ¦   ¦   ¦       +---utils
+¦   ¦   ¦   +---src
+¦   ¦   ¦   ¦   +---compiled
+¦   ¦   ¦   ¦       +---@ampproject
+¦   ¦   ¦   ¦           +---toolbox-optimizer
+¦   ¦   ¦   +---styled-jsx
+¦   ¦   ¦   ¦   +---types
+¦   ¦   ¦   +---telemetry
+¦   ¦   ¦   ¦   +---events
+¦   ¦   ¦   +---trace
+¦   ¦   ¦       +---report
+¦   ¦   +---experimental
+¦   ¦   ¦   +---testmode
+¦   ¦   ¦       +---playwright
+¦   ¦   +---font
+¦   ¦   ¦   +---google
+¦   ¦   ¦   +---local
+¦   ¦   +---image-types
+¦   ¦   +---legacy
+¦   ¦   +---navigation-types
+¦   ¦   ¦   +---compat
+¦   ¦   +---node_modules
+¦   ¦   ¦   +---postcss
+¦   ¦   ¦       +---lib
+¦   ¦   +---types
+¦   +---node-domexception
+¦   ¦   +---.history
+¦   +---node-fetch
+¦   ¦   +---lib
+¦   +---node-releases
+¦   ¦   +---data
+¦   ¦       +---processed
+¦   ¦       +---release-schedule
+¦   +---normalize-path
+¦   +---normalize-range
+¦   +---object-assign
+¦   +---object-hash
+¦   ¦   +---dist
+¦   +---object-inspect
+¦   ¦   +---.github
+¦   ¦   +---example
+¦   ¦   +---test
+¦   ¦       +---browser
+¦   +---object-keys
+¦   ¦   +---test
+¦   +---object.assign
+¦   ¦   +---.github
+¦   ¦   +---dist
+¦   ¦   +---test
+¦   +---object.entries
+¦   ¦   +---test
+¦   +---object.fromentries
+¦   ¦   +---test
+¦   +---object.groupby
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---object.values
+¦   ¦   +---test
+¦   +---on-finished
+¦   +---once
+¦   +---openai
+¦   ¦   +---beta
+¦   ¦   ¦   +---realtime
+¦   ¦   +---bin
+¦   ¦   +---core
+¦   ¦   +---helpers
+¦   ¦   +---internal
+¦   ¦   ¦   +---decoders
+¦   ¦   ¦   +---qs
+¦   ¦   ¦   +---utils
+¦   ¦   +---lib
+¦   ¦   ¦   +---responses
+¦   ¦   +---resources
+¦   ¦   ¦   +---audio
+¦   ¦   ¦   +---beta
+¦   ¦   ¦   ¦   +---realtime
+¦   ¦   ¦   ¦   +---threads
+¦   ¦   ¦   ¦       +---runs
+¦   ¦   ¦   +---chat
+¦   ¦   ¦   ¦   +---completions
+¦   ¦   ¦   +---containers
+¦   ¦   ¦   ¦   +---files
+¦   ¦   ¦   +---conversations
+¦   ¦   ¦   +---evals
+¦   ¦   ¦   ¦   +---runs
+¦   ¦   ¦   +---fine-tuning
+¦   ¦   ¦   ¦   +---alpha
+¦   ¦   ¦   ¦   +---checkpoints
+¦   ¦   ¦   ¦   +---jobs
+¦   ¦   ¦   +---graders
+¦   ¦   ¦   +---responses
+¦   ¦   ¦   +---uploads
+¦   ¦   ¦   +---vector-stores
+¦   ¦   +---src
+¦   ¦   ¦   +---beta
+¦   ¦   ¦   ¦   +---realtime
+¦   ¦   ¦   +---core
+¦   ¦   ¦   +---helpers
+¦   ¦   ¦   +---internal
+¦   ¦   ¦   ¦   +---decoders
+¦   ¦   ¦   ¦   +---qs
+¦   ¦   ¦   ¦   +---utils
+¦   ¦   ¦   +---lib
+¦   ¦   ¦   ¦   +---responses
+¦   ¦   ¦   +---resources
+¦   ¦   ¦   ¦   +---audio
+¦   ¦   ¦   ¦   +---beta
+¦   ¦   ¦   ¦   ¦   +---realtime
+¦   ¦   ¦   ¦   ¦   +---threads
+¦   ¦   ¦   ¦   ¦       +---runs
+¦   ¦   ¦   ¦   +---chat
+¦   ¦   ¦   ¦   ¦   +---completions
+¦   ¦   ¦   ¦   +---containers
+¦   ¦   ¦   ¦   ¦   +---files
+¦   ¦   ¦   ¦   +---conversations
+¦   ¦   ¦   ¦   +---evals
+¦   ¦   ¦   ¦   ¦   +---runs
+¦   ¦   ¦   ¦   +---fine-tuning
+¦   ¦   ¦   ¦   ¦   +---alpha
+¦   ¦   ¦   ¦   ¦   +---checkpoints
+¦   ¦   ¦   ¦   ¦   +---jobs
+¦   ¦   ¦   ¦   +---graders
+¦   ¦   ¦   ¦   +---responses
+¦   ¦   ¦   ¦   +---uploads
+¦   ¦   ¦   ¦   +---vector-stores
+¦   ¦   ¦   +---_vendor
+¦   ¦   ¦       +---partial-json-parser
+¦   ¦   ¦       +---zod-to-json-schema
+¦   ¦   ¦           +---parsers
+¦   ¦   +---_vendor
+¦   ¦       +---partial-json-parser
+¦   ¦       +---zod-to-json-schema
+¦   ¦           +---parsers
+¦   +---optionator
+¦   ¦   +---lib
+¦   +---own-keys
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---p-limit
+¦   +---p-locate
+¦   +---pac-proxy-agent
+¦   ¦   +---dist
+¦   +---pac-resolver
+¦   ¦   +---dist
+¦   +---pako
+¦   ¦   +---dist
+¦   ¦   +---lib
+¦   ¦       +---utils
+¦   ¦       +---zlib
+¦   +---parent-module
+¦   +---parse-json
+¦   +---parseurl
+¦   +---path-exists
+¦   +---path-is-absolute
+¦   +---path-key
+¦   +---path-parse
+¦   +---path-scurry
+¦   ¦   +---dist
+¦   ¦       +---commonjs
+¦   ¦       +---esm
+¦   +---path-to-regexp
+¦   +---path-type
+¦   +---pathe
+¦   ¦   +---dist
+¦   ¦       +---shared
+¦   +---pathval
+¦   +---pend
+¦   +---picocolors
+¦   +---picomatch
+¦   ¦   +---lib
+¦   +---pify
+¦   +---pirates
+¦   ¦   +---lib
+¦   +---pkce-challenge
+¦   ¦   +---dist
+¦   +---possible-typed-array-names
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---postcss
+¦   ¦   +---lib
+¦   +---postcss-import
+¦   ¦   +---lib
+¦   +---postcss-js
+¦   +---postcss-load-config
+¦   ¦   +---src
+¦   +---postcss-nested
+¦   +---postcss-selector-parser
+¦   ¦   +---dist
+¦   ¦       +---selectors
+¦   ¦       +---util
+¦   +---postcss-value-parser
+¦   ¦   +---lib
+¦   +---prelude-ls
+¦   ¦   +---lib
+¦   +---process-nextick-args
+¦   +---progress
+¦   ¦   +---lib
+¦   +---prop-types
+¦   ¦   +---lib
+¦   +---proto3-json-serializer
+¦   ¦   +---build
+¦   ¦       +---src
+¦   +---protobufjs
+¦   ¦   +---dist
+¦   ¦   ¦   +---light
+¦   ¦   ¦   +---minimal
+¦   ¦   +---ext
+¦   ¦   ¦   +---debug
+¦   ¦   ¦   +---descriptor
+¦   ¦   +---google
+¦   ¦   ¦   +---api
+¦   ¦   ¦   +---protobuf
+¦   ¦   +---scripts
+¦   ¦   +---src
+¦   ¦       +---rpc
+¦   ¦       +---util
+¦   +---proxy-addr
+¦   +---proxy-agent
+¦   ¦   +---dist
+¦   ¦   +---node_modules
+¦   ¦       +---lru-cache
+¦   +---proxy-from-env
+¦   +---pump
+¦   ¦   +---.github
+¦   +---punycode
+¦   +---puppeteer
+¦   ¦   +---lib
+¦   ¦   ¦   +---cjs
+¦   ¦   ¦   ¦   +---puppeteer
+¦   ¦   ¦   ¦       +---node
+¦   ¦   ¦   +---esm
+¦   ¦   ¦       +---puppeteer
+¦   ¦   ¦           +---node
+¦   ¦   +---src
+¦   ¦       +---node
+¦   +---puppeteer-core
+¦   ¦   +---lib
+¦   ¦   ¦   +---cjs
+¦   ¦   ¦   ¦   +---puppeteer
+¦   ¦   ¦   ¦   ¦   +---api
+¦   ¦   ¦   ¦   ¦   ¦   +---locators
+¦   ¦   ¦   ¦   ¦   +---bidi
+¦   ¦   ¦   ¦   ¦   ¦   +---core
+¦   ¦   ¦   ¦   ¦   +---cdp
+¦   ¦   ¦   ¦   ¦   +---common
+¦   ¦   ¦   ¦   ¦   +---generated
+¦   ¦   ¦   ¦   ¦   +---injected
+¦   ¦   ¦   ¦   ¦   +---node
+¦   ¦   ¦   ¦   ¦   ¦   +---util
+¦   ¦   ¦   ¦   ¦   +---util
+¦   ¦   ¦   ¦   +---third_party
+¦   ¦   ¦   ¦       +---mitt
+¦   ¦   ¦   ¦       +---parsel-js
+¦   ¦   ¦   ¦       +---rxjs
+¦   ¦   ¦   +---es5-iife
+¦   ¦   ¦   +---esm
+¦   ¦   ¦       +---puppeteer
+¦   ¦   ¦       ¦   +---api
+¦   ¦   ¦       ¦   ¦   +---locators
+¦   ¦   ¦       ¦   +---bidi
+¦   ¦   ¦       ¦   ¦   +---core
+¦   ¦   ¦       ¦   +---cdp
+¦   ¦   ¦       ¦   +---common
+¦   ¦   ¦       ¦   +---generated
+¦   ¦   ¦       ¦   +---injected
+¦   ¦   ¦       ¦   +---node
+¦   ¦   ¦       ¦   ¦   +---util
+¦   ¦   ¦       ¦   +---util
+¦   ¦   ¦       +---third_party
+¦   ¦   ¦           +---mitt
+¦   ¦   ¦           +---parsel-js
+¦   ¦   ¦           +---rxjs
+¦   ¦   +---src
+¦   ¦       +---api
+¦   ¦       ¦   +---locators
+¦   ¦       +---bidi
+¦   ¦       ¦   +---core
+¦   ¦       +---cdp
+¦   ¦       +---common
+¦   ¦       +---generated
+¦   ¦       +---injected
+¦   ¦       +---node
+¦   ¦       ¦   +---util
+¦   ¦       +---templates
+¦   ¦       +---util
+¦   +---puppeteer-extra
+¦   ¦   +---dist
+¦   +---puppeteer-extra-plugin
+¦   ¦   +---dist
+¦   +---puppeteer-extra-plugin-stealth
+¦   ¦   +---evasions
+¦   ¦   ¦   +---chrome.app
+¦   ¦   ¦   +---chrome.csi
+¦   ¦   ¦   +---chrome.loadTimes
+¦   ¦   ¦   +---chrome.runtime
+¦   ¦   ¦   +---defaultArgs
+¦   ¦   ¦   +---iframe.contentWindow
+¦   ¦   ¦   +---media.codecs
+¦   ¦   ¦   +---navigator.hardwareConcurrency
+¦   ¦   ¦   +---navigator.languages
+¦   ¦   ¦   +---navigator.permissions
+¦   ¦   ¦   +---navigator.plugins
+¦   ¦   ¦   +---navigator.vendor
+¦   ¦   ¦   +---navigator.webdriver
+¦   ¦   ¦   +---sourceurl
+¦   ¦   ¦   ¦   +---_fixtures
+¦   ¦   ¦   +---user-agent-override
+¦   ¦   ¦   +---webgl.vendor
+¦   ¦   ¦   +---window.outerdimensions
+¦   ¦   ¦   +---_template
+¦   ¦   ¦   +---_utils
+¦   ¦   +---examples
+¦   ¦   +---test
+¦   ¦       +---fixtures
+¦   +---puppeteer-extra-plugin-user-data-dir
+¦   +---puppeteer-extra-plugin-user-preferences
+¦   +---qs
+¦   ¦   +---.github
+¦   ¦   +---dist
+¦   ¦   +---lib
+¦   ¦   +---test
+¦   +---queue-microtask
+¦   +---range-parser
+¦   +---raw-body
+¦   ¦   +---node_modules
+¦   ¦       +---iconv-lite
+¦   ¦           +---.github
+¦   ¦           +---.idea
+¦   ¦           ¦   +---codeStyles
+¦   ¦           ¦   +---inspectionProfiles
+¦   ¦           +---encodings
+¦   ¦           ¦   +---tables
+¦   ¦           +---lib
+¦   +---react
+¦   ¦   +---cjs
+¦   ¦   +---umd
+¦   +---react-dom
+¦   ¦   +---cjs
+¦   ¦   +---umd
+¦   +---react-hook-form
+¦   ¦   +---dist
+¦   ¦       +---logic
+¦   ¦       +---types
+¦   ¦       ¦   +---path
+¦   ¦       +---utils
+¦   +---react-is
+¦   ¦   +---cjs
+¦   ¦   +---umd
+¦   +---read-cache
+¦   +---readdirp
+¦   +---reflect.getprototypeof
+¦   ¦   +---test
+¦   +---regexp.prototype.flags
+¦   ¦   +---test
+¦   +---require-directory
+¦   +---resolve
+¦   ¦   +---.github
+¦   ¦   +---bin
+¦   ¦   +---example
+¦   ¦   +---lib
+¦   ¦   +---test
+¦   ¦       +---dotdot
+¦   ¦       ¦   +---abc
+¦   ¦       +---module_dir
+¦   ¦       ¦   +---xmodules
+¦   ¦       ¦   ¦   +---aaa
+¦   ¦       ¦   +---ymodules
+¦   ¦       ¦   ¦   +---aaa
+¦   ¦       ¦   +---zmodules
+¦   ¦       ¦       +---bbb
+¦   ¦       +---node_path
+¦   ¦       ¦   +---x
+¦   ¦       ¦   ¦   +---aaa
+¦   ¦       ¦   ¦   +---ccc
+¦   ¦       ¦   +---y
+¦   ¦       ¦       +---bbb
+¦   ¦       ¦       +---ccc
+¦   ¦       +---pathfilter
+¦   ¦       ¦   +---deep_ref
+¦   ¦       +---precedence
+¦   ¦       ¦   +---aaa
+¦   ¦       ¦   +---bbb
+¦   ¦       +---resolver
+¦   ¦       ¦   +---baz
+¦   ¦       ¦   +---browser_field
+¦   ¦       ¦   +---dot_main
+¦   ¦       ¦   +---dot_slash_main
+¦   ¦       ¦   +---false_main
+¦   ¦       ¦   +---incorrect_main
+¦   ¦       ¦   +---invalid_main
+¦   ¦       ¦   +---multirepo
+¦   ¦       ¦   ¦   +---packages
+¦   ¦       ¦   ¦       +---package-a
+¦   ¦       ¦   ¦       +---package-b
+¦   ¦       ¦   +---nested_symlinks
+¦   ¦       ¦   ¦   +---mylib
+¦   ¦       ¦   +---other_path
+¦   ¦       ¦   ¦   +---lib
+¦   ¦       ¦   +---quux
+¦   ¦       ¦   ¦   +---foo
+¦   ¦       ¦   +---same_names
+¦   ¦       ¦   ¦   +---foo
+¦   ¦       ¦   +---symlinked
+¦   ¦       ¦   ¦   +---package
+¦   ¦       ¦   ¦   +---_
+¦   ¦       ¦   ¦       +---node_modules
+¦   ¦       ¦   ¦       +---symlink_target
+¦   ¦       ¦   +---without_basedir
+¦   ¦       +---shadowed_core
+¦   ¦           +---node_modules
+¦   ¦               +---util
+¦   +---resolve-from
+¦   +---resolve-pkg-maps
+¦   ¦   +---dist
+¦   +---retry-request
+¦   +---reusify
+¦   ¦   +---.github
+¦   ¦   ¦   +---workflows
+¦   ¦   +---benchmarks
+¦   +---rimraf
+¦   ¦   +---node_modules
+¦   ¦       +---glob
+¦   +---rollup
+¦   ¦   +---dist
+¦   ¦       +---bin
+¦   ¦       +---es
+¦   ¦       ¦   +---shared
+¦   ¦       +---shared
+¦   +---router
+¦   ¦   +---lib
+¦   ¦   +---node_modules
+¦   ¦       +---path-to-regexp
+¦   ¦           +---dist
+¦   +---run-parallel
+¦   +---rxjs
+¦   ¦   +---ajax
+¦   ¦   +---dist
+¦   ¦   ¦   +---bundles
+¦   ¦   ¦   +---cjs
+¦   ¦   ¦   ¦   +---ajax
+¦   ¦   ¦   ¦   +---fetch
+¦   ¦   ¦   ¦   +---internal
+¦   ¦   ¦   ¦   ¦   +---ajax
+¦   ¦   ¦   ¦   ¦   +---observable
+¦   ¦   ¦   ¦   ¦   ¦   +---dom
+¦   ¦   ¦   ¦   ¦   +---operators
+¦   ¦   ¦   ¦   ¦   +---scheduled
+¦   ¦   ¦   ¦   ¦   +---scheduler
+¦   ¦   ¦   ¦   ¦   +---symbol
+¦   ¦   ¦   ¦   ¦   +---testing
+¦   ¦   ¦   ¦   ¦   +---util
+¦   ¦   ¦   ¦   +---operators
+¦   ¦   ¦   ¦   +---testing
+¦   ¦   ¦   ¦   +---webSocket
+¦   ¦   ¦   +---esm
+¦   ¦   ¦   ¦   +---ajax
+¦   ¦   ¦   ¦   +---fetch
+¦   ¦   ¦   ¦   +---internal
+¦   ¦   ¦   ¦   ¦   +---ajax
+¦   ¦   ¦   ¦   ¦   +---observable
+¦   ¦   ¦   ¦   ¦   ¦   +---dom
+¦   ¦   ¦   ¦   ¦   +---operators
+¦   ¦   ¦   ¦   ¦   +---scheduled
+¦   ¦   ¦   ¦   ¦   +---scheduler
+¦   ¦   ¦   ¦   ¦   +---symbol
+¦   ¦   ¦   ¦   ¦   +---testing
+¦   ¦   ¦   ¦   ¦   +---util
+¦   ¦   ¦   ¦   +---operators
+¦   ¦   ¦   ¦   +---testing
+¦   ¦   ¦   ¦   +---webSocket
+¦   ¦   ¦   +---esm5
+¦   ¦   ¦   ¦   +---ajax
+¦   ¦   ¦   ¦   +---fetch
+¦   ¦   ¦   ¦   +---internal
+¦   ¦   ¦   ¦   ¦   +---ajax
+¦   ¦   ¦   ¦   ¦   +---observable
+¦   ¦   ¦   ¦   ¦   ¦   +---dom
+¦   ¦   ¦   ¦   ¦   +---operators
+¦   ¦   ¦   ¦   ¦   +---scheduled
+¦   ¦   ¦   ¦   ¦   +---scheduler
+¦   ¦   ¦   ¦   ¦   +---symbol
+¦   ¦   ¦   ¦   ¦   +---testing
+¦   ¦   ¦   ¦   ¦   +---util
+¦   ¦   ¦   ¦   +---operators
+¦   ¦   ¦   ¦   +---testing
+¦   ¦   ¦   ¦   +---webSocket
+¦   ¦   ¦   +---types
+¦   ¦   ¦       +---ajax
+¦   ¦   ¦       +---fetch
+¦   ¦   ¦       +---internal
+¦   ¦   ¦       ¦   +---ajax
+¦   ¦   ¦       ¦   +---observable
+¦   ¦   ¦       ¦   ¦   +---dom
+¦   ¦   ¦       ¦   +---operators
+¦   ¦   ¦       ¦   +---scheduled
+¦   ¦   ¦       ¦   +---scheduler
+¦   ¦   ¦       ¦   +---symbol
+¦   ¦   ¦       ¦   +---testing
+¦   ¦   ¦       ¦   +---util
+¦   ¦   ¦       +---operators
+¦   ¦   ¦       +---testing
+¦   ¦   ¦       +---webSocket
+¦   ¦   +---fetch
+¦   ¦   +---operators
+¦   ¦   +---src
+¦   ¦   ¦   +---ajax
+¦   ¦   ¦   +---fetch
+¦   ¦   ¦   +---internal
+¦   ¦   ¦   ¦   +---ajax
+¦   ¦   ¦   ¦   +---observable
+¦   ¦   ¦   ¦   ¦   +---dom
+¦   ¦   ¦   ¦   +---operators
+¦   ¦   ¦   ¦   +---scheduled
+¦   ¦   ¦   ¦   +---scheduler
+¦   ¦   ¦   ¦   +---symbol
+¦   ¦   ¦   ¦   +---testing
+¦   ¦   ¦   ¦   +---util
+¦   ¦   ¦   +---operators
+¦   ¦   ¦   +---testing
+¦   ¦   ¦   +---webSocket
+¦   ¦   +---testing
+¦   ¦   +---webSocket
+¦   +---safe-array-concat
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---safe-buffer
+¦   +---safe-push-apply
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---safe-regex-test
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---safer-buffer
+¦   +---scheduler
+¦   ¦   +---cjs
+¦   ¦   +---umd
+¦   +---selenium-webdriver
+¦   ¦   +---bidi
+¦   ¦   ¦   +---external
+¦   ¦   +---bin
+¦   ¦   ¦   +---linux
+¦   ¦   ¦   +---macos
+¦   ¦   ¦   +---windows
+¦   ¦   +---common
+¦   ¦   +---devtools
+¦   ¦   +---example
+¦   ¦   +---http
+¦   ¦   +---io
+¦   ¦   +---lib
+¦   ¦   ¦   +---atoms
+¦   ¦   ¦   +---fedcm
+¦   ¦   +---net
+¦   ¦   +---remote
+¦   ¦   +---testing
+¦   +---semver
+¦   ¦   +---bin
+¦   ¦   +---classes
+¦   ¦   +---functions
+¦   ¦   +---internal
+¦   ¦   +---ranges
+¦   +---send
+¦   ¦   +---node_modules
+¦   ¦       +---debug
+¦   ¦       ¦   +---node_modules
+¦   ¦       ¦   ¦   +---ms
+¦   ¦       ¦   +---src
+¦   ¦       +---encodeurl
+¦   +---serve-static
+¦   +---set-function-length
+¦   ¦   +---.github
+¦   +---set-function-name
+¦   ¦   +---.github
+¦   +---set-proto
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---setimmediate
+¦   +---setprototypeof
+¦   ¦   +---test
+¦   +---shallow-clone
+¦   ¦   +---node_modules
+¦   ¦       +---kind-of
+¦   ¦       +---lazy-cache
+¦   +---shebang-command
+¦   +---shebang-regex
+¦   +---shell-quote
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---side-channel
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---side-channel-list
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---side-channel-map
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---side-channel-weakmap
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---siginfo
+¦   +---slash
+¦   +---smart-buffer
+¦   ¦   +---build
+¦   ¦   +---docs
+¦   ¦   +---typings
+¦   +---socks
+¦   ¦   +---build
+¦   ¦   ¦   +---client
+¦   ¦   ¦   +---common
+¦   ¦   +---docs
+¦   ¦   ¦   +---examples
+¦   ¦   ¦       +---javascript
+¦   ¦   ¦       +---typescript
+¦   ¦   +---typings
+¦   ¦       +---client
+¦   ¦       +---common
+¦   +---socks-proxy-agent
+¦   ¦   +---dist
+¦   +---source-map
+¦   ¦   +---dist
+¦   ¦   +---lib
+¦   +---source-map-js
+¦   ¦   +---lib
+¦   +---stable-hash
+¦   ¦   +---dist
+¦   +---stackback
+¦   +---statuses
+¦   +---std-env
+¦   ¦   +---dist
+¦   +---stop-iteration-iterator
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---stream-events
+¦   +---stream-shift
+¦   ¦   +---.github
+¦   ¦       +---workflows
+¦   +---streamsearch
+¦   ¦   +---.github
+¦   ¦   ¦   +---workflows
+¦   ¦   +---lib
+¦   ¦   +---test
+¦   +---streamx
+¦   +---string-width
+¦   ¦   +---node_modules
+¦   ¦       +---ansi-regex
+¦   ¦       +---strip-ansi
+¦   +---string-width-cjs
+¦   ¦   +---node_modules
+¦   ¦       +---emoji-regex
+¦   ¦           +---es2015
+¦   +---string.prototype.includes
+¦   ¦   +---.github
+¦   ¦   ¦   +---workflows
+¦   ¦   +---tests
+¦   +---string.prototype.matchall
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---string.prototype.repeat
+¦   ¦   +---tests
+¦   +---string.prototype.trim
+¦   ¦   +---test
+¦   +---string.prototype.trimend
+¦   ¦   +---test
+¦   +---string.prototype.trimstart
+¦   ¦   +---test
+¦   +---string_decoder
+¦   ¦   +---lib
+¦   +---strip-ansi
+¦   +---strip-ansi-cjs
+¦   +---strip-bom
+¦   +---strip-json-comments
+¦   +---strip-literal
+¦   ¦   +---dist
+¦   ¦   +---node_modules
+¦   ¦       +---js-tokens
+¦   +---stubs
+¦   +---styled-jsx
+¦   ¦   +---dist
+¦   ¦   ¦   +---babel
+¦   ¦   ¦   +---index
+¦   ¦   ¦   +---webpack
+¦   ¦   +---lib
+¦   +---sucrase
+¦   ¦   +---bin
+¦   ¦   +---dist
+¦   ¦   ¦   +---esm
+¦   ¦   ¦   ¦   +---parser
+¦   ¦   ¦   ¦   ¦   +---plugins
+¦   ¦   ¦   ¦   ¦   ¦   +---jsx
+¦   ¦   ¦   ¦   ¦   +---tokenizer
+¦   ¦   ¦   ¦   ¦   +---traverser
+¦   ¦   ¦   ¦   ¦   +---util
+¦   ¦   ¦   ¦   +---transformers
+¦   ¦   ¦   ¦   +---util
+¦   ¦   ¦   +---parser
+¦   ¦   ¦   ¦   +---plugins
+¦   ¦   ¦   ¦   ¦   +---jsx
+¦   ¦   ¦   ¦   +---tokenizer
+¦   ¦   ¦   ¦   +---traverser
+¦   ¦   ¦   ¦   +---util
+¦   ¦   ¦   +---transformers
+¦   ¦   ¦   +---types
+¦   ¦   ¦   ¦   +---parser
+¦   ¦   ¦   ¦   ¦   +---plugins
+¦   ¦   ¦   ¦   ¦   ¦   +---jsx
+¦   ¦   ¦   ¦   ¦   +---tokenizer
+¦   ¦   ¦   ¦   ¦   +---traverser
+¦   ¦   ¦   ¦   ¦   +---util
+¦   ¦   ¦   ¦   +---transformers
+¦   ¦   ¦   ¦   +---util
+¦   ¦   ¦   +---util
+¦   ¦   +---register
+¦   ¦   +---ts-node-plugin
+¦   +---supports-color
+¦   +---supports-preserve-symlinks-flag
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---tailwind-merge
+¦   ¦   +---dist
+¦   ¦   ¦   +---es5
+¦   ¦   +---src
+¦   ¦       +---lib
+¦   +---tailwindcss
+¦   ¦   +---lib
+¦   ¦   ¦   +---cli
+¦   ¦   ¦   ¦   +---build
+¦   ¦   ¦   ¦   +---help
+¦   ¦   ¦   ¦   +---init
+¦   ¦   ¦   +---css
+¦   ¦   ¦   +---lib
+¦   ¦   ¦   +---postcss-plugins
+¦   ¦   ¦   ¦   +---nesting
+¦   ¦   ¦   +---public
+¦   ¦   ¦   +---util
+¦   ¦   ¦   +---value-parser
+¦   ¦   +---nesting
+¦   ¦   +---peers
+¦   ¦   +---scripts
+¦   ¦   +---src
+¦   ¦   ¦   +---cli
+¦   ¦   ¦   ¦   +---build
+¦   ¦   ¦   ¦   +---help
+¦   ¦   ¦   ¦   +---init
+¦   ¦   ¦   +---css
+¦   ¦   ¦   +---lib
+¦   ¦   ¦   +---postcss-plugins
+¦   ¦   ¦   ¦   +---nesting
+¦   ¦   ¦   +---public
+¦   ¦   ¦   +---util
+¦   ¦   ¦   +---value-parser
+¦   ¦   +---stubs
+¦   ¦   +---types
+¦   ¦       +---generated
+¦   +---tar-fs
+¦   +---tar-stream
+¦   +---teeny-request
+¦   ¦   +---build
+¦   ¦   ¦   +---src
+¦   ¦   +---node_modules
+¦   ¦       +---agent-base
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   ¦   +---src
+¦   ¦       ¦   +---src
+¦   ¦       +---data-uri-to-buffer
+¦   ¦       ¦   +---dist
+¦   ¦       ¦   +---src
+¦   ¦       +---http-proxy-agent
+¦   ¦       ¦   +---dist
+¦   ¦       +---https-proxy-agent
+¦   ¦       ¦   +---dist
+¦   ¦       +---node-fetch
+¦   ¦           +---@types
+¦   ¦           +---src
+¦   ¦               +---errors
+¦   ¦               +---utils
+¦   +---text-decoder
+¦   ¦   +---lib
+¦   +---text-table
+¦   ¦   +---example
+¦   ¦   +---test
+¦   +---thenify
+¦   +---thenify-all
+¦   +---tinybench
+¦   ¦   +---dist
+¦   +---tinyexec
+¦   ¦   +---dist
+¦   +---tinyglobby
+¦   ¦   +---dist
+¦   ¦   +---node_modules
+¦   ¦       +---fdir
+¦   ¦       ¦   +---dist
+¦   ¦       +---picomatch
+¦   ¦           +---lib
+¦   +---tinypool
+¦   ¦   +---dist
+¦   ¦       +---entry
+¦   +---tinyrainbow
+¦   ¦   +---dist
+¦   +---tinyspy
+¦   ¦   +---dist
+¦   +---tmp
+¦   ¦   +---lib
+¦   +---to-regex-range
+¦   +---toidentifier
+¦   +---tr46
+¦   ¦   +---lib
+¦   +---tree-kill
+¦   +---ts-api-utils
+¦   ¦   +---lib
+¦   +---ts-interface-checker
+¦   ¦   +---dist
+¦   +---ts-node
+¦   ¦   +---dist
+¦   ¦   ¦   +---child
+¦   ¦   ¦   +---transpilers
+¦   ¦   +---dist-raw
+¦   ¦   +---esm
+¦   ¦   +---node10
+¦   ¦   +---node12
+¦   ¦   +---node14
+¦   ¦   +---node16
+¦   ¦   +---node_modules
+¦   ¦   ¦   +---arg
+¦   ¦   +---register
+¦   ¦   +---transpilers
+¦   +---tsconfig-paths
+¦   ¦   +---lib
+¦   ¦   ¦   +---__tests__
+¦   ¦   ¦       +---data
+¦   ¦   +---src
+¦   ¦       +---__tests__
+¦   ¦           +---data
+¦   +---tslib
+¦   ¦   +---modules
+¦   +---tw-animate-css
+¦   ¦   +---dist
+¦   +---type-check
+¦   ¦   +---lib
+¦   +---type-fest
+¦   ¦   +---source
+¦   ¦   +---ts41
+¦   +---type-is
+¦   +---typed-array-buffer
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---typed-array-byte-length
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---typed-array-byte-offset
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---typed-array-length
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---typed-query-selector
+¦   +---typescript
+¦   ¦   +---bin
+¦   ¦   +---lib
+¦   ¦       +---cs
+¦   ¦       +---de
+¦   ¦       +---es
+¦   ¦       +---fr
+¦   ¦       +---it
+¦   ¦       +---ja
+¦   ¦       +---ko
+¦   ¦       +---pl
+¦   ¦       +---pt-br
+¦   ¦       +---ru
+¦   ¦       +---tr
+¦   ¦       +---zh-cn
+¦   ¦       +---zh-tw
+¦   +---unbox-primitive
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---undici-types
+¦   +---universalify
+¦   +---unpipe
+¦   +---unrs-resolver
+¦   +---update-browserslist-db
+¦   +---uri-js
+¦   ¦   +---dist
+¦   ¦       +---es5
+¦   ¦       +---esnext
+¦   ¦           +---schemes
+¦   +---util-deprecate
+¦   +---utils-merge
+¦   +---v8-compile-cache-lib
+¦   +---vary
+¦   +---vite
+¦   ¦   +---bin
+¦   ¦   +---dist
+¦   ¦   ¦   +---client
+¦   ¦   ¦   +---node
+¦   ¦   ¦       +---chunks
+¦   ¦   +---misc
+¦   ¦   +---node_modules
+¦   ¦   ¦   +---fdir
+¦   ¦   ¦   ¦   +---dist
+¦   ¦   ¦   +---picomatch
+¦   ¦   ¦       +---lib
+¦   ¦   +---types
+¦   ¦       +---internal
+¦   +---vite-node
+¦   ¦   +---dist
+¦   +---vitest
+¦   ¦   +---dist
+¦   ¦   ¦   +---chunks
+¦   ¦   ¦   +---workers
+¦   ¦   +---node_modules
+¦   ¦       +---picomatch
+¦   ¦           +---lib
+¦   +---wait-on
+¦   ¦   +---.github
+¦   ¦   ¦   +---workflows
+¦   ¦   +---bin
+¦   ¦   +---lib
+¦   +---web-streams-polyfill
+¦   ¦   +---dist
+¦   ¦   ¦   +---types
+¦   ¦   ¦       +---ts3.6
+¦   ¦   +---es2018
+¦   ¦   +---es6
+¦   ¦   +---ponyfill
+¦   ¦       +---es2018
+¦   ¦       +---es6
+¦   +---webidl-conversions
+¦   ¦   +---lib
+¦   +---whatwg-url
+¦   ¦   +---lib
+¦   +---which
+¦   ¦   +---bin
+¦   +---which-boxed-primitive
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---which-builtin-type
+¦   ¦   +---test
+¦   +---which-collection
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---which-typed-array
+¦   ¦   +---.github
+¦   ¦   +---test
+¦   +---why-is-node-running
+¦   ¦   +---.github
+¦   +---word-wrap
+¦   +---wrap-ansi
+¦   ¦   +---node_modules
+¦   ¦       +---ansi-regex
+¦   ¦       +---ansi-styles
+¦   ¦       +---strip-ansi
+¦   +---wrap-ansi-cjs
+¦   ¦   +---node_modules
+¦   ¦       +---emoji-regex
+¦   ¦       ¦   +---es2015
+¦   ¦       +---string-width
+¦   +---wrappy
+¦   +---ws
+¦   ¦   +---lib
+¦   +---y18n
+¦   ¦   +---build
+¦   ¦       +---lib
+¦   ¦           +---platform-shims
+¦   +---yaml
+¦   ¦   +---browser
+¦   ¦   ¦   +---dist
+¦   ¦   ¦       +---compose
+¦   ¦   ¦       +---doc
+¦   ¦   ¦       +---nodes
+¦   ¦   ¦       +---parse
+¦   ¦   ¦       +---schema
+¦   ¦   ¦       ¦   +---common
+¦   ¦   ¦       ¦   +---core
+¦   ¦   ¦       ¦   +---json
+¦   ¦   ¦       ¦   +---yaml-1.1
+¦   ¦   ¦       +---stringify
+¦   ¦   +---dist
+¦   ¦       +---compose
+¦   ¦       +---doc
+¦   ¦       +---nodes
+¦   ¦       +---parse
+¦   ¦       +---schema
+¦   ¦       ¦   +---common
+¦   ¦       ¦   +---core
+¦   ¦       ¦   +---json
+¦   ¦       ¦   +---yaml-1.1
+¦   ¦       +---stringify
+¦   +---yargs
+¦   ¦   +---build
+¦   ¦   ¦   +---lib
+¦   ¦   ¦       +---typings
+¦   ¦   ¦       +---utils
+¦   ¦   +---helpers
+¦   ¦   +---lib
+¦   ¦   ¦   +---platform-shims
+¦   ¦   +---locales
+¦   ¦   +---node_modules
+¦   ¦       +---emoji-regex
+¦   ¦       ¦   +---es2015
+¦   ¦       +---string-width
+¦   +---yargs-parser
+¦   ¦   +---build
+¦   ¦       +---lib
+¦   +---yauzl
+¦   +---yn
+¦   +---yocto-queue
+¦   +---zod
+¦   ¦   +---src
+¦   ¦   ¦   +---v3
+¦   ¦   ¦   ¦   +---benchmarks
+¦   ¦   ¦   ¦   +---helpers
+¦   ¦   ¦   ¦   +---locales
+¦   ¦   ¦   ¦   +---tests
+¦   ¦   ¦   +---v4
+¦   ¦   ¦   ¦   +---classic
+¦   ¦   ¦   ¦   ¦   +---tests
+¦   ¦   ¦   ¦   +---core
+¦   ¦   ¦   ¦   ¦   +---tests
+¦   ¦   ¦   ¦   ¦       +---locales
+¦   ¦   ¦   ¦   +---locales
+¦   ¦   ¦   ¦   +---mini
+¦   ¦   ¦   ¦       +---tests
+¦   ¦   ¦   +---v4-mini
+¦   ¦   +---v3
+¦   ¦   ¦   +---helpers
+¦   ¦   ¦   +---locales
+¦   ¦   +---v4
+¦   ¦   ¦   +---classic
+¦   ¦   ¦   +---core
+¦   ¦   ¦   +---locales
+¦   ¦   ¦   +---mini
+¦   ¦   +---v4-mini
+¦   +---zod-to-json-schema
+¦       +---.github
+¦       +---dist
+¦           +---cjs
+¦           ¦   +---parsers
+¦           +---esm
+¦           ¦   +---parsers
+¦           +---types
+¦               +---parsers
++---public
++---src
+¦   +---chat
+¦   +---mcp
+¦   +---pages
+¦   +---tools
+¦       +---definitions
++---uploads

@@ -30,8 +30,35 @@ export const readFile = async (filePath: string): Promise<string> => {
 }
 
 export const google_search = async (query: string): Promise<string> => {
-  // This is a placeholder. In a real implementation, you would use a search API.
-  return `Search results for "${query}"`;
+  try {
+    const apiKey = process.env.API_KEY;
+    const searchEngineId = process.env.GOOGLE_SEARCH_ENGINE_ID || '017576662512468239146:omuauf_lfve'; // Default search engine ID
+
+    if (!apiKey) {
+      return 'Error: Google API key not found in environment variables';
+    }
+
+    const url = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${searchEngineId}&q=${encodeURIComponent(query)}`;
+
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Google Search API error: ${response.status} ${response.statusText}`);
+    }
+
+    const data = await response.json();
+
+    if (!data.items || data.items.length === 0) {
+      return `No search results found for "${query}"`;
+    }
+
+    const results = data.items.slice(0, 5).map((item: any, index: number) => {
+      return `${index + 1}. ${item.title}\n   ${item.snippet}\n   ${item.link}\n`;
+    }).join('\n');
+
+    return `Search results for "${query}":\n\n${results}`;
+  } catch (error: any) {
+    return `Error performing Google search: ${error.message}`;
+  }
 }
 
 export const view_text_website = async (url: string): Promise<string> => {

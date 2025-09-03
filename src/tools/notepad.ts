@@ -8,10 +8,17 @@ const notepadFile = path.join(process.cwd(), 'notepad.txt');
  * @param note_content The content of the note to save.
  * @returns A confirmation message.
  */
-export async function save_note(note_content: string): Promise<string> {
+export async function save_note(note_content: string, category?: string, tags?: string[]): Promise<string> {
     try {
-        // Append the new note with a timestamp
-        await fs.appendFile(notepadFile, `${new Date().toISOString()}: ${note_content}\n\n`);
+        let formattedContent = `${new Date().toISOString()}`;
+        if (category) {
+            formattedContent += ` [Category: ${category}]`;
+        }
+        if (tags && tags.length > 0) {
+            formattedContent += ` [Tags: ${tags.join(', ')}]`;
+        }
+        formattedContent += `: ${note_content}\n\n`;
+        await fs.appendFile(notepadFile, formattedContent);
         return `Note saved successfully.`;
     } catch (error: unknown) {
         const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';

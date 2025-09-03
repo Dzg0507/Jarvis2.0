@@ -1,150 +1,163 @@
-﻿import { GoogleGenerativeAI, GenerativeModel } from "@google/generative-ai";
+﻿import { z } from 'zod';
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import * as textToSpeech from '@google-cloud/text-to-speech';
+import PaperGenerator from './tools/paper-generator';
+import { listFiles, readFile, createFile, searchFileContent, replaceFileContent, readUploadedFile, view_text_website, save_speech_to_file, video_search, web_search, save_note, read_notes, semanticSearchNotes, searchNotesByTag, summarizeText, readChatHistory, addToClipboard, readClipboardHistory, searchClipboard, clearClipboardHistory, calculate, getCurrentDateTime, executeShellCommand } from '@/src/tools/index';
+import { config } from '@/src/config';
+import updatePersonaTool from '@/src/tools/definitions/update_persona';
 
-interface PaperGeneratorDependencies {
-    model: GenerativeModel;
-    google_search: (query: string) => Promise<string>;
-    view_text_website: (url: string) => Promise<string>;
-}
+export function getToolConfig(genAI: GoogleGenerativeAI, ttsClient: textToSpeech.TextToSpeechClient) {
+    const model = genAI.getGenerativeModel({ model: config.ai.modelName as string });
 
-export default class PaperGenerator {
-    private model: GenerativeModel;
-    private google_search: (query: string) => Promise<string>;
-    private view_text_website: (url: string) => Promise<string>;
+    const toolImplementations: { name: string, definition: any, implementation: (input: any) => Promise<any> }[] = [];
 
-    constructor({ model, google_search, view_text_website }: PaperGeneratorDependencies) {
-        this.model = model;
-        this.google_search = google_search;
-        this.view_text_website = view_text_website;
-    }
+    const defineTool = (name: string, definition: any, implementation: (input: any) => Promise<any>) => {
+        toolImplementations.push({ name, definition, implementation });
+    };
 
-    public async generate(topic: string): Promise<string> {
-        // Step 1: Generate Outline
-        const outline = await this._generateOutline(topic);
-        console.log("Generated Outline:", outline);
+    defineTool(
+        "clipboard_add", { title: "Add to Clipboard", description: "Adds a new text entry to the clipboard history.", inputSchema: { text: z.string() } },
+        async ({ text }: { text: string }) => ({ content: [{ type: "text", text: addToClipboard(text) }] })
+    );
 
-        // This tool requires a web search tool that returns structured JSON.
-        // The current google_search returns a string link.
-        // We will create a mock search function for this tool to use.
-        const mock_google_search_for_paper = async (query: string): Promise<string> => {
-            console.log(`PAPER_GENERATOR: Faking web search for: "${query}"`);
-            const mockResults = [
-                { title: `Study on ${query}`, url: 'http://example.com/study1', snippet: `A comprehensive study on the effects of ${topic}.` },
-                { title: `Introduction to ${query}`, url: 'http://example.com/intro1', snippet: `An introductory article about ${topic}.` }
-            ];
-            return JSON.stringify(mockResults);
-        };
+    defineTool(
+        "clipboard_read", { title: "Read Clipboard", description: "Reads the entire clipboard history.", inputSchema: {} },
+        async () => ({ content: [{ type: "text", text: readClipboardHistory() }] })
+    );
 
-        // Use the mock search instead of the real one.
-        const research = await this._performResearch(topic, outline, mock_google_search_for_paper);
-        console.log("Research Complete:", research);
+    defineTool(
+        "clipboard_search", { title: "Search Clipboard", description: "Searches the clipboard history for a given query.", inputSchema: { query: z.string() } },
+        async ({ query }: { query: string }) => ({ content: [{ type: "text", text: searchClipboard(query) }] })
+    );
 
-        // Step 3: Draft Sections
-        const draftedSections = await this._draftSections(topic, research);
-        console.log("Drafted Sections:", draftedSections);
+     defineTool(
+        "clipboard_clear", { title: "Clear Clipboard", description: "Clears the entire clipboard history.", inputSchema: {} },
+        async () => ({ content: [{ type: "text", text: clearClipboardHistory() }] })
+    );
 
-        // Step 4: Assemble Paper
-        const finalPaper = this._assemblePaper(topic, outline, draftedSections);
-        console.log("Final Paper:", finalPaper);
+    defineTool(
+        "fs_list", { description: "Lists files and directories.", inputSchema: { path: z.string() } },
+        async ({ path }: { path: string }) => ({ content: [{ type: "text", text: await listFiles(path) }] })
+    );
 
-        return finalPaper;
-    }
+    defineTool(
+        "fs_read", { description: "Reads the content of a file.", inputSchema: { path: z.string() } },
+        async ({ path }: { path: string }) => ({ content: [{ type: "text", text: await readFile(path) }] })
+    );
 
-    private async _generateOutline(topic: string): Promise<string> {
-        console.log(`Generating outline for: ${topic}`);
-        const prompt = `You are an expert academic researcher. Your task is to generate a structured outline for a research paper on the following topic: "${topic}".
+    defineTool(
+        "fs_create", { description: "Creates a new file with the specified content.", inputSchema: { path: z.string(), content: z.string() } },
+        async ({ path, content }: { path: string, content: string }) => ({ content: [{ type: "text", text: await createFile(path, content) }] })
+    );
 
-The outline should be well-structured, with clear sections and subsections. It should cover the key aspects of the topic and provide a logical flow for the paper. Please provide the outline in a simple, easy-to-parse format (e.g., using markdown headings or numbered lists).`;
-        try {
-            const result = await this.model.generateContent(prompt);
-            const response = await result.response;
-            const text = response.text();
-            return text;
-        }
-        catch (error) {
-            console.error("Error generating outline:", error);
-            return `Error: Could not generate an outline for the topic "${topic}".`;
-        }
-    }
+    defineTool(
+        "fs_search", { description: "Searches for a regular expression pattern within the content of files in a specified directory.", inputSchema: { pattern: z.string(), path: z.string().optional(), include: z.string().optional() } },
+        async ({ pattern, path, include }: { pattern: string, path?: string, include?: string }) => ({ content: [{ type: "text", text: await searchFileContent(pattern, path, include) }] })
+    );
 
-    private async _performResearch(topic: string, outline: string, search_function: (query: string) => Promise<string>): Promise<Record<string, string>> {
-        console.log(`Performing research for topic "${topic}"`);
-        const researchData: Record<string, string> = {};
-        const sections = outline.split('\n').filter(line => line.match(/^\s*(\d+\.|-|\*)\s+/)).map(line => line.replace(/^\s*(\d+\.|-|\*)\s+/, '').trim());
+    defineTool(
+        "fs_replace", { description: "Replaces occurrences of a specified old string with a new string within a file.", inputSchema: { filePath: z.string(), oldString: z.string(), newString: z.string(), expectedReplacements: z.number().optional() } },
+        async ({ filePath, oldString, newString, expectedReplacements }: { filePath: string, oldString: string, newString: string, expectedReplacements?: number }) => ({ content: [{ type: "text", text: await replaceFileContent(filePath, oldString, newString, expectedReplacements) }] })
+    );
 
-        for (const section of sections) {
-            if (!section) continue;
-            console.log(`Researching section: ${section}`);
-            const query = `"${topic}" "${section}"`;
-            let sectionContent = "";
-            try {
-                const searchResultsText = await search_function(query);
-                // This JSON.parse call is now safe because we are using a search function that returns valid JSON
-                const searchResults = JSON.parse(searchResultsText);
-                const urlsToRead = searchResults.slice(0, 2).map((r: any) => r.url); // Read top 2 results
+    defineTool(
+        "shell_execute", { description: "Executes a shell command.", inputSchema: { command: z.string() } },
+        async ({ command }: { command: string }) => ({ content: [{ type: "text", text: await executeShellCommand(command) }] })
+    );
 
-                for (const url of urlsToRead) {
-                    try {
-                        console.log(`Reading URL: ${url}`);
-                        // Since these are example.com URLs, we'll fake the content too.
-                        const content = `This is placeholder content from ${url} about ${section}. In a real scenario, this would be the scraped text from the website.`;
-                        sectionContent += `\n\n--- Source: ${url} ---\n${content.substring(0, 2000)}`; // Truncate content to avoid being too large
-                    }
-                    catch (error) {
-                        console.error(`Error reading URL ${url}:`, error);
-                    }
-                }
+    defineTool(
+        "read_uploaded_file", { title: "Read Uploaded File", description: "Reads the content of a file that has been uploaded by the user.", inputSchema: { filename: z.string() } },
+        async ({ filename }: { filename: string }) => ({ content: [{ type: "text", text: await readUploadedFile(filename) }] })
+    );
+
+    defineTool(
+        "web_search", { description: "Searches the web and returns a summary of the top results.", inputSchema: { query: z.string() } },
+        async ({ query }: { query: string }) => ({ content: [{ type: "text", text: await web_search(query, model) }] })
+    );
+
+    defineTool(
+        "web_read", { description: "Reads a webpage.", inputSchema: { url: z.string() } },
+        async ({ url }: { url: string }) => ({ content: [{ type: "text", text: await view_text_website(url) }] })
+    );
+
+    defineTool(
+        "save_note", { description: "Saves a note to the notepad. Optionally, a category and tags can be provided for organization.", inputSchema: { note_content: z.string(), category: z.string().optional(), tags: z.array(z.string()).optional() } },
+        async ({ note_content, category, tags }: { note_content: string, category?: string, tags?: string[] }) => ({ content: [{ type: "text", text: await save_note(note_content, category, tags) }] })
+    );
+
+    defineTool(
+        "read_notes", { description: "Reads all notes from the notepad.", inputSchema: {} },
+        async () => ({ content: [{ type: "text", text: await read_notes() }] })
+    );
+
+    defineTool(
+        "semantic_search_notes", { description: "Performs a semantic search on the stored notes to find relevant information based on meaning and context.", inputSchema: { query: z.string() } },
+        async ({ query }: { query: string }) => ({ content: [{ type: "text", text: await semanticSearchNotes(query, model) }] })
+    );
+
+    defineTool(
+        "search_notes_by_tag", { description: "Searches for notes that have a specific tag.", inputSchema: { tag: z.string() } },
+        async ({ tag }: { tag: string }) => ({ content: [{ type: "text", text: await searchNotesByTag(tag) }] })
+    );
+
+    defineTool(
+        "summarize_text", { description: "Summarizes a given text concisely.", inputSchema: { text: z.string() } },
+        async ({ text }: { text: string }) => ({ content: [{ type: "text", text: await summarizeText(text, model) }] })
+    );
+
+    defineTool(
+        "read_chat_history", { description: "Reads the recent chat history.", inputSchema: { num_lines: z.number().optional() } },
+        async ({ num_lines }: { num_lines?: number }) => ({ content: [{ type: "text", text: await readChatHistory(num_lines) }] })
+    );
+
+    defineTool(
+        "calculator", {
+            description: "Evaluates a mathematical expression. Supports basic arithmetic.",
+            inputSchema: {
+                expression: z.string().describe("The mathematical expression to solve.")
             }
-            catch (error) {
-                console.error(`Error researching section "${section}":`, error);
-                sectionContent = `Error: Could not perform research for section "${section}".`;
-            }
-            researchData[section] = sectionContent;
+        },
+        async ({ expression }: { expression: string }) => ({ content: [{ type: "text", text: await calculate(expression) }] })
+    );
+
+    defineTool(
+        "get_current_datetime", {
+            description: "Gets the current date, time, and day of the week.",
+            inputSchema: {}
+        },
+        async () => ({ content: [{ type: "text", text: await getCurrentDateTime() }] })
+    );
+
+    defineTool(
+        "paper_generator", { description: "Generates a research paper.", inputSchema: { topic: z.string() } },
+        async ({ topic }: { topic: string }) => {
+            const paperGenerator = new PaperGenerator({ model, web_search: (q: string) => web_search(q, model), view_text_website });
+            const paper = await paperGenerator.generate(topic);
+            return { content: [{ type: "text", text: paper }] };
         }
-        return researchData;
-    }
+    );
 
-    private async _draftSections(topic: string, research: Record<string, string>): Promise<Record<string, string>> {
-        console.log(`Drafting sections for topic "${topic}"`);
-        const draftedSections: Record<string, string> = {};
-        for (const section in research) {
-            if (Object.prototype.hasOwnProperty.call(research, section)) {
-                const researchContent = research[section];
-                console.log(`Drafting section: ${section}`);
-                const prompt = `You are an expert academic writer. Your task is to write a section of a research paper.
+    defineTool(
+        "save_speech_to_file", { description: "Synthesizes text and saves it as an MP3 file.", inputSchema: { text: z.string(), filename: z.string() } },
+        async ({ text, filename }: { text: string, filename: string }) => ({ content: [{ type: "text", text: await save_speech_to_file(text, filename, ttsClient) }] })
+    );
 
-The topic of the paper is: "${topic}".
-The section you are writing is: "${section}".
-
-Here is the research material you should use to write this section:
----
-${researchContent}
----
-
-Please write a clear, concise, and well-structured section based on the provided research. The section should be suitable for an academic paper.`;
-                try {
-                    const result = await this.model.generateContent(prompt);
-                    const response = await result.response;
-                    draftedSections[section] = response.text();
-                }
-                catch (error) {
-                    console.error(`Error drafting section "${section}":`, error);
-                    draftedSections[section] = `Error: Could not draft section "${section}".`;
-                }
+    defineTool(
+        "video_search", {
+            description: "Searches for videos and returns a list of results with thumbnails.",
+            inputSchema: {
+                query: z.string().describe("The primary search term for the videos."),
+                options: z.object({
+                    maxResults: z.number().optional().describe("Maximum number of results to return. Defaults to 10."),
+                    duration: z.enum(['short', 'medium', 'long']).optional().describe("Filter by video duration."),
+                    sortBy: z.enum(['relevance', 'date']).optional().describe("Sort results by relevance or date (most recent). 'date' is best for recent uploads.")
+                }).optional().describe("Optional parameters to refine the search.")
             }
-        }
-        return draftedSections;
-    }
+        },
+        async ({ query, options }: { query: string, options: any }) => ({ content: [{ type: "text", text: await video_search(query, options) }] })
+    );
 
-    private _assemblePaper(topic: string, outline: string, sections: Record<string, string>): string {
-        console.log(`Assembling paper for topic "${topic}"`);
-        let paper = `# Research Paper: ${topic}\n\n`;
-        const sectionHeadings = outline.split('\n').filter(line => line.match(/^\s*(\d+\.|-|\*)\s+/)).map(line => line.replace(/^\s*(\d+\.|-|\*)\s+/, '').trim());
-        for (const heading of sectionHeadings) {
-            if (sections[heading]) {
-                paper += `## ${heading}\n\n`;
-                paper += `${sections[heading]}\n\n`;
-            }
-        }
-        return paper;
-    }
+    defineTool(updatePersonaTool.name, updatePersonaTool.definition, updatePersonaTool.implementation);
+
+    return { toolImplementations };
 }

@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
     "outDir": "./dist-mcp",
     "strict": true,
     "esModuleInterop": true,
@@ -10,14 +10,18 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "allowJs": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": [
-    "src/server.ts",
     "src/mcp/**/*.ts",
     "src/tools/**/*.ts",
     "src/chat/**/*.ts",
-    "src/config.ts"
+    "src/config.ts",
+    "src/mcp-main.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "**/*.test.ts"]
 }

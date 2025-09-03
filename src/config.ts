@@ -6,15 +6,18 @@ export const config = {
     },
     ai: {
         apiKey: process.env.API_KEY,
-        // Using a Google Generative AI model
         modelName: process.env.AI_MODEL_NAME || 'gemini-1.5-flash',
-        // Removing the baseURL that points to Together AI
+        openaiApiKey: process.env.OPENAI_API_KEY,
     },
     mcp: {
-        serverUrl: process.env.MCP_SERVER_URL || 'http://localhost:8080/mcp',
-    }
-};
+        serverUrl: process.env.MCP_SERVER_URL || 'http://localhost:8080',
+    
+}}
 
 if (!config.ai.apiKey) {
     throw new Error("API_KEY environment variable not set. Please add it to your .env file.");
+}
+
+if (!config.ai.openaiApiKey) {
+    console.warn("OPENAI_API_KEY environment variable not set. Image generation tool will not be available.");
 }

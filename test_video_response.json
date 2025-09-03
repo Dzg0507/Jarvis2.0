@@ -1,0 +1,117 @@
+{
+  "response_type": "video_search_results",
+  "content_type": "json",
+  "data": {
+    "query": "stevie rust channel",
+    "total_results": 10,
+    "creator_results_count": 4,
+    "items": [
+      {
+        "title": "Our DUO STRUGGLE for POWER in Rust - ft. Stevie",
+        "video_url": "https://www.youtube.com/watch?v=pb4dbF7BFA8",
+        "thumbnail_url": "https://img.youtube.com/vi/pb4dbF7BFA8/maxresdefault.jpg",
+        "platform": "YouTube",
+        "is_creator_content": true,
+        "description": null,
+        "duration": null,
+        "view_count": null
+      },
+      {
+        "title": "Rust - A NEW BEGINNING?! - (Solo) (Stevie 2x)",
+        "video_url": "https://www.youtube.com/watch?v=Or4GuNGQHto",
+        "thumbnail_url": "https://img.youtube.com/vi/Or4GuNGQHto/maxresdefault.jpg",
+        "platform": "YouTube",
+        "is_creator_content": true,
+        "description": null,
+        "duration": null,
+        "view_count": null
+      },
+      {
+        "title": "Rust - SURPRISE RAIDING our ENEMIES ft. Stevie & Frost",
+        "video_url": "https://www.youtube.com/watch?v=UitDQDn038Q",
+        "thumbnail_url": "https://img.youtube.com/vi/UitDQDn038Q/maxresdefault.jpg",
+        "platform": "YouTube",
+        "is_creator_content": true,
+        "description": null,
+        "duration": null,
+        "view_count": null
+      },
+      {
+        "title": "I Lived Rent Free in a Rust Clans Base with Stevie",
+        "video_url": "https://www.youtube.com/watch?v=V_bo9miEWzs",
+        "thumbnail_url": "https://img.youtube.com/vi/V_bo9miEWzs/maxresdefault.jpg",
+        "platform": "YouTube",
+        "is_creator_content": true,
+        "description": null,
+        "duration": null,
+        "view_count": null
+      },
+      {
+        "title": "| !merch !donate !stream",
+        "video_url": "https://www.youtube.com/watch?v=kpgy-d_7TZE",
+        "thumbnail_url": "https://img.youtube.com/vi/kpgy-d_7TZE/maxresdefault.jpg",
+        "platform": "YouTube",
+        "is_creator_content": false,
+        "description": null,
+        "duration": null,
+        "view_count": null
+      },
+      {
+        "title": "Rust - The INSANE SOLO START!",
+        "video_url": "https://www.youtube.com/watch?v=cu0yqc8FaUE",
+        "thumbnail_url": "https://img.youtube.com/vi/cu0yqc8FaUE/maxresdefault.jpg",
+        "platform": "YouTube",
+        "is_creator_content": false,
+        "description": null,
+        "duration": null,
+        "view_count": null
+      },
+      {
+        "title": "JE ME FAIS RAID PAR UNE TEAM DE STREAM HACKER ! Rust",
+        "video_url": "https://www.youtube.com/watch?v=3ItRm7A_Cng",
+        "thumbnail_url": "https://img.youtube.com/vi/3ItRm7A_Cng/maxresdefault.jpg",
+        "platform": "YouTube",
+        "is_creator_content": false,
+        "description": null,
+        "duration": null,
+        "view_count": null
+      },
+      {
+        "title": "A RUST MONTAGE | Face Reveal | Setup Tour",
+        "video_url": "https://www.youtube.com/watch?v=XyZ8GcZDFcc",
+        "thumbnail_url": "https://img.youtube.com/vi/XyZ8GcZDFcc/maxresdefault.jpg",
+        "platform": "YouTube",
+        "is_creator_content": false,
+        "description": null,
+        "duration": null,
+        "view_count": null
+      },
+      {
+        "title": "THE VENDETTA - Rust (Movie)",
+        "video_url": "https://www.youtube.com/watch?v=a76nVwVmc-0",
+        "thumbnail_url": "https://img.youtube.com/vi/a76nVwVmc-0/maxresdefault.jpg",
+        "platform": "YouTube",
+        "is_creator_content": false,
+        "description": null,
+        "duration": null,
+        "view_count": null
+      },
+      {
+        "title": "The LUCKIEST Revenge - Rust",
+        "video_url": "https://www.youtube.com/watch?v=0u-0uF2nWQk",
+        "thumbnail_url": "https://img.youtube.com/vi/0u-0uF2nWQk/maxresdefault.jpg",
+        "platform": "YouTube",
+        "is_creator_content": false,
+        "description": null,
+        "duration": null,
+        "view_count": null
+      }
+    ],
+    "search_metadata": {
+      "primary_search_successful": true,
+      "fallback_search_used": true,
+      "web_search_supplemented": true
+    },
+    "web_search_content": "Web search results for \"stevie rust channel site:youtube.com OR site:twitch.tv\"..."
+  }
+}

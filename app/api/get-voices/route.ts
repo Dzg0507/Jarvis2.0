@@ -2,7 +2,9 @@
 
 import { NextResponse } from 'next/server';
 
-const BACKEND_SERVER_URL = 'http://localhost:3001/api/get-voices';
+export const dynamic = 'force-dynamic'; // Ensures this route is not statically optimized
+
+const BACKEND_SERVER_URL = 'http://localhost:8080/api/get-voices';
 
 export async function GET() {
   try {

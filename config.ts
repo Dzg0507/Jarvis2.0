@@ -11,7 +11,7 @@ export const config = {
         // Removing the baseURL that points to Together AI
     },
     mcp: {
-        serverUrl: process.env.MCP_SERVER_URL || 'http://localhost:8080/mcp',
+        serverUrl: process.env.MCP_SERVER_URL || 'http://localhost:8080',
     }
 };
 

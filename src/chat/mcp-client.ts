@@ -1,97 +1,191 @@
-import { Client } from "@modelcontextprotocol/sdk/client/index.js";
-import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
-import { buildBasePrompt } from './prompt.js';
-import { config } from '../config.js';
+import { config } from '../config';
+import { ToolResult } from '../types/mcp.js';
 
 const MCP_SERVER_URL = config.mcp.serverUrl;
 
-interface McpTool {
-    name: string;
-    description: string;
-    inputSchema?: any; // Using 'any' for flexibility with the schema structure
+interface ToolDefinition {
+  name: string;
+  description: string;
+  inputSchema: any;
 }
 
-// --- Deferred Promise Pattern ---
-let resolveJarvisContext: (context: string) => void;
+let toolsCache: ToolDefinition[] | null = null;
+let toolsContextCache: string | null = null;
 
-export const dynamicJarvisContextPromise = new Promise<string>((resolve) => {
-    resolveJarvisContext = resolve;
-});
-// ---
+async function initializeToolsCache(): Promise<void> {
+  if (toolsCache !== null) {
+    return; // Already initialized
+  }
 
-// --- NEW FUNCTION TO CREATE DETAILED PARAMETER DESCRIPTIONS ---
-function generateSchemaDescription(schema: any, indent = '  '): string {
-    if (!schema || !schema.properties) return `${indent}None`;
+  try {
+    console.log('[MCP Client] Initializing tools cache...');
+    const response = await fetch(`${MCP_SERVER_URL}/tools`);
 
-    const describeProperty = (key: string, prop: any): string => {
-        let details = [];
-        if (prop.description) {
-            details.push(prop.description);
-        }
-        if (prop.type) {
-            details.push(`type: ${prop.type}`);
-        }
-        if (prop.enum) {
-            details.push(`options: [${prop.enum.join(', ')}]`);
-        }
-        
-        let description = `${indent}- **${key}**`;
-        if (details.length > 0) {
-            description += ` (${details.join('; ')})`;
-        }
-        
-        if (prop.type === 'object' && prop.properties) {
-            const subProps = Object.entries(prop.properties)
-                .map(([subKey, subVal]) => describeProperty(subKey, subVal))
-                .join('\n');
-            description += `:\n${subProps.replace(/^/gm, `${indent}`)}`;
-        }
-        return description;
-    };
-
-    return Object.entries(schema.properties)
-        .map(([key, value]) => describeProperty(key, value as any))
-        .join('\n');
-}
-
-
-async function initializeMcpClient(): Promise<string> {
-    console.log('[MCPClient] Initializing MCP client to discover tools...');
-    try {
-        const transport = new StreamableHTTPClientTransport(new URL(MCP_SERVER_URL));
-        const client = new Client({ name: "jarvis-chat-handler", version: "1.0.0" });
-        await client.connect(transport);
-        console.log('[MCPClient] Connected to MCP server.');
-
-        const responsePayload: any = await client.listTools();
-        
-        // THIS LINE HAS BEEN REMOVED TO CLEAN UP THE LOGS
-        // console.log('[MCPClient] Raw tools object received from server:', JSON.stringify(responsePayload, null, 2));
-        
-        const toolsArray: McpTool[] = responsePayload.tools; 
-        if (!Array.isArray(toolsArray)) {
-            throw new Error('MCP server tool list response is not in the expected format (expected an array).');
-        }
-        
-        console.log('[MCPClient] Discovered tools:', toolsArray.map(t => t.name));
-
-        const toolListString: string = toolsArray.map((tool, index) => {
-            const paramsDescription = generateSchemaDescription(tool.inputSchema);
-            return `${index + 1}. **'${tool.name}'**: ${tool.description}\n   * **Parameters:**\n${paramsDescription}`;
-        }).join('\n\n');
-
-        const baseContext = buildBasePrompt(toolListString);
-        console.log("[MCPClient] Successfully built dynamic Jarvis context.");
-        return baseContext;
-
-    } catch (error) {
-        console.error("[MCPClient] Failed to initialize MCP client or discover tools:", error);
-        return "Error: Could not connect to MCP server to discover tools. Tool usage will not be available.";
+    if (!response.ok) {
+      throw new Error(`Failed to fetch tools: ${response.statusText}`);
     }
+
+    const data = await response.json();
+    toolsCache = data.tools || [];
+    console.log(`[MCP Client] Tools cache initialized with ${toolsCache!.length} tools`);
+  } catch (error) {
+    console.error('[MCP Client] Error initializing tools cache:', error);
+    toolsCache = []; // Set to empty array to avoid repeated initialization attempts
+  }
 }
 
-export async function initializeJarvisContext() {
-    const context = await initializeMcpClient();
-    resolveJarvisContext(context);
-    console.log("[MCPClient] Dynamic Jarvis context promise has been resolved.");
+export async function getDynamicJarvisContext(): Promise<string> {
+  if (!toolsCache) {
+    await initializeToolsCache();
+  }
+
+  // Add null check
+  if (!toolsCache) {
+    throw new Error('Failed to initialize tools cache');
+  }
+
+  if (toolsContextCache) {
+    return toolsContextCache;
+  }
+
+  try {
+    console.log('[MCP Client] Fetching tools from MCP server...');
+    const response = await fetch(`${MCP_SERVER_URL}/tools`);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch tools: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    const tools = data.tools || [];
+    toolsCache = tools;
+
+    console.log(`[MCP Client] Loaded ${tools.length} tools`);
+
+    // Generate context string
+    const toolDescriptions = (toolsCache as ToolDefinition[]).map(tool => {
+      const schemaStr = JSON.stringify(tool.inputSchema, null, 2);
+      return `## ${tool.name}
+Description: ${tool.description}
+Usage: TOOL_CALL: ${tool.name}(${generateExampleArgs(tool.inputSchema)})
+Input Schema: ${schemaStr}`;
+    }).join('\n\n');
+
+    toolsContextCache = `You have access to the following tools. To use a tool, respond with exactly this format:
+TOOL_CALL: tool_name(arg1: "value1", arg2: "value2")
+
+Available Tools:
+${toolDescriptions}
+
+Important: 
+- Use the exact format shown above for tool calls
+- Always provide the tool result in your final response to the user
+- If a tool fails, explain what went wrong and suggest alternatives`;
+
+    return toolsContextCache;
+  } catch (error) {
+    console.error('[MCP Client] Error fetching tools:', error);
+    return 'No tools available due to connection error.';
+  }
+}
+
+function generateExampleArgs(schema: any): string {
+  if (!schema || !schema.properties) {
+    return '';
+  }
+
+  const examples: string[] = [];
+  for (const [key, value] of Object.entries(schema.properties)) {
+    const prop = value as any;
+    let exampleValue = '';
+    
+    switch (prop.type) {
+      case 'string':
+        exampleValue = `"example_${key}"`;
+        break;
+      case 'number':
+        exampleValue = '123';
+        break;
+      case 'boolean':
+        exampleValue = 'true';
+        break;
+      case 'array':
+        exampleValue = '["item1", "item2"]';
+        break;
+      case 'object':
+        exampleValue = '{}';
+        break;
+      default:
+        exampleValue = `"${key}_value"`;
+    }
+    
+    examples.push(`${key}: ${exampleValue}`);
+  }
+  
+  return examples.join(', ');
+}
+
+export async function callTool(toolName: string, args: any): Promise<ToolResult> {
+  if (!toolsCache) {
+    await initializeToolsCache();
+  }
+  
+  // Add null check
+  if (!toolsCache) {
+    throw new Error('Tools cache not available');
+  }
+  
+  try {
+    console.log(`[MCP Client] Calling tool: ${toolName} with args:`, args);
+    
+    const response = await fetch(`${MCP_SERVER_URL}/call-tool`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: toolName,
+        arguments: args,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Tool call failed: ${response.statusText}`);
+    }
+
+    const result = await response.json();
+    console.log(`[MCP Client] Tool result:`, result);
+    
+    return result;
+  } catch (error) {
+    console.error(`[MCP Client] Error calling tool ${toolName}:`, error);
+    throw error;
+  }
+}
+
+export async function getAvailableTools(): Promise<ToolDefinition[]> {
+  if (toolsCache) {
+    return toolsCache;
+  }
+
+  try {
+    const response = await fetch(`${MCP_SERVER_URL}/tools`);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch tools: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    toolsCache = data.tools || [];
+
+    return toolsCache!;
+  } catch (error) {
+    console.error('[MCP Client] Error fetching available tools:', error);
+    return [];
+  }
+}
+
+export function clearToolsCache(): void {
+  toolsCache = null;
+  toolsContextCache = null;
 }
