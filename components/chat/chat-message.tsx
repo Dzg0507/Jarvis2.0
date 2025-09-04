@@ -13,130 +13,70 @@ interface ChatMessageProps {
   }
 }
 
+import { useState, useEffect } from 'react';
+
 export function ChatMessage({ message }: ChatMessageProps) {
   const isUser = message.role === "user"
+  const [parsedContent, setParsedContent] = useState<string>("")
+  const [videoResults, setVideoResults] = useState<any>(null)
 
-  // Check if the message content contains video search results
-  let videoResults = null
-  try {
-    const parsed = JSON.parse(message.content)
-    // Check if it's the new VideoSearchData format
-    if (parsed && typeof parsed === 'object' && parsed.items && Array.isArray(parsed.items)) {
-      videoResults = parsed
-    }
-    // Check if it's the old array format and convert it
-    else if (Array.isArray(parsed) && parsed.length > 0 && parsed[0].title && parsed[0].url && parsed[0].thumbnail) {
-      videoResults = {
-        query: "Video Search",
-        total_results: parsed.length,
-        creator_results_count: 0,
-        items: parsed.map(item => ({
-          title: item.title,
-          video_url: item.url,
-          thumbnail_url: item.thumbnail,
-          platform: item.platform || "unknown",
-          is_creator_content: false,
-          description: item.description || null,
-          duration: item.duration || null,
-          view_count: item.view_count || null
-        })),
-        search_metadata: {
-          primary_search_successful: true,
-          fallback_search_used: false,
-          web_search_supplemented: false
-        },
-        web_search_content: {
-          youtube_channel_url: null,
-          twitch_channel_url: null,
-          additional_links: [],
-          extraction_metadata: {
-            sources_found: 0,
-            extraction_successful: false
-          }
+  useEffect(() => {
+    const processMessage = async () => {
+      try {
+        const parsed = JSON.parse(message.content)
+        if (parsed && typeof parsed === 'object' && parsed.items && Array.isArray(parsed.items)) {
+          setVideoResults(parsed)
+          return
         }
+        if (Array.isArray(parsed) && parsed.length > 0 && parsed[0].title && parsed[0].url && parsed[0].thumbnail) {
+          setVideoResults({
+            query: "Video Search",
+            total_results: parsed.length,
+            items: parsed.map((item: any) => ({
+              title: item.title,
+              video_url: item.url,
+              thumbnail_url: item.thumbnail,
+              platform: item.platform || "unknown",
+            })),
+          })
+          return
+        }
+      } catch (e) {
+        // Not JSON, continue
       }
+
+      const renderer = new marked.Renderer()
+      renderer.code = ({ text, lang }) => {
+        return `<pre><code class="language-${lang} glass p-4 block rounded-md custom-scrollbar overflow-x-auto">${text}</code></pre>`
+      }
+      renderer.image = ({ href, title, text }) => {
+        const titleAttr = title ? ` title="${title}"` : ''
+        const altAttr = text ? ` alt="${text}"` : ' alt="Generated Image"'
+        return `<div class="image-container my-4" style="display: block; width: 100%;"><img src="${href}" ${altAttr} ${titleAttr} class="generated-image max-w-full h-auto rounded-lg shadow-lg border border-primary/20" style="max-height: 512px; object-fit: contain; display: block; width: auto; margin: 0 auto;" loading="lazy" /></div>`
+      }
+
+      marked.setOptions({
+        renderer,
+        breaks: true,
+        gfm: true
+      })
+
+      let content = await marked.parse(message.content)
+
+      if (message.content.includes('![') && message.content.includes('data:image') && !content.includes('<img')) {
+        content = message.content.replace(
+          /!\[([^\]]*)\]\((data:image\/[^)]+)\)/g,
+          (match, altText, dataUrl) => {
+            return `<div class="image-container my-4" style="display: block; width: 100%;"><img src="${dataUrl}" alt="${altText || 'Generated Image'}" class="generated-image max-w-full h-auto rounded-lg shadow-lg border border-primary/20" style="max-height: 512px; object-fit: contain; display: block; width: auto; margin: 0 auto;" loading="lazy" /></div>`
+          }
+        )
+      }
+      setParsedContent(content)
     }
-  } catch (e) {
-    // Not JSON or not video results, continue with normal rendering
-  }
 
-  // Simple approach: let markdown handle everything, including images
+    processMessage()
+  }, [message.content])
 
-  // For non-image content, use standard markdown processing
-  const renderer = new marked.Renderer()
-  renderer.code = ({ text, lang }) => {
-    return `<pre><code class="language-${lang} glass p-4 block rounded-md custom-scrollbar overflow-x-auto">${text}</code></pre>`
-  }
-
-  // Enhanced image renderer with debugging and proper data URL handling
-  renderer.image = ({ href, title, text }) => {
-    console.log('[ChatMessage] Rendering image:', { href: href?.substring(0, 50) + '...', title, text });
-
-    const titleAttr = title ? ` title="${title}"` : ''
-    const altAttr = text ? ` alt="${text}"` : ' alt="Generated Image"'
-
-    // Always wrap images in a div for proper display
-    const imageHtml = `<div class="image-container my-4" style="display: block; width: 100%;">
-      <img
-        src="${href}"
-        ${altAttr}
-        ${titleAttr}
-        class="generated-image max-w-full h-auto rounded-lg shadow-lg border border-primary/20"
-        style="max-height: 512px; object-fit: contain; display: block; width: auto; margin: 0 auto;"
-        loading="lazy"
-        onload="console.log('Image loaded successfully')"
-        onerror="console.error('Image failed to load:', this.src.substring(0, 50))"
-      />
-    </div>`;
-
-    console.log('[ChatMessage] Generated image HTML:', imageHtml.substring(0, 200) + '...');
-    return imageHtml;
-  }
-
-  marked.setOptions({
-    renderer,
-    breaks: true,
-    gfm: true,
-    sanitize: false,
-    smartypants: false
-  })
-
-  // Debug logging
-  console.log('[ChatMessage] Processing message content:', message.content.substring(0, 200) + '...');
-  console.log('[ChatMessage] Contains image markdown:', message.content.includes('!['));
-  console.log('[ChatMessage] Contains data:image:', message.content.includes('data:image'));
-  console.log('[ChatMessage] Full message content:', message.content);
-
-  // Test markdown parsing with a simple example
-  const testMarkdown = '![Test](data:image/png;base64,test)';
-  const testParsed = marked.parse(testMarkdown);
-  console.log('[ChatMessage] Test markdown parsing:', testMarkdown, '->', testParsed);
-
-  let parsedContent = marked.parse(message.content)
-  console.log('[ChatMessage] Parsed HTML content:', parsedContent.substring(0, 500) + '...');
-
-  // Fallback: If markdown didn't convert images, do it manually
-  if (message.content.includes('![') && message.content.includes('data:image') && !parsedContent.includes('<img')) {
-    console.log('[ChatMessage] Markdown parser failed to convert images, doing manual conversion');
-    parsedContent = message.content.replace(
-      /!\[([^\]]*)\]\((data:image\/[^)]+)\)/g,
-      (match, altText, dataUrl) => {
-        console.log('[ChatMessage] Manual image conversion:', { altText, dataUrl: dataUrl.substring(0, 50) + '...' });
-        return `<div class="image-container my-4" style="display: block; width: 100%;">
-          <img
-            src="${dataUrl}"
-            alt="${altText || 'Generated Image'}"
-            class="generated-image max-w-full h-auto rounded-lg shadow-lg border border-primary/20"
-            style="max-height: 512px; object-fit: contain; display: block; width: auto; margin: 0 auto;"
-            loading="lazy"
-            onload="console.log('Manual image loaded successfully')"
-            onerror="console.error('Manual image failed to load')"
-          />
-        </div>`;
-      }
-    );
-    console.log('[ChatMessage] After manual conversion:', parsedContent.substring(0, 300) + '...');
-  }
 
   return (
     <div className={cn("flex items-start gap-4", isUser ? "justify-end" : "justify-start")}>

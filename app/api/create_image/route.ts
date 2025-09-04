@@ -54,7 +54,11 @@ export async function POST(req: NextRequest) {
             console.log('[Direct Image] Colab server responded successfully');
 
         } catch (colabError) {
-            console.log('[Direct Image] Colab server failed (likely offline/disconnected), trying local server...', colabError.message);
+            let errorMessage = '[Direct Image] Colab server failed (likely offline/disconnected), trying local server...';
+            if (colabError instanceof Error) {
+                errorMessage += `: ${colabError.message}`;
+            }
+            console.log(errorMessage);
 
             // Fallback to local server
             response = await fetch(localUrl, {

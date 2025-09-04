@@ -78,6 +78,7 @@ export async function POST(req: NextRequest): Promise<NextResponse<ImageGenerati
 
     // Check service availability with detailed logging
     console.log('[API Image] Checking service availability...');
+    console.log(`[API Image] Checking Stable Diffusion health at: ${config.stableDiffusion.serverUrl}/health`);
     const sdAvailable = await checkStableDiffusionHealth();
     const openaiAvailable = !!config.ai.openaiApiKey;
 
@@ -86,9 +87,10 @@ export async function POST(req: NextRequest): Promise<NextResponse<ImageGenerati
 
     if (!sdAvailable && !openaiAvailable) {
       console.error('[API Image] No image generation services available');
+      const errorMessage = `No image generation service available. Stable Diffusion check failed for URL: ${config.stableDiffusion.serverUrl}. Please ensure the server is running or configure an OpenAI API key.`;
       return NextResponse.json({
         success: false,
-        error: 'No image generation service available. Please ensure Stable Diffusion server is running at ' + config.stableDiffusion.serverUrl + ' or configure OpenAI API key.',
+        error: errorMessage,
         available_services: {
           stable_diffusion: false,
           openai: false
