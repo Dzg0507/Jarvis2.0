@@ -56,20 +56,89 @@ The code is organized into the following main directories:
     ```
     Replace `your_google_ai_api_key_here` with your actual API key from Google AI Studio.
 
-## 5. Running the Application
+## 5. Quick Start
 
-*   **To build the project:**
-    This command compiles all the TypeScript files (both backend and frontend) into JavaScript in the `dist` and `public` directories respectively.
+### One-Command Startup (Recommended)
+
+**Windows:**
+```cmd
+start-jarvis.bat
+```
+
+**Linux/Mac:**
+```bash
+./start-jarvis.sh
+```
+
+**Cross-Platform:**
+```bash
+npm run dev:full
+```
+
+This starts all services automatically:
+- Next.js Application (http://localhost:3000)
+- MCP Server (http://localhost:8080)
+- Stable Diffusion Server (http://localhost:5001)
+
+### First Time Setup
+
+1. **Run the setup wizard:**
+   ```bash
+   npm run setup
+   ```
+
+2. **Configure API keys in `.env`:**
+   ```bash
+   API_KEY=your_google_ai_api_key_here
+   OPENAI_API_KEY=your_openai_api_key_here  # Optional
+   ```
+
+3. **Start all services:**
+   ```bash
+   npm run dev:full
+   ```
+
+### Manual Setup (Alternative)
+
+*   **Install dependencies:**
     ```bash
-    npm run build
+    npm install
+    npm run setup:python  # For Stable Diffusion
     ```
 
-*   **To start the server:**
-    This command starts the unified server. Make sure you have run the build at least once before starting.
+*   **Configure environment:**
     ```bash
-    npm start
+    cp .env.example .env
+    # Edit .env file with your API keys
     ```
-    The server will be running at `http://localhost:3000`.
+
+*   **Start services individually:**
+    ```bash
+    npm run dev:next    # Next.js only
+    npm run dev:mcp     # MCP server only
+    npm run dev:sd      # Stable Diffusion only
+    ```
+
+## 6. Available Commands
+
+### Development
+- `npm run dev:full` - **Recommended** - Start all services with auto-startup
+- `npm run dev` - Start Next.js and MCP (manual Stable Diffusion startup)
+- `npm run health` - Check all service health status
+
+### Setup & Configuration
+- `npm run setup` - Interactive setup wizard
+- `npm run setup:python` - Install Python dependencies
+- `npm run setup:cuda` - Install Python dependencies with CUDA support
+
+### Testing & Diagnostics
+- `npm run health` - Check all services
+- `npm run health:sd` - Check Stable Diffusion specifically
+- `npm run test:image-priority` - Test image generation priority system
+
+### Production
+- `npm run build` - Build for production
+- `npm run start:all` - Start all production services
 
 *   **To run the tests:**
     This command runs the test suite using Vitest.

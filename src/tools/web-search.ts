@@ -1,6 +1,6 @@
 import { GoogleGenerativeAI, GenerativeModel } from "@google/generative-ai";
 import fetch from 'node-fetch';
-import { processWebSearchResults, createCreatorSearchQuery, WebSearchContent } from '../utils/url-extraction.js';
+import { processWebSearchResults, createCreatorSearchQuery, WebSearchContent } from '../utils/url-extraction';
 
 // Legacy function for backward compatibility - now returns error info internally
 async function fetchPageContent(url: string): Promise<{ content: string; success: boolean }> {

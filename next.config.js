@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Remove static export - we'll run Next.js server in Electron
   experimental: {
     serverComponentsExternalPackages: ['@google/generative-ai']
   },

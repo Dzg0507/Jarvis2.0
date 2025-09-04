@@ -17,20 +17,33 @@ async function initializeToolsCache(): Promise<void> {
     return; // Already initialized
   }
 
-  try {
-    console.log('[MCP Client] Initializing tools cache...');
-    const response = await fetch(`${MCP_SERVER_URL}/tools`);
+  const maxRetries = 5;
+  const retryDelay = 1000; // 1 second
 
-    if (!response.ok) {
-      throw new Error(`Failed to fetch tools: ${response.statusText}`);
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      console.log(`[MCP Client] Initializing tools cache (attempt ${attempt}/${maxRetries})...`);
+      const response = await fetch(`${MCP_SERVER_URL}/tools`);
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch tools: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      toolsCache = data.tools || [];
+      console.log(`[MCP Client] Tools cache initialized with ${toolsCache!.length} tools`);
+      return; // Success!
+    } catch (error) {
+      console.error(`[MCP Client] Error initializing tools cache (attempt ${attempt}):`, error);
+
+      if (attempt < maxRetries) {
+        console.log(`[MCP Client] Retrying in ${retryDelay}ms...`);
+        await new Promise(resolve => setTimeout(resolve, retryDelay));
+      } else {
+        console.error('[MCP Client] All retry attempts failed, setting empty tools cache');
+        toolsCache = []; // Set to empty array to avoid repeated initialization attempts
+      }
     }
-
-    const data = await response.json();
-    toolsCache = data.tools || [];
-    console.log(`[MCP Client] Tools cache initialized with ${toolsCache!.length} tools`);
-  } catch (error) {
-    console.error('[MCP Client] Error initializing tools cache:', error);
-    toolsCache = []; // Set to empty array to avoid repeated initialization attempts
   }
 }
 
@@ -49,18 +62,36 @@ export async function getDynamicJarvisContext(): Promise<string> {
   }
 
   try {
-    console.log('[MCP Client] Fetching tools from MCP server...');
-    const response = await fetch(`${MCP_SERVER_URL}/tools`);
+    const maxRetries = 3;
+    const retryDelay = 1000;
 
-    if (!response.ok) {
-      throw new Error(`Failed to fetch tools: ${response.statusText}`);
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+      try {
+        console.log(`[MCP Client] Fetching tools from MCP server (attempt ${attempt}/${maxRetries})...`);
+        const response = await fetch(`${MCP_SERVER_URL}/tools`);
+
+        if (!response.ok) {
+          throw new Error(`Failed to fetch tools: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        const tools = data.tools || [];
+        toolsCache = tools;
+
+        console.log(`[MCP Client] Loaded ${tools.length} tools`);
+        break; // Success, exit retry loop
+      } catch (error) {
+        console.error(`[MCP Client] Error fetching tools (attempt ${attempt}):`, error);
+
+        if (attempt < maxRetries) {
+          console.log(`[MCP Client] Retrying in ${retryDelay}ms...`);
+          await new Promise(resolve => setTimeout(resolve, retryDelay));
+        } else {
+          console.error('[MCP Client] All retry attempts failed for fetching tools');
+          throw error;
+        }
+      }
     }
-
-    const data = await response.json();
-    const tools = data.tools || [];
-    toolsCache = tools;
-
-    console.log(`[MCP Client] Loaded ${tools.length} tools`);
 
     // Generate context string
     const toolDescriptions = (toolsCache as ToolDefinition[]).map(tool => {
@@ -77,7 +108,7 @@ TOOL_CALL: tool_name(arg1: "value1", arg2: "value2")
 Available Tools:
 ${toolDescriptions}
 
-Important: 
+Important:
 - Use the exact format shown above for tool calls
 - Always provide the tool result in your final response to the user
 - If a tool fails, explain what went wrong and suggest alternatives`;

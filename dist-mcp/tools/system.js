@@ -1,11 +1,6 @@
 "use strict";
-// Create this new file at: src/tools/system.ts
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getCurrentDateTime = getCurrentDateTime;
-/**
- * Gets the current date and time.
- * @returns A formatted string with the current date, time, and day of the week.
- */
 async function getCurrentDateTime() {
     console.log(`[Tool:getCurrentDateTime] Called.`);
     try {

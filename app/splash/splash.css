@@ -1,0 +1,320 @@
+/* Splash Screen Styles */
+.splash-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(ellipse at center, #1a1a1a 0%, #0a0a0a 100%);
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.splash-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 255, 65, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 0, 255, 0.05) 0%, transparent 50%);
+  animation: backgroundPulse 4s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* Stage Base Styles */
+.stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.stage.active {
+  opacity: 1;
+}
+
+/* Stage 1: Gear Mechanics */
+.stage-gears {
+  z-index: 10;
+}
+
+.gears-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gear {
+  position: absolute;
+  filter: drop-shadow(0 0 10px #00ff41);
+}
+
+.gear-1 {
+  animation: rotateClockwise 3s linear infinite;
+  z-index: 3;
+}
+
+.gear-2 {
+  top: -40px;
+  right: -60px;
+  animation: rotateCounterClockwise 2s linear infinite;
+  z-index: 2;
+}
+
+.gear-3 {
+  bottom: -30px;
+  left: -50px;
+  animation: rotateClockwise 4s linear infinite;
+  z-index: 1;
+}
+
+@keyframes rotateClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateCounterClockwise {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+/* Stage 2: Matrix Boot Sequence */
+.stage-matrix {
+  z-index: 20;
+  flex-direction: column;
+}
+
+.matrix-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  overflow: hidden;
+}
+
+.matrix-column {
+  width: 20px;
+  height: 100%;
+  position: relative;
+  animation: matrixFall 2s linear infinite;
+}
+
+.matrix-column:nth-child(odd) {
+  animation-delay: -0.5s;
+}
+
+.matrix-column:nth-child(even) {
+  animation-delay: -1s;
+}
+
+.matrix-chars {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.matrix-char {
+  color: #00ff41;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.2;
+  text-shadow: 0 0 5px #00ff41;
+  opacity: 0.8;
+}
+
+@keyframes matrixFall {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.boot-text {
+  position: relative;
+  z-index: 25;
+  text-align: center;
+  margin-top: 200px;
+}
+
+.boot-line {
+  color: #00ff41;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  margin: 10px 0;
+  opacity: 0;
+  animation: bootTextAppear 0.5s ease-in-out forwards;
+}
+
+.boot-line:nth-child(1) { animation-delay: 0s; }
+.boot-line:nth-child(2) { animation-delay: 0.3s; }
+.boot-line:nth-child(3) { animation-delay: 0.6s; }
+.boot-line:nth-child(4) { animation-delay: 0.9s; }
+
+@keyframes bootTextAppear {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Stage 3: Circuit Awakening */
+.stage-circuits {
+  z-index: 30;
+}
+
+.circuit-board {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.8;
+}
+
+.circuit-path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: circuitTrace 2s ease-in-out forwards;
+}
+
+.path-1 { animation-delay: 0s; }
+.path-2 { animation-delay: 0.3s; }
+.path-3 { animation-delay: 0.6s; }
+
+@keyframes circuitTrace {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.circuit-node {
+  opacity: 0;
+  animation: nodePulse 0.5s ease-in-out forwards;
+}
+
+.node-1 { animation-delay: 0.5s; }
+.node-2 { animation-delay: 0.8s; }
+.node-3 { animation-delay: 0.8s; }
+.node-4 { animation-delay: 1.1s; }
+.node-5 { animation-delay: 1.1s; }
+.node-6 { animation-delay: 1.4s; }
+
+@keyframes nodePulse {
+  0% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1.5); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Stage 4: Glitch Transition */
+.stage-glitch {
+  z-index: 40;
+  flex-direction: column;
+}
+
+.glitch-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 255, 65, 0.1) 25%,
+    rgba(0, 255, 255, 0.1) 50%,
+    rgba(255, 0, 255, 0.1) 75%,
+    transparent 100%
+  );
+  animation: glitchSlide 0.3s linear infinite;
+}
+
+.glitch-1 { animation-delay: 0s; }
+.glitch-2 { animation-delay: 0.1s; }
+.glitch-3 { animation-delay: 0.2s; }
+
+@keyframes glitchSlide {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.glitch-text {
+  position: relative;
+  z-index: 45;
+  font-family: 'Orbitron', monospace;
+  font-size: 72px;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 
+    0 0 10px #00ff41,
+    0 0 20px #00ff41,
+    0 0 30px #00ff41;
+  animation: glitchTextFlicker 0.1s linear infinite;
+}
+
+.glitch-char {
+  display: inline-block;
+  animation: glitchCharShake 0.2s linear infinite;
+}
+
+.glitch-char:nth-child(1) { animation-delay: 0s; }
+.glitch-char:nth-child(2) { animation-delay: 0.05s; }
+.glitch-char:nth-child(3) { animation-delay: 0.1s; }
+.glitch-char:nth-child(4) { animation-delay: 0.15s; }
+.glitch-char:nth-child(5) { animation-delay: 0.2s; }
+.glitch-char:nth-child(6) { animation-delay: 0.25s; }
+
+@keyframes glitchTextFlicker {
+  0%, 90% { opacity: 1; }
+  95% { opacity: 0.1; }
+  100% { opacity: 1; }
+}
+
+@keyframes glitchCharShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px) translateY(1px); }
+  50% { transform: translateX(2px) translateY(-1px); }
+  75% { transform: translateX(-1px) translateY(2px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .gear {
+    transform: scale(0.7);
+  }
+  
+  .boot-text {
+    margin-top: 100px;
+  }
+  
+  .boot-line {
+    font-size: 14px;
+  }
+  
+  .glitch-text {
+    font-size: 48px;
+  }
+}

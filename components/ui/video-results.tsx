@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Play, ExternalLink, Video } from 'lucide-react'
 
 // Video search result data structure from backend API
-interface VideoItem {
+export interface VideoItem {
   title: string
   video_url: string
   thumbnail_url: string
@@ -15,7 +15,7 @@ interface VideoItem {
   view_count?: string | null
 }
 
-interface WebSearchContent {
+export interface WebSearchContent {
   youtube_channel_url: string | null
   twitch_channel_url: string | null
   additional_links: string[]
@@ -25,7 +25,7 @@ interface WebSearchContent {
   }
 }
 
-interface VideoSearchData {
+export interface VideoSearchData {
   query: string
   total_results: number
   creator_results_count: number
@@ -79,13 +79,14 @@ function VideoCard({ video }: { video: VideoItem }) {
 
   return (
     <div
-      className="video-card group relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-matrix-green/20 rounded-xl overflow-hidden hover:border-matrix-green/50 transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-matrix-green/20"
+      className="floating-card group relative overflow-hidden transition-all duration-300 hover:scale-[1.02]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Creator Badge */}
       {video.is_creator_content && (
-        <div className="absolute top-3 right-3 z-10 px-2 py-1 bg-gradient-to-r from-matrix-green to-green-400 text-black text-xs font-bold rounded-full shadow-lg shadow-matrix-green/30">
+        <div className="absolute top-3 right-3 z-10 px-3 py-1 bg-chimera-matrix-green/90 text-black text-xs font-bold rounded-full shadow-lg font-inter"
+             style={{ boxShadow: '0 0 12px var(--chimera-matrix-green)' }}>
           🎯 Creator Content
         </div>
       )}
@@ -110,8 +111,12 @@ function VideoCard({ video }: { video: VideoItem }) {
         )}
 
         {/* Play Overlay */}
-        <div className={`absolute inset-0 bg-black/30 flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
-          <div className="w-16 h-16 bg-matrix-green/90 rounded-full flex items-center justify-center transform transition-transform duration-300 hover:scale-110 shadow-lg shadow-matrix-green/50">
+        <div className={`absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+          <div className="w-16 h-16 rounded-full flex items-center justify-center transform transition-transform duration-300 hover:scale-110 shadow-lg"
+               style={{
+                 backgroundColor: 'var(--chimera-matrix-green)',
+                 boxShadow: '0 0 20px var(--chimera-matrix-green)'
+               }}>
             <Play className="w-8 h-8 text-black ml-1" fill="currentColor" />
           </div>
         </div>
@@ -119,7 +124,7 @@ function VideoCard({ video }: { video: VideoItem }) {
 
       {/* Video Info Section */}
       <div className="p-4">
-        <h3 className="text-white font-medium text-sm leading-tight mb-2 line-clamp-2 group-hover:text-matrix-green transition-colors duration-300 cursor-pointer" onClick={handleVideoClick}>
+        <h3 className="text-chimera-primary font-medium text-sm leading-tight mb-2 line-clamp-2 group-hover:text-chimera-matrix transition-colors duration-300 cursor-pointer font-inter" onClick={handleVideoClick}>
           {video.title}
         </h3>
 
@@ -164,15 +169,15 @@ export function VideoSearchResults({ data }: VideoSearchResultsProps) {
   return (
     <div className="video-results-container w-full max-w-6xl">
       {/* Header */}
-      <div className="mb-6">
-        <h2 className="text-xl font-bold text-matrix-green mb-2 font-orbitron">🎥 Video Search Results</h2>
-        <div className="flex items-center gap-4 text-sm text-gray-400">
+      <div className="floating-card p-6 mb-6">
+        <h2 className="text-2xl font-bold text-chimera-matrix mb-3 font-orbitron">🎥 Video Search Results</h2>
+        <div className="flex items-center gap-4 text-sm text-chimera-secondary">
           <span>Found {data.total_results} videos</span>
           {data.creator_results_count > 0 && (
-            <span className="text-matrix-green">• {data.creator_results_count} creator-specific</span>
+            <span className="text-chimera-matrix">• {data.creator_results_count} creator-specific</span>
           )}
           {data.search_metadata.web_search_supplemented && (
-            <span className="text-blue-400">• Enhanced with web search</span>
+            <span className="text-chimera-cyan">• Enhanced with web search</span>
           )}
         </div>
       </div>

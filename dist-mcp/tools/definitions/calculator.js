@@ -1,5 +1,4 @@
 "use strict";
-// Create this new file at: src/tools/definitions/calculator.ts
 Object.defineProperty(exports, "__esModule", { value: true });
 const zod_1 = require("zod");
 const calculator_js_1 = require("../calculator.js");

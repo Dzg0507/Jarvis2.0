@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { GoogleGenerativeAI, ChatSession } from "@google/generative-ai";
 import { getDynamicJarvisContext, callTool } from '../../../src/chat/mcp-client';
 import { config } from '../../../src/config';
+import { longFetch } from '../../../src/utils/long-fetch';
 import {
     classifyVideoSearchIntent,
     calculateSpecificIntentRelevance,
@@ -9,6 +10,11 @@ import {
     type IntentAnalysisResult,
     type VideoSearchIntent
 } from '../../../src/utils/intent-classification';
+
+// Next.js route configuration
+export const dynamic = 'force-dynamic'; // Ensures this route is not statically optimized
+export const maxDuration = 1200; // 20 minutes timeout for image generation
+export const revalidate = 0; // Disable caching completely
 
 const MCP_SERVER_URL = config.mcp.serverUrl;
 
@@ -1344,6 +1350,81 @@ export async function POST(req: NextRequest) {
 
         console.log('[API Chat] AI response received');
 
+        // Check for image generation requests when MCP tools are not available
+        const imageGenerationPattern = /(?:generate|create|make|draw).*(?:image|picture|photo|artwork|illustration)/i;
+        const hasImageRequest = imageGenerationPattern.test(prompt) || imageGenerationPattern.test(responseText) || prompt.startsWith('/create_image');
+
+        // Check if MCP tools failed to load (more robust detection)
+        const mcpToolsFailed = responseText.includes('No tools available') ||
+                              responseText.includes('connection error') ||
+                              responseText.includes('unable to generate') ||
+                              responseText.includes('cannot generate') ||
+                              responseText.includes("I can't generate") ||
+                              responseText.includes("I'm not able to generate");
+
+        console.log(`[API Chat] Image request check: hasImageRequest=${hasImageRequest}, mcpToolsFailed=${mcpToolsFailed}`);
+        console.log(`[API Chat] Response text preview: "${responseText.substring(0, 200)}..."`);
+
+        // Also check if this is clearly an image request but no actual image was generated
+        const noImageGenerated = hasImageRequest && !responseText.includes('![') && !responseText.includes('TOOL_CALL:');
+
+        if (hasImageRequest && (mcpToolsFailed || responseText.length < 100 || noImageGenerated)) {
+            console.log('[API Chat] Detected image generation request with no MCP tools available, using direct fallback');
+
+            try {
+                // Extract prompt for image generation
+                const imagePrompt = prompt.replace(/(?:generate|create|make|draw)\s+(?:an?\s+)?(?:image|picture|photo|artwork|illustration)\s+(?:of\s+)?/i, '').trim();
+
+                console.log(`[API Chat] Calling DIRECT image generation with prompt: "${imagePrompt}"`);
+
+                // Call the direct image generation API - bypasses all middleware
+                const imageResponse = await longFetch(`${req.nextUrl.origin}/api/create_image`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Cache-Control': 'no-cache',
+                    },
+                    body: JSON.stringify({
+                        query: imagePrompt
+                    }),
+                    timeoutMs: 20 * 60 * 1000, // 20 minutes
+                });
+
+                const imageResult = await imageResponse.json();
+
+                if (imageResult.success && imageResult.image) {
+                    console.log(`[API Chat] Image generated successfully using ${imageResult.service_used}`);
+                    console.log(`[API Chat] Image debug info:`, imageResult.debug);
+                    console.log(`[API Chat] Image timestamp:`, imageResult.timestamp);
+
+                    // Don't add cache-busting to base64 data URLs (it corrupts them)
+                    const serverUsed = imageResult.server_used || 'Stable Diffusion';
+                    const imageData = imageResult.image;
+
+                    console.log('[API Chat] Image data info:', {
+                        length: imageData?.length,
+                        isBase64: imageData?.startsWith('data:image/'),
+                        serverUsed: serverUsed
+                    });
+
+                    // Create a response that includes the image
+                    responseText = `I've generated an image for you using ${serverUsed}!\n\n![Generated Image](${imageData})\n\nPrompt: "${imagePrompt}"`;
+                } else {
+                    console.error('[API Chat] Image generation failed:', imageResult.error);
+                    responseText = `I apologize, but I encountered an error while generating the image: ${imageResult.error || 'Unknown error'}. Please make sure the Stable Diffusion server is running or check your OpenAI API configuration.`;
+                }
+            } catch (imageError) {
+                console.error('[API Chat] Direct image generation fallback failed:', imageError);
+
+                // Handle timeout errors specifically
+                if (imageError instanceof Error && imageError.name === 'AbortError') {
+                    responseText = `I apologize, but the image generation is taking longer than expected (over 20 minutes). This might happen with complex prompts or if the GPU is busy. Please try again with a simpler prompt or wait a moment before retrying.`;
+                } else {
+                    responseText = `I apologize, but I'm unable to generate images at the moment due to a technical issue. Please try again later or check that the image generation services are properly configured.`;
+                }
+            }
+        }
+
         // Check if the AI wants to use a tool
         const toolCallMatch = responseText.match(/TOOL_CALL:\s*(\w+)\s*\(([\s\S]*?)\)/);
         if (toolCallMatch) {
@@ -1467,19 +1548,33 @@ export async function POST(req: NextRequest) {
 
         if (isVideoJsonResponse) {
             console.log('[API Chat] Returning JSON video search response');
-            return NextResponse.json({
+            const response = NextResponse.json({
                 response: responseText,
                 contentType: 'json',
                 isVideoResult: true,
                 timestamp: new Date().toISOString()
             });
+
+            // Add cache-busting headers
+            response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+            response.headers.set('Pragma', 'no-cache');
+            response.headers.set('Expires', '0');
+
+            return response;
         } else {
-            return NextResponse.json({
+            const response = NextResponse.json({
                 response: responseText,
                 contentType: 'text',
                 isVideoResult: false,
                 timestamp: new Date().toISOString()
             });
+
+            // Add cache-busting headers
+            response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+            response.headers.set('Pragma', 'no-cache');
+            response.headers.set('Expires', '0');
+
+            return response;
         }
 
     } catch (error) {

@@ -10,7 +10,8 @@ import PersonaSelector from '@/components/PersonaSelector';
 import { MatrixRain } from '@/components/chat/matrix-rain';
 import { Particles } from '@/components/ui/particles';
 import { usePersonas } from '@/hooks/usePersonas';
-import { ArrowLeft, Settings, User, Palette, Zap } from 'lucide-react';
+import { ArrowLeft, Settings, User, Palette, Zap, Volume2 } from 'lucide-react';
+import { VoiceSettings } from '@/components/ui/voice-settings';
 
 export default function SettingsPage() {
   const { user, loading, signOut } = useAuth();
@@ -99,7 +100,7 @@ export default function SettingsPage() {
         {/* Main Content */}
         <div className="max-w-6xl mx-auto p-6">
           <Tabs defaultValue="personas" className="space-y-6">
-            <TabsList className="grid w-full grid-cols-4 bg-black/50 border border-matrix-green/30">
+            <TabsList className="grid w-full grid-cols-5 bg-black/50 border border-matrix-green/30">
               <TabsTrigger 
                 value="personas" 
                 className="data-[state=active]:bg-matrix-green/20 data-[state=active]:text-glow-green font-orbitron"
@@ -107,8 +108,15 @@ export default function SettingsPage() {
                 <User className="w-4 h-4 mr-2" />
                 PERSONAS
               </TabsTrigger>
-              <TabsTrigger 
-                value="appearance" 
+              <TabsTrigger
+                value="voice"
+                className="data-[state=active]:bg-matrix-green/20 data-[state=active]:text-glow-green font-orbitron"
+              >
+                <Volume2 className="w-4 h-4 mr-2" />
+                VOICE
+              </TabsTrigger>
+              <TabsTrigger
+                value="appearance"
                 className="data-[state=active]:bg-matrix-green/20 data-[state=active]:text-glow-green font-orbitron"
               >
                 <Palette className="w-4 h-4 mr-2" />
@@ -150,6 +158,10 @@ export default function SettingsPage() {
                   />
                 </CardContent>
               </Card>
+            </TabsContent>
+
+            <TabsContent value="voice" className="space-y-6">
+              <VoiceSettings />
             </TabsContent>
 
             <TabsContent value="appearance" className="space-y-6">

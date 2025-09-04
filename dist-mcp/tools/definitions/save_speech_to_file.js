@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const zod_1 = require("zod");
-const index_js_1 = require("../index.js");
+const index_1 = require("../index");
 exports.default = {
     name: 'save_speech_to_file',
     definition: {
@@ -21,7 +21,7 @@ exports.default = {
             content: [
                 {
                     type: 'text',
-                    text: await (0, index_js_1.save_speech_to_file)(text, filename, ttsClient),
+                    text: await (0, index_1.save_speech_to_file)(text, filename, ttsClient),
                 },
             ],
         };

@@ -7,16 +7,12 @@ class PaperGenerator {
         this.view_text_website = view_text_website;
     }
     async generate(topic) {
-        // Step 1: Generate Outline
         const outline = await this._generateOutline(topic);
         console.log("Generated Outline:", outline);
-        // Step 2: Perform Research
         const research = await this._performResearch(topic, outline);
         console.log("Research Complete:", research);
-        // Step 3: Draft Sections
         const draftedSections = await this._draftSections(topic, research);
         console.log("Drafted Sections:", draftedSections);
-        // Step 4: Assemble Paper
         const finalPaper = this._assemblePaper(topic, outline, draftedSections);
         console.log("Final Paper:", finalPaper);
         return finalPaper;
@@ -47,7 +43,6 @@ The outline should be well-structured, with clear sections and subsections. It s
             console.log(`Researching section: ${section}`);
             const query = `detailed information on "${topic}" focusing on "${section}"`;
             try {
-                // The new web_search tool already returns summarized content from top results.
                 const sectionContent = await this.web_search(query, this.model);
                 researchData[section] = sectionContent;
             }

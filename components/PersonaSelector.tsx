@@ -2,9 +2,10 @@
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import PersonaCard from '@/components/PersonaCard';
+import PreviewPersonaCard from '@/components/PreviewPersonaCard';
+import PersonaDetailModal from '@/components/PersonaDetailModal';
 import { usePersonas } from '@/hooks/usePersonas';
 import { useToast } from '@/hooks/use-toast';
 import { Persona } from '@/lib/personas';
@@ -31,8 +32,27 @@ export default function PersonaSelector({
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [newPersonaDescription, setNewPersonaDescription] = useState('');
   const [creating, setCreating] = useState(false);
-  const { generatePersona, deletePersona } = usePersonas();
+  const [generatingRandom, setGeneratingRandom] = useState(false);
+  const [expandedPersona, setExpandedPersona] = useState<Persona | null>(null);
+  const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
+  const {
+    generatePersona,
+    deletePersona,
+    previewPersona,
+    generateRandomPreview,
+    savePreviewPersona,
+    clearPreviewPersona
+  } = usePersonas();
   const { toast } = useToast();
+
+  // Wrapper function to handle persona selection and cleanup
+  const handlePersonaSelect = (personaId: string) => {
+    // If selecting a non-preview persona, clear any existing preview
+    if (!personaId.startsWith('preview-') && previewPersona) {
+      clearPreviewPersona();
+    }
+    onPersonaSelect(personaId);
+  };
 
   const handleCreatePersona = async () => {
     if (!newPersonaDescription.trim()) return;
@@ -42,7 +62,7 @@ export default function PersonaSelector({
       const newPersona = await generatePersona(newPersonaDescription);
       
       if (newPersona) {
-        onPersonaSelect(newPersona.id);
+        handlePersonaSelect(newPersona.id);
         setNewPersonaDescription('');
         setShowCreateForm(false);
         toast({
@@ -67,6 +87,71 @@ export default function PersonaSelector({
     }
   };
 
+  const handleGenerateRandomPersona = async () => {
+    try {
+      setGeneratingRandom(true);
+      const randomPersona = generateRandomPreview();
+
+      // Auto-select the preview persona
+      handlePersonaSelect(randomPersona.id);
+
+      toast({
+        title: "Random persona preview generated!",
+        description: `Meet ${randomPersona.name} - Click "Save" to keep this persona or "New" to generate another.`,
+      });
+    } catch (error) {
+      console.error('Error generating random persona:', error);
+      toast({
+        title: "Generation failed",
+        description: "Could not generate random persona. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setGeneratingRandom(false);
+    }
+  };
+
+  const handleSavePreviewPersona = async (): Promise<boolean> => {
+    const success = await savePreviewPersona();
+    if (success && previewPersona) {
+      // Switch to the saved persona (remove preview prefix)
+      const savedId = previewPersona.id.replace('preview-', '');
+      handlePersonaSelect(savedId);
+
+      toast({
+        title: "Persona saved!",
+        description: `${previewPersona.name} has been added to your collection.`,
+      });
+    } else {
+      toast({
+        title: "Save failed",
+        description: "Could not save the persona. Please try again.",
+        variant: "destructive",
+      });
+    }
+    return success;
+  };
+
+  const handleRegeneratePreview = () => {
+    const newPersona = generateRandomPreview();
+    handlePersonaSelect(newPersona.id);
+
+    toast({
+      title: "New persona generated!",
+      description: `Meet ${newPersona.name} - a fresh random persona.`,
+    });
+  };
+
+  const handleExpandPersona = (persona: Persona) => {
+    setExpandedPersona(persona);
+    setIsDetailModalOpen(true);
+  };
+
+  const handleCloseDetailModal = () => {
+    setIsDetailModalOpen(false);
+    setExpandedPersona(null);
+  };
+
   const gridCols = compact ? 'grid-cols-2' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3';
 
   return (
@@ -76,13 +161,23 @@ export default function PersonaSelector({
           {compact ? 'Select Persona' : 'Choose AI Persona'}
         </h3>
         {!compact && (
-          <Button
-            className="btn-matrix"
-            size="sm"
-            onClick={() => setShowCreateForm(!showCreateForm)}
-          >
-            {showCreateForm ? 'Cancel' : 'Create New'}
-          </Button>
+          <div className="flex space-x-2">
+            <Button
+              className="btn-matrix"
+              size="sm"
+              onClick={handleGenerateRandomPersona}
+              disabled={generatingRandom}
+            >
+              {generatingRandom ? 'Generating...' : '🎲 Random'}
+            </Button>
+            <Button
+              className="btn-matrix"
+              size="sm"
+              onClick={() => setShowCreateForm(!showCreateForm)}
+            >
+              {showCreateForm ? 'Cancel' : 'Create New'}
+            </Button>
+          </div>
         )}
       </div>
 
@@ -122,11 +217,24 @@ export default function PersonaSelector({
             key={persona.id}
             persona={persona}
             isSelected={selectedPersonaId === persona.id}
-            onClick={() => onPersonaSelect(persona.id)}
+            onClick={() => handlePersonaSelect(persona.id)}
             onDelete={() => handleDeletePersona(persona.id)}
+            onExpand={() => handleExpandPersona(persona)}
             showDelete={!compact}
           />
         ))}
+
+        {previewPersona && (
+          <PreviewPersonaCard
+            key={previewPersona.id}
+            persona={previewPersona}
+            isSelected={selectedPersonaId === previewPersona.id}
+            onClick={() => handlePersonaSelect(previewPersona.id)}
+            onSave={handleSavePreviewPersona}
+            onRegenerate={handleRegeneratePreview}
+            onExpand={() => handleExpandPersona(previewPersona)}
+          />
+        )}
 
         {showCustom && (
           <div
@@ -135,7 +243,7 @@ export default function PersonaSelector({
                 ? 'border-purple-500 bg-purple-50 selected'
                 : 'border-gray-200 hover:border-gray-300'
             }`}
-            onClick={() => onPersonaSelect('custom')}
+            onClick={() => handlePersonaSelect('custom')}
           >
             <div className="flex items-center justify-between mb-2">
               <h3 className="font-medium text-gray-900">Custom Persona</h3>
@@ -148,6 +256,17 @@ export default function PersonaSelector({
           </div>
         )}
       </div>
+
+      {/* Persona Detail Modal */}
+      {expandedPersona && (
+        <PersonaDetailModal
+          persona={expandedPersona}
+          isOpen={isDetailModalOpen}
+          onClose={handleCloseDetailModal}
+          isPreview={expandedPersona.id.startsWith('preview-')}
+          readOnly={true}
+        />
+      )}
 
       {selectedPersonaId === 'custom' && showCustom && (
         <div className="space-y-2">

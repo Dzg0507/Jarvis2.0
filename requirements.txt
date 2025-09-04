@@ -1,0 +1,96 @@
+# Jarvis 2.0 - Python Dependencies for Stable Diffusion
+# Install with: pip install -r requirements.txt
+
+# =============================================================================
+# CORE STABLE DIFFUSION DEPENDENCIES
+# =============================================================================
+
+# PyTorch - Deep learning framework (CPU version)
+torch>=2.0.0,<3.0.0
+torchvision>=0.15.0,<1.0.0
+torchaudio>=2.0.0,<3.0.0
+
+# For CUDA support (uncomment if you have NVIDIA GPU):
+# --extra-index-url https://download.pytorch.org/whl/cu118
+# torch>=2.0.0,<3.0.0
+# torchvision>=0.15.0,<1.0.0
+# torchaudio>=2.0.0,<3.0.0
+
+# Hugging Face Diffusers - Stable Diffusion implementation
+diffusers>=0.21.0,<1.0.0
+
+# Transformers - For text encoding and model handling
+transformers>=4.30.0,<5.0.0
+
+# Accelerate - For optimized model loading and inference
+accelerate>=0.20.0,<1.0.0
+
+# =============================================================================
+# WEB SERVER DEPENDENCIES
+# =============================================================================
+
+# Flask - Web framework for the API server
+Flask>=2.3.0,<3.0.0
+
+# Flask-CORS - Cross-origin resource sharing support
+Flask-CORS>=4.0.0,<5.0.0
+
+# =============================================================================
+# IMAGE PROCESSING DEPENDENCIES
+# =============================================================================
+
+# Pillow - Python Imaging Library for image manipulation
+Pillow>=9.5.0,<11.0.0
+
+# NumPy - Numerical computing (required by most ML libraries)
+numpy>=1.24.0,<2.0.0
+
+# =============================================================================
+# OPTIONAL PERFORMANCE DEPENDENCIES
+# =============================================================================
+
+# xFormers - Memory efficient attention (optional, for better performance)
+# Uncomment if you want better performance and have compatible hardware:
+# xformers>=0.0.20
+
+# =============================================================================
+# UTILITY DEPENDENCIES
+# =============================================================================
+
+# Requests - HTTP library for downloading models
+requests>=2.31.0,<3.0.0
+
+# SafeTensors - Safe tensor serialization format
+safetensors>=0.3.0,<1.0.0
+
+# pyngrok - For creating public tunnels to local servers
+pyngrok>=5.0.0,<6.0.0
+
+# =============================================================================
+# DEVELOPMENT DEPENDENCIES (Optional)
+# =============================================================================
+
+# Uncomment for development/debugging:
+# matplotlib>=3.7.0,<4.0.0  # For plotting and visualization
+# jupyter>=1.0.0,<2.0.0     # For notebook development
+# ipython>=8.0.0,<9.0.0     # Enhanced Python shell
+
+# =============================================================================
+# INSTALLATION NOTES
+# =============================================================================
+
+# For CPU-only installation (default):
+# pip install -r requirements.txt
+
+# For CUDA 11.8 support (NVIDIA GPU):
+# python -m pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu118
+
+# For CUDA 12.1 support (newer NVIDIA GPU):
+# python -m pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu121
+
+# For Apple Silicon (M1/M2 Mac):
+# pip install -r requirements.txt
+
+# Verify installation:
+# python -c "import torch; print(f'PyTorch: {torch.__version__}'); print(f'CUDA available: {torch.cuda.is_available()}')"
+# python -c "import diffusers; print(f'Diffusers: {diffusers.__version__}')"

@@ -4,6 +4,7 @@ import { config } from '@/src/config';
 import fs from 'fs/promises';
 import path from 'path';
 import { Persona, defaultPersonas } from '@/lib/personas';
+import { getVoiceForPersona } from '@/lib/elevenlabs-server';
 
 if (!config.ai.apiKey) {
     throw new Error("API_KEY environment variable not set");
@@ -50,7 +51,21 @@ async function writePersonas(personas: Persona[]): Promise<void> {
 
 export async function POST(req: NextRequest) {
     try {
-        const { description } = await req.json();
+        const { description, personaData } = await req.json();
+
+        // If personaData is provided (from random generator), use it directly
+        if (personaData) {
+            const personas = await readPersonas();
+
+            // Check for duplicate IDs
+            if (personas.some(p => p.id === personaData.id)) {
+                personaData.id = `${personaData.id}-${Date.now()}`;
+            }
+
+            personas.push(personaData);
+            await writePersonas(personas);
+            return NextResponse.json(personaData);
+        }
 
         if (!description || typeof description !== 'string' || !description.trim()) {
             return NextResponse.json({ error: 'Description is required and must be a non-empty string.' }, { status: 400 });
@@ -129,6 +144,14 @@ Return ONLY a JSON object with this exact structure:
         // Validate color format
         if (!/^#[0-9A-Fa-f]{6}$/.test(newPersona.color)) {
             newPersona.color = '#4F46E5'; // Default color
+        }
+
+        // Assign voice based on personality traits
+        if (!newPersona.voiceId && newPersona.personalityTraits) {
+            const assignedVoice = getVoiceForPersona(newPersona.personalityTraits);
+            newPersona.voiceId = assignedVoice.voice_id;
+            newPersona.voiceName = assignedVoice.name;
+            newPersona.voiceDescription = assignedVoice.description;
         }
 
         const personas = await readPersonas();

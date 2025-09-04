@@ -1,0 +1,34 @@
+# Ignore all SWC binaries except Windows x64
+node_modules/@next/swc-darwin-*
+node_modules/@next/swc-linux-*
+node_modules/@next/swc-freebsd-*
+
+# Ignore development files
+src/
+*.md
+.git/
+.next/cache/
+.env*
+!.env.example
+tsconfig*.json
+.eslintrc*
+tailwind.config.*
+postcss.config.*
+next.config.*
+
+# Ignore test files
+**/__tests__/
+**/*.test.*
+**/*.spec.*
+**/test/
+**/tests/
+
+# Ignore documentation
+**/README*
+**/CHANGELOG*
+**/LICENSE*
+**/HISTORY*
+
+# Ignore development dependencies binaries
+node_modules/.bin/
+node_modules/@types/

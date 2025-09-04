@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { Persona } from '@/lib/personas';
+import { generateRandomPersona } from '@/lib/randomPersonaGenerator';
 
 interface UsePersonasReturn {
   personas: Persona[];
@@ -9,6 +10,7 @@ interface UsePersonasReturn {
   error: string | null;
   selectedPersonaId: string;
   customPersona: string;
+  previewPersona: Persona | null;
   setSelectedPersonaId: (id: string) => void;
   setCustomPersona: (prompt: string) => void;
   generatePersona: (description: string) => Promise<Persona | null>;
@@ -16,6 +18,10 @@ interface UsePersonasReturn {
   refreshPersonas: () => Promise<void>;
   getActivePersonaPrompt: () => string;
   getPersonaById: (id: string) => Persona | undefined;
+  setPreviewPersona: (persona: Persona | null) => void;
+  savePreviewPersona: () => Promise<boolean>;
+  generateRandomPreview: () => Persona;
+  clearPreviewPersona: () => void;
 }
 
 export function usePersonas(): UsePersonasReturn {
@@ -24,6 +30,7 @@ export function usePersonas(): UsePersonasReturn {
   const [error, setError] = useState<string | null>(null);
   const [selectedPersonaId, setSelectedPersonaId] = useState('helpful-assistant');
   const [customPersona, setCustomPersona] = useState('');
+  const [previewPersona, setPreviewPersona] = useState<Persona | null>(null);
 
   const loadPersonas = useCallback(async () => {
     try {
@@ -109,13 +116,70 @@ export function usePersonas(): UsePersonasReturn {
     if (selectedPersonaId === 'custom') {
       return customPersona;
     }
+    // Check preview persona first
+    if (previewPersona && previewPersona.id === selectedPersonaId) {
+      return previewPersona.prompt;
+    }
     const selectedPersona = personas.find(p => p.id === selectedPersonaId);
     return selectedPersona?.prompt || '';
-  }, [selectedPersonaId, customPersona, personas]);
+  }, [selectedPersonaId, customPersona, personas, previewPersona]);
 
   const getPersonaById = useCallback((id: string) => {
+    // Check preview persona first
+    if (previewPersona && previewPersona.id === id) {
+      return previewPersona;
+    }
     return personas.find(p => p.id === id);
-  }, [personas]);
+  }, [personas, previewPersona]);
+
+  const generateRandomPreview = useCallback(() => {
+    const randomPersona = generateRandomPersona();
+    // Mark as preview with a special ID prefix
+    randomPersona.id = `preview-${randomPersona.id}`;
+    setPreviewPersona(randomPersona);
+    return randomPersona;
+  }, []);
+
+  const clearPreviewPersona = useCallback(() => {
+    setPreviewPersona(null);
+  }, []);
+
+  const savePreviewPersona = useCallback(async (): Promise<boolean> => {
+    if (!previewPersona) return false;
+
+    try {
+      setError(null);
+
+      // Remove preview prefix and ensure unique ID
+      const personaToSave = {
+        ...previewPersona,
+        id: previewPersona.id.replace('preview-', '')
+      };
+
+      const response = await fetch('/api/generate-persona', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          description: `Saved random persona: ${personaToSave.description}`,
+          personaData: personaToSave
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to save preview persona');
+      }
+
+      const savedPersona = await response.json();
+      setPersonas(prev => [...prev, savedPersona]);
+      setPreviewPersona(null); // Clear preview
+      return true;
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Failed to save preview persona';
+      setError(errorMessage);
+      console.error('Error saving preview persona:', err);
+      return false;
+    }
+  }, [previewPersona]);
 
   useEffect(() => {
     loadPersonas();
@@ -127,6 +191,7 @@ export function usePersonas(): UsePersonasReturn {
     error,
     selectedPersonaId,
     customPersona,
+    previewPersona,
     setSelectedPersonaId,
     setCustomPersona,
     generatePersona,
@@ -134,5 +199,9 @@ export function usePersonas(): UsePersonasReturn {
     refreshPersonas,
     getActivePersonaPrompt,
     getPersonaById,
+    setPreviewPersona,
+    savePreviewPersona,
+    generateRandomPreview,
+    clearPreviewPersona,
   };
 }

@@ -3,6 +3,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import * as textToSpeech from '@google-cloud/text-to-speech';
 import PaperGenerator from '../tools/paper-generator';
 import { listFiles, readFile, createFile, searchFileContent, replaceFileContent, readUploadedFile, view_text_website, save_speech_to_file, video_search, web_search, save_note, read_notes, semanticSearchNotes, searchNotesByTag, summarizeText, readChatHistory, addToClipboard, readClipboardHistory, searchClipboard, clearClipboardHistory, calculate, getCurrentDateTime, executeShellCommand } from '../tools/index';
+import { generateImage, generateImageWithStableDiffusion, checkStableDiffusionHealth } from '../tools/image-generation';
 import { config } from '../config';
 import updatePersonaTool from '../tools/definitions/update_persona';
 
@@ -157,6 +158,88 @@ export function getToolConfig(genAI: GoogleGenerativeAI, ttsClient: textToSpeech
             }
         },
         async ({ query, options }: { query: string, options: any }) => ({ content: [{ type: "text", text: await video_search(query, options) }] })
+    );
+
+    defineTool(
+        "generate_image", {
+            description: "Generates an image from a text prompt using Stable Diffusion (local) or DALL-E (OpenAI).",
+            inputSchema: {
+                prompt: z.string().describe("A detailed description of the image to generate."),
+                negative_prompt: z.string().optional().describe("What to avoid in the image (Stable Diffusion only)."),
+                width: z.number().optional().describe("Image width in pixels (default: 512, max: 1024)."),
+                height: z.number().optional().describe("Image height in pixels (default: 512, max: 1024)."),
+                steps: z.number().optional().describe("Number of inference steps (default: 20, max: 50)."),
+                guidance_scale: z.number().optional().describe("How closely to follow the prompt (default: 7.5, range: 1-20)."),
+                seed: z.number().optional().describe("Random seed for reproducible results."),
+                use_stable_diffusion: z.boolean().optional().describe("Force use of Stable Diffusion (default: true if available).")
+            }
+        },
+        async ({ prompt, negative_prompt, width, height, steps, guidance_scale, seed, use_stable_diffusion = true }: {
+            prompt: string;
+            negative_prompt?: string;
+            width?: number;
+            height?: number;
+            steps?: number;
+            guidance_scale?: number;
+            seed?: number;
+            use_stable_diffusion?: boolean;
+        }) => {
+            try {
+                // Check if Stable Diffusion is available and preferred
+                const sdAvailable = await checkStableDiffusionHealth();
+
+                let imageResult: string;
+                let serviceUsed: string;
+
+                if (use_stable_diffusion && sdAvailable) {
+                    // Use Stable Diffusion with advanced options
+                    imageResult = await generateImageWithStableDiffusion(prompt, {
+                        negative_prompt,
+                        width,
+                        height,
+                        num_inference_steps: steps,
+                        guidance_scale,
+                        seed
+                    });
+                    serviceUsed = 'Stable Diffusion (Local)';
+                } else {
+                    // Fallback to general function (will try SD then OpenAI)
+                    imageResult = await generateImage(prompt, {
+                        preferStableDiffusion: use_stable_diffusion,
+                        stableDiffusionOptions: {
+                            negative_prompt,
+                            width,
+                            height,
+                            num_inference_steps: steps,
+                            guidance_scale,
+                            seed
+                        }
+                    });
+                    serviceUsed = sdAvailable ? 'Stable Diffusion (Local)' : 'DALL-E (OpenAI)';
+                }
+
+                // Check if result is a data URL (base64) or regular URL
+                const isDataUrl = imageResult.startsWith('data:image/');
+
+                return {
+                    content: [
+                        {
+                            type: 'text',
+                            text: `Image generated successfully using ${serviceUsed}!\n\nPrompt: "${prompt}"${negative_prompt ? `\nNegative prompt: "${negative_prompt}"` : ''}${seed ? `\nSeed: ${seed}` : ''}\n\n${isDataUrl ? 'Image data is embedded.' : `You can view it here: ${imageResult}`}`,
+                        }
+                    ],
+                };
+            } catch (error) {
+                return {
+                    content: [
+                        {
+                            type: 'text',
+                            text: `Failed to generate image: ${error instanceof Error ? error.message : 'Unknown error'}. Please check that either Stable Diffusion server is running or OpenAI API key is configured.`,
+                        },
+                    ],
+                };
+            }
+        }
     );
 
     defineTool(updatePersonaTool.name, updatePersonaTool.definition, updatePersonaTool.implementation);

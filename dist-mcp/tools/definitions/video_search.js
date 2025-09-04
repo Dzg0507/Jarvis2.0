@@ -14,16 +14,19 @@ exports.default = {
                 sortBy: zod_1.z.string().optional(),
                 uploadedAfter: zod_1.z.string().optional().nullable(),
                 duration: zod_1.z.enum(['short', 'medium', 'long', 'any']).optional(),
-                quality: zod_1.z.enum(['high', 'medium', 'low', 'any']).optional()
+                quality: zod_1.z.enum(['high', 'medium', 'low', 'any']).optional(),
+                contentType: zod_1.z.enum(['story', 'plot', 'narrative', 'any']).optional()
             }).optional()
         }
     },
     implementation: async ({ query, options }) => {
+        const resultString = await (0, index_js_1.video_search)(query, options);
+        const result = JSON.parse(resultString);
         return {
             content: [
                 {
-                    type: 'text',
-                    text: await (0, index_js_1.video_search)(query, options),
+                    type: 'json',
+                    json: result,
                 },
             ],
         };

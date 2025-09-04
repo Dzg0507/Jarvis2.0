@@ -1,27 +1,38 @@
 'use client';
 
 import React from 'react';
+import { Button } from '@/components/ui/button';
 import { Persona } from '@/lib/personas';
+import { Info, Trash2 } from 'lucide-react';
 
 interface PersonaCardProps {
   persona: Persona;
   isSelected: boolean;
   onClick: () => void;
   onDelete?: () => void;
+  onExpand?: () => void;
   showDelete?: boolean;
 }
 
-export default function PersonaCard({ 
-  persona, 
-  isSelected, 
-  onClick, 
-  onDelete, 
-  showDelete = false 
+export default function PersonaCard({
+  persona,
+  isSelected,
+  onClick,
+  onDelete,
+  onExpand,
+  showDelete = false
 }: PersonaCardProps) {
   const handleDelete = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (onDelete) {
       onDelete();
+    }
+  };
+
+  const handleExpand = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (onExpand) {
+      onExpand();
     }
   };
 
@@ -38,15 +49,31 @@ export default function PersonaCard({
         borderLeftWidth: isSelected ? '4px' : undefined
       }}
     >
-      {showDelete && !persona.isDefault && (
-        <button
-          onClick={handleDelete}
-          className="absolute top-2 right-2 w-6 h-6 bg-red-500/80 text-white rounded-full text-xs hover:bg-red-600 transition-colors border border-red-400"
-          title="Delete persona"
-        >
-          ×
-        </button>
-      )}
+      {/* Action buttons */}
+      <div className="absolute top-2 right-2 flex space-x-1">
+        {onExpand && (
+          <Button
+            onClick={handleExpand}
+            size="sm"
+            variant="ghost"
+            className="w-6 h-6 p-0 bg-matrix-green/20 text-matrix-green rounded-full text-xs hover:bg-matrix-green/30 transition-colors border border-matrix-green/40"
+            title="View details"
+          >
+            <Info className="w-3 h-3" />
+          </Button>
+        )}
+        {showDelete && !persona.isDefault && (
+          <Button
+            onClick={handleDelete}
+            size="sm"
+            variant="ghost"
+            className="w-6 h-6 p-0 bg-red-500/80 text-white rounded-full text-xs hover:bg-red-600 transition-colors border border-red-400"
+            title="Delete persona"
+          >
+            <Trash2 className="w-3 h-3" />
+          </Button>
+        )}
+      </div>
 
       <div className="flex items-center justify-between mb-2">
         <h3 className="font-medium text-matrix-green truncate pr-2 font-orbitron">{persona.name}</h3>

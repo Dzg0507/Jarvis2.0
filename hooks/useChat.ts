@@ -1,28 +1,7 @@
 'use client';
 
-import { useState, useCallback, useRef, useEffect } from 'react';
-
-interface VideoSearchData {
-  query: string;
-  total_results: number;
-  creator_results_count: number;
-  items: Array<{
-    title: string;
-    video_url: string;
-    thumbnail_url: string;
-    platform: string;
-    is_creator_content: boolean;
-    description?: string | null;
-    duration?: string | null;
-    view_count?: string | null;
-  }>;
-  search_metadata: {
-    primary_search_successful: boolean;
-    fallback_search_used: boolean;
-    web_search_supplemented: boolean;
-  };
-  web_search_content?: string;
-}
+import { useState, useCallback, useRef } from 'react';
+import { VideoSearchData } from '@/components/ui/video-results';
 
 interface Message {
   id: string;

@@ -13,6 +13,9 @@ export interface Persona {
   restrictions: string[];
   color: string;
   isDefault?: boolean;
+  voiceId?: string;
+  voiceName?: string;
+  voiceDescription?: string;
 }
 
 export const defaultPersonas: Persona[] = [
@@ -32,7 +35,10 @@ export const defaultPersonas: Persona[] = [
     ],
     restrictions: ['Stay helpful and positive', 'Provide accurate information', 'Be respectful'],
     color: '#4F46E5',
-    isDefault: true
+    isDefault: true,
+    voiceId: 'EXAVITQu4vr4xnSDxMaL',
+    voiceName: 'Bella',
+    voiceDescription: 'Warm, friendly, and approachable voice perfect for helpful assistants'
   },
   {
     id: 'technical-expert',
@@ -49,7 +55,10 @@ export const defaultPersonas: Persona[] = [
       }
     ],
     restrictions: ['Maintain technical accuracy', 'Provide detailed explanations', 'Use proper terminology'],
-    color: '#059669'
+    color: '#059669',
+    voiceId: 'IKne3meq5aSn9XLyUdCD',
+    voiceName: 'Charlie',
+    voiceDescription: 'Clear and precise voice for technical and analytical personas'
   },
   {
     id: 'creative-companion',
@@ -66,7 +75,10 @@ export const defaultPersonas: Persona[] = [
       }
     ],
     restrictions: ['Encourage positive creativity', 'Inspire without overwhelming', 'Stay constructive'],
-    color: '#DC2626'
+    color: '#DC2626',
+    voiceId: 'ThT5KcBeYPX3keUQqHPh',
+    voiceName: 'Dorothy',
+    voiceDescription: 'Expressive and creative voice for artistic personas'
   },
   {
     id: 'wise-mentor',
@@ -83,6 +95,9 @@ export const defaultPersonas: Persona[] = [
       }
     ],
     restrictions: ['Provide thoughtful guidance', 'Encourage self-reflection', 'Maintain wisdom and patience'],
-    color: '#7C3AED'
+    color: '#7C3AED',
+    voiceId: 'ErXwobaYiN019PkySvjV',
+    voiceName: 'Antoni',
+    voiceDescription: 'Deep, thoughtful voice ideal for wise and philosophical personas'
   }
 ];

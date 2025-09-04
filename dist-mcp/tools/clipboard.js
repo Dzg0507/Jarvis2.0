@@ -24,15 +24,12 @@ function addToClipboard(text) {
         return "Cannot add empty text to clipboard.";
     }
     const item = {
-        content: text.substring(0, 500), // Limit length
+        content: text.substring(0, 500),
         timestamp: Date.now(),
         type: detectContentType(text)
     };
-    // Remove duplicates
     clipboardHistory = clipboardHistory.filter(h => h.content !== text);
-    // Add to beginning
     clipboardHistory.unshift(item);
-    // Limit history size
     if (clipboardHistory.length > maxClipboardItems) {
         clipboardHistory = clipboardHistory.slice(0, maxClipboardItems);
     }
